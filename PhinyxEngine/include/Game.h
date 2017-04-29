@@ -10,6 +10,7 @@ namespace PhinyxEngine {
 			void mainLoop();
 
 			Window gameWindow;
+			bool showDebugPane;
 		private:
 	};
 }

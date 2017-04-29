@@ -1,4 +1,4 @@
-#include "Window.h"
+#include "include/Window.h"
 
 void PhinyxEngine::Window::init() {
 	window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), TITLE);
