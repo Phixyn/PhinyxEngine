@@ -9,7 +9,7 @@
 namespace PhinyxEngine {
 	class Game {
 		public:
-			Game();
+			Game(bool debug);
 			void mainLoop();
 
 			void addScene(std::unique_ptr<Scene> scene);
@@ -17,9 +17,11 @@ namespace PhinyxEngine {
 			void changeScene(std::unique_ptr<Scene> scene);
 
 			Window gameWindow;
-			bool showDebugPane;
+			bool debugMode;
 		private:
 			std::queue<std::unique_ptr<Scene>> m_scene_queue;
+			sf::Clock clock;
+			float deltaTime;
 	};
 }
 
