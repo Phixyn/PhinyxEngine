@@ -19,7 +19,7 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 	dataFile.open(m_dataFilePath);
 
 	if (!dataFile.is_open()) {
-		std::cout << "[ERROR] Unable to open level data file." << std::endl;
+		logger.log("ERROR", "Unable to open level data file.");
 	}
 
 	else {
@@ -30,12 +30,12 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 				std::string textureFileName = lineSplitVector[1];
 				sf::Texture textureToLoad;
 				textureToLoad.loadFromFile(textureFileName);
-				std::cout << "[DEBUG] Loaded texture file: " << textureFileName << std::endl;
+				logger.log("INFO", "Loaded texture file: " + textureFileName);
 				// Add texture ID (e.g. '1') and texture file name (e.g. 'grass.png') to map
 				m_levelTextures.insert(std::make_pair(textureID, textureToLoad));
 			}
 		}
-		std::cout << "[INFO] Loaded level data file: " << m_dataFilePath << std::endl;
+		logger.log("INFO", "Loaded level data file: " + m_dataFilePath);
 	}
 }
 
@@ -44,7 +44,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 	levelFile.open(m_levelFilePath);
 
 	if (!levelFile.is_open()) {
-		std::cout << "[ERROR] Unable to open level file." << std::endl;
+		logger.log("ERROR", "Unable to open level file.");
 	}
 
 	else {
@@ -85,10 +85,10 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 				else if (tiles[column] == "0") {
 					// Player sprite
 					m_player.setTexture(&m_levelTextures[tiles[column]]);
-					std::cout << "[DEBUG] Player rect width: " << m_player.m_rectWidth << std::endl;
-					std::cout << "[DEBUG] Player rect height: " << m_player.m_rectHeight << std::endl;
-					std::cout << "[DEBUG] Player x: " << (column * m_player.m_rectWidth) << std::endl;
-					std::cout << "[DEBUG] Player y: " << (row * m_player.m_rectHeight) << std::endl;
+					logger.log("DEBUG", "Player rect width: " + std::to_string(m_player.m_rectWidth));
+					logger.log("DEBUG", "Player rect height: " + std::to_string(m_player.m_rectHeight));
+					logger.log("DEBUG", "Player x: " + std::to_string((column * m_player.m_rectWidth)));
+					logger.log("DEBUG", "Player y: " + std::to_string((row * m_player.m_rectHeight)));
 					m_player.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
 					m_sprites.push_back(m_player.m_rect);
 				}
@@ -117,7 +117,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 			row -= 1;
 		}
 		levelFile.close();
-		std::cout << "[INFO] Loaded level file: " << m_levelFilePath << std::endl;
+		logger.log("INFO", "Loaded level file: " + m_levelFilePath);
 	}
 }
 
