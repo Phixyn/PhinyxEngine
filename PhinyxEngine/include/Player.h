@@ -1,16 +1,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "LiveEntity.h"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine {
-	class Player {
+	class Player : public LiveEntity {
 		public:
-			Player();
+			Player(int health, int attackPower);
 			void setTexture(sf::Texture *texture);
-			void input();
-			void update(float dt);
-			void draw();
 
 			sf::RectangleShape m_rect;
 			float m_rectWidth = 48.0f;

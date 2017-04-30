@@ -3,7 +3,9 @@
 #include <fstream>
 #include <iostream>
 
-PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) : Scene(game) {
+PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
+		Scene(game), m_player(100, 20)
+{
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
 	parseDataFile();

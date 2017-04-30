@@ -1,6 +1,5 @@
 #ifndef SCENE_H
 #define SCENE_H
-//#include "Game.h"
 
 namespace PhinyxEngine {
 	class Game; // forward declaration
