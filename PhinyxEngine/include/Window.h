@@ -8,16 +8,21 @@
 namespace PhinyxEngine {
 	class Window {
 		public:
-			void init();
+			void init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE);
 			void clear();
 			void render();
+			void drawRect(sf::RectangleShape rect);
+			void drawText(sf::Text text);
 			void pollForEvents();
 			bool isOpen();
+			unsigned int getWidth();
+			unsigned int getHeight();
+			std::string getTitle();
 		private:
 			std::unique_ptr<sf::RenderWindow> window;
-			const unsigned int WIDTH = 600;
-			const unsigned int HEIGHT = 480;
-			const std::string TITLE = "Phinyx Engine";
+			unsigned int m_WIDTH;
+			unsigned int m_HEIGHT;
+			std::string m_TITLE;
 	};
 }
 

@@ -3,15 +3,18 @@
 
 PhinyxEngine::Game::Game(bool debug) {
 	debugMode = debug;
-	gameWindow.init();
-	addScene(std::make_unique<PhinyxEngine::LevelScene>(this));
+	addScene(std::make_unique<PhinyxEngine::LevelScene>(*this));
+}
+
+void PhinyxEngine::Game::makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE) {
+	gameWindow.init(WIDTH, HEIGHT, TITLE);
 }
 
 void PhinyxEngine::Game::mainLoop() {
 	while (gameWindow.isOpen()) {
 
 		deltaTime = clock.restart().asSeconds();
-		std::cout << "Setting delta time to " << deltaTime << std::endl;
+		// std::cout << "Setting delta time to " << deltaTime << std::endl;
 
 		gameWindow.pollForEvents();
 		// clear game window

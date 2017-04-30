@@ -10,6 +10,7 @@ namespace PhinyxEngine {
 	class Game {
 		public:
 			Game(bool debug);
+			void makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE);
 			void mainLoop();
 
 			void addScene(std::unique_ptr<Scene> scene);
