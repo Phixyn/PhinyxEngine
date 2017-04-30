@@ -33,6 +33,12 @@ void PhinyxEngine::Window::drawRect(sf::RectangleShape rect) {
 	m_window->draw(rect);
 }
 
+void PhinyxEngine::Window::drawRectVector(std::vector<sf::RectangleShape> rectVector) {
+	for (int i = 0; i < rectVector.size(); i++) {
+		m_window->draw(rectVector[i]);
+	}
+}
+
 void PhinyxEngine::Window::drawText(sf::Text text) {
 	m_window->draw(text);
 }

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine {
@@ -12,6 +13,7 @@ namespace PhinyxEngine {
 			void clear();
 			void render();
 			void drawRect(sf::RectangleShape rect);
+			void drawRectVector(std::vector<sf::RectangleShape> rectVector);
 			void drawText(sf::Text text);
 			void pollForEvents();
 

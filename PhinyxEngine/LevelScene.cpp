@@ -70,6 +70,6 @@ void PhinyxEngine::LevelScene::update(float dt) {
 }
 
 void PhinyxEngine::LevelScene::draw() {
-	m_game_ptr->m_gameWindow.drawRect(m_sprites);
+	m_game_ptr->m_gameWindow.drawRectVector(m_sprites);
 	// std::cout << "Level scene working" << std::endl;
 }
