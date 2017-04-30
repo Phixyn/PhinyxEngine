@@ -56,3 +56,15 @@ void PhinyxEngine::Window::pollForEvents() {
 bool PhinyxEngine::Window::isOpen() {
 	return m_window->isOpen();
 }
+
+unsigned int PhinyxEngine::Window::getWidth() {
+	return m_WIDTH;
+}
+
+unsigned int PhinyxEngine::Window::getHeight() {
+	return m_HEIGHT;
+}
+
+std::string PhinyxEngine::Window::getTitle() {
+	return m_TITLE;
+}
