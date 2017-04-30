@@ -16,7 +16,7 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 	dataFile.open(m_dataFilePath);
 
 	if (!dataFile.is_open()) {
-		std::cout << "[ERROR] Unable to open level data file\n" << std::endl;
+		std::cout << "[ERROR] Unable to open level data file." << std::endl;
 	}
 
 	else {
@@ -40,7 +40,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 	levelFile.open(m_levelFilePath);
 
 	if (!levelFile.is_open()) {
-		std::cout << "[ERROR] Unable to open level file.\n" << std::endl;
+		std::cout << "[ERROR] Unable to open level file." << std::endl;
 	}
 
 	else {
@@ -66,9 +66,9 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 			for (int i = 0; i < tiles.size(); i++) {
 				if (tiles[i] == "5") {
 					// TODO: temporary rectangle for sky
-					sf::RectangleShape shape(sf::Vector2f(48, 48));
+					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
 					shape.setFillColor(sf::Color::Cyan);
-					shape.setPosition(i * 48, row * 48);
+					shape.setPosition(i * m_textureSize, row * m_textureSize);
 					m_sprites.push_back(shape);
 				}
 
@@ -79,16 +79,16 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 
 				// Create a shape and set its texture based on the data line
 				else {
-					sf::RectangleShape shape(sf::Vector2f(48, 48));
+					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
 					shape.setTexture(&m_levelTextures[tiles[i]]);
-					shape.setPosition(i * 48, row * 48);
+					shape.setPosition(i * m_textureSize, row * m_textureSize);
 					// Append shape with texture to scene sprites
 					m_sprites.push_back(shape);
 				}
 			}
 
 			// TODO: can't read window height atm for some reason
-			// row -= 48;
+			// row -= m_textureSize;
 			row -= 1;
 		}
 		levelFile.close();
