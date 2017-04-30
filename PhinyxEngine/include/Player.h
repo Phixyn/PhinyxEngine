@@ -14,7 +14,6 @@ namespace PhinyxEngine {
 			float m_rectWidth = 48.0f;
 			float m_rectHeight = 52.0f;
 		private:
-			
 	};
 }
 
