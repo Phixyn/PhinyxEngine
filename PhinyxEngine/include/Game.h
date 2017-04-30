@@ -2,8 +2,7 @@
 #define GAME_H
 
 #include "Window.h"
-#include "LevelScene.h"
-#include <memory>
+#include "Scene.h"
 #include <queue>
 
 namespace PhinyxEngine {
