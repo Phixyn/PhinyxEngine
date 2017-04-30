@@ -1,5 +1,6 @@
 #include "../include/LevelScene.h"
 #include "../include/Game.h"
+#include "../include/EnemyMonster.h"
 #include <fstream>
 #include <iostream>
 
@@ -76,6 +77,11 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 					m_sprites.push_back(shape);
 				}
 
+				else if (tiles[column] == "-") {
+					// Blank tiles
+					continue;
+				}
+
 				else if (tiles[column] == "0") {
 					// Player sprite
 					m_player.setTexture(&m_levelTextures[tiles[column]]);
@@ -87,9 +93,13 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 					m_sprites.push_back(m_player.m_rect);
 				}
 
-				else if (tiles[column] == "-") {
-					// Blank tiles
-					continue;
+				else if (tiles[column] == "4") {
+					// Enemy sprite
+					// TODO: This is temporary and should be improved
+					EnemyMonster enemy(100, 20);
+					enemy.setTexture(&m_levelTextures[tiles[column]]);
+					enemy.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
+					m_sprites.push_back(enemy.m_rect);
 				}
 
 				// Create a shape and set its texture based on the data line
