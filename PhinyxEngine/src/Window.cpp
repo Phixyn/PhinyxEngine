@@ -1,6 +1,7 @@
 #include "../include/Window.h"
 
 void PhinyxEngine::Window::init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane) {
+	logger.log("DEBUG", "Creating render window.");
 	m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), TITLE);
 	m_WIDTH = WIDTH;
 	m_HEIGHT = HEIGHT;

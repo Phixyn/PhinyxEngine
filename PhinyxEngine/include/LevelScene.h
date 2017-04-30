@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Util.h"
+#include "Logger.h"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine {
@@ -24,6 +25,7 @@ namespace PhinyxEngine {
 			std::map<std::string, sf::Texture> m_levelTextures;
 
 			Player m_player;
+			Logger logger;
 	};
 }
 

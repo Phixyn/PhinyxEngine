@@ -1,6 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include "Logger.h"
 #include <string>
 #include <memory>
 #include <vector>
@@ -31,6 +32,8 @@ namespace PhinyxEngine {
 			sf::RectangleShape m_debugPane;
 			sf::Text m_debugTextDeltaTimer;
 			sf::Font m_debugPaneFont;
+
+			Logger logger;
 	};
 }
 
