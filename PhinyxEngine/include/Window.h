@@ -8,7 +8,7 @@
 namespace PhinyxEngine {
 	class Window {
 		public:
-			void init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE);
+			void init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane);
 			void clear();
 			void render();
 			void drawRect(sf::RectangleShape rect);
@@ -23,6 +23,10 @@ namespace PhinyxEngine {
 			unsigned int m_WIDTH;
 			unsigned int m_HEIGHT;
 			std::string m_TITLE;
+			sf::RectangleShape debugPane;
+			sf::Text debugTextDeltaTimer;
+			sf::Font debugPaneFont;
+			bool m_showDebugPane;
 	};
 }
 

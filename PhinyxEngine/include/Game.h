@@ -23,6 +23,7 @@ namespace PhinyxEngine {
 			std::queue<std::unique_ptr<Scene>> m_scene_queue;
 			sf::Clock clock;
 			float deltaTime;
+			bool m_debugMode;
 	};
 }
 

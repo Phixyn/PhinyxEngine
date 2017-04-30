@@ -2,12 +2,12 @@
 #include <iostream>
 
 PhinyxEngine::Game::Game(bool debug) {
-	debugMode = debug;
-	addScene(std::make_unique<PhinyxEngine::LevelScene>(*this));
+	m_debugMode = debug;
+	// addScene(std::make_unique<PhinyxEngine::LevelScene>(*this));
 }
 
 void PhinyxEngine::Game::makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE) {
-	gameWindow.init(WIDTH, HEIGHT, TITLE);
+	gameWindow.init(WIDTH, HEIGHT, TITLE, m_debugMode);
 }
 
 void PhinyxEngine::Game::mainLoop() {
