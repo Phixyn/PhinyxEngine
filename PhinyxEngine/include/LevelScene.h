@@ -2,7 +2,8 @@
 #define LEVEL_SCENE_H
 
 #include "Scene.h"
-#include <string>
+#include "Util.h"
+#include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine {
 	class LevelScene : public Scene {
@@ -12,8 +13,12 @@ namespace PhinyxEngine {
 			void update(float dt) override;
 			void draw() override;
 		private:
-			std::string m_levelFile;
-			std::string m_dataFile;
+			void parseDataFile();
+			void parseLevelFile();
+
+			std::string m_levelFilePath;
+			std::string m_dataFilePath;
+			std::vector<sf::RectangleShape> m_sprites;
 	};
 }
 
