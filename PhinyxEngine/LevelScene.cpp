@@ -27,6 +27,7 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 				std::string textureFileName = lineSplitVector[1];
 				sf::Texture textureToLoad;
 				textureToLoad.loadFromFile(textureFileName);
+				std::cout << "[DEBUG] Loaded texture file: " << textureFileName << std::endl;
 				// Add texture ID (e.g. '1') and texture file name (e.g. 'grass.png') to map
 				m_levelTextures.insert(std::make_pair(textureID, textureToLoad));
 			}
@@ -48,6 +49,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 		std::vector<std::string> fileLines;
 
 		// Read all file lines and store in fileLines vector
+		// TODO: Ignore lines that begin with a #
 		while (std::getline(levelFile, fileLine)) {
 			fileLines.push_back(fileLine);
 		}
@@ -63,25 +65,36 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 			std::vector<std::string> tiles = PhinyxEngine::Util::stringSplit(*iterator, '|');
 
 			// Iterate through tiles in this line
-			for (int i = 0; i < tiles.size(); i++) {
-				if (tiles[i] == "5") {
+			for (int column = 0; column < tiles.size(); column++) {
+				if (tiles[column] == "5") {
 					// TODO: temporary rectangle for sky
 					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
 					shape.setFillColor(sf::Color::Cyan);
-					shape.setPosition(i * m_textureSize, row * m_textureSize);
+					shape.setPosition(column * m_textureSize, row * m_textureSize);
 					m_sprites.push_back(shape);
 				}
 
-				else if (tiles[i] == "0") {
-					// TODO: 0 was meant to be for player
+				else if (tiles[column] == "0") {
+					// Player sprite
+					m_player.setTexture(&m_levelTextures[tiles[column]]);
+					std::cout << "[DEBUG] Player rect width: " << m_player.m_rectWidth << std::endl;
+					std::cout << "[DEBUG] Player rect height: " << m_player.m_rectHeight << std::endl;
+					std::cout << "[DEBUG] Player x: " << (column * m_player.m_rectWidth) << std::endl;
+					std::cout << "[DEBUG] Player y: " << (row * m_player.m_rectHeight) << std::endl;
+					m_player.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
+					m_sprites.push_back(m_player.m_rect);
+				}
+
+				else if (tiles[column] == "-") {
+					// Blank tiles
 					continue;
 				}
 
 				// Create a shape and set its texture based on the data line
 				else {
 					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
-					shape.setTexture(&m_levelTextures[tiles[i]]);
-					shape.setPosition(i * m_textureSize, row * m_textureSize);
+					shape.setTexture(&m_levelTextures[tiles[column]]);
+					shape.setPosition(column * m_textureSize, row * m_textureSize);
 					// Append shape with texture to scene sprites
 					m_sprites.push_back(shape);
 				}

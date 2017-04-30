@@ -2,6 +2,7 @@
 #define LEVEL_SCENE_H
 
 #include "Scene.h"
+#include "Player.h"
 #include "Util.h"
 #include <SFML/Graphics.hpp>
 
@@ -21,6 +22,8 @@ namespace PhinyxEngine {
 			std::string m_dataFilePath;
 			std::vector<sf::RectangleShape> m_sprites;
 			std::map<std::string, sf::Texture> m_levelTextures;
+
+			Player m_player;
 	};
 }
 
