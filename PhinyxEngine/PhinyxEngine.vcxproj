@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\EnemyMonster.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\LevelScene.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\LevelScene.h" />
     <ClInclude Include="include\LiveEntity.h" />
+    <ClInclude Include="include\EnemyMonster.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\Util.h" />
