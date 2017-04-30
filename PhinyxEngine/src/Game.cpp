@@ -1,5 +1,4 @@
 #include "../include/Game.h"
-#include <iostream>
 
 PhinyxEngine::Game::Game(bool debug) {
 	logger.log("INFO", "Initializing game.");

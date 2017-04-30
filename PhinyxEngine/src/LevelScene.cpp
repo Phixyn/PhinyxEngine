@@ -2,7 +2,6 @@
 #include "../include/Game.h"
 #include "../include/EnemyMonster.h"
 #include <fstream>
-#include <iostream>
 
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
 		Scene(game), m_player(100, 20)
