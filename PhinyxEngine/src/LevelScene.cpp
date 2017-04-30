@@ -1,5 +1,5 @@
-#include "include/LevelScene.h"
-#include "include/Game.h"
+#include "../include/LevelScene.h"
+#include "../include/Game.h"
 #include <fstream>
 #include <iostream>
 

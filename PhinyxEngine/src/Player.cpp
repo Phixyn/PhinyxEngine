@@ -1,4 +1,4 @@
-#include "include/Player.h"
+#include "../include/Player.h"
 
 PhinyxEngine::Player::Player() {
 	m_rect = sf::RectangleShape(sf::Vector2f(m_rectWidth, m_rectHeight));
