@@ -6,70 +6,104 @@
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) : Scene(game) {
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
-
-	std::cout << "Loaded level scene with level file: " << m_levelFilePath << std::endl;
-	std::cout << "Loaded level scene with data file: " << m_dataFilePath << std::endl;
-
-	// parseDataFile();
+	parseDataFile();
 	parseLevelFile();
 }
 
 void PhinyxEngine::LevelScene::parseDataFile() {
+	std::string fileLine;
+	std::ifstream dataFile;
+	dataFile.open(m_dataFilePath);
 
+	if (!dataFile.is_open()) {
+		std::cout << "[ERROR] Unable to open level data file." << std::endl;
+	}
+
+	else {
+		while (std::getline(dataFile, fileLine)) {
+			if (fileLine.find('=') != std::string::npos) {
+				std::vector<std::string> lineSplitVector = PhinyxEngine::Util::stringSplit(fileLine, '=');
+				std::string textureID = lineSplitVector[0];
+				std::string textureFileName = lineSplitVector[1];
+				sf::Texture textureToLoad;
+				textureToLoad.loadFromFile(textureFileName);
+				// Add texture ID (e.g. '1') and texture file name (e.g. 'grass.png') to map
+				m_levelTextures.insert(std::make_pair(textureID, textureToLoad));
+			}
+		}
+		std::cout << "[INFO] Loaded level data file: " << m_dataFilePath << std::endl;
+	}
 }
 
 void PhinyxEngine::LevelScene::parseLevelFile() {
-	std::string fileLine;
 	std::ifstream levelFile;
 	levelFile.open(m_levelFilePath);
 
 	if (!levelFile.is_open()) {
-		printf("[ERROR] Unable to open level file\n");
-
+		std::cout << "[ERROR] Unable to open level file." << std::endl;
 	}
 
 	else {
+		std::string fileLine;
+		std::vector<std::string> fileLines;
+
+		// Read all file lines and store in fileLines vector
 		while (std::getline(levelFile, fileLine)) {
-			std::cout << fileLine << std::endl;
-			std::vector<std::string> tiles = PhinyxEngine::Util::stringSplit(fileLine, '|');
+			fileLines.push_back(fileLine);
+		}
 
+		// We will start setting the position for the sprites
+		// from the bottom to the top of the screen
+		// TODO: Should be replaces with window height but it's not working atm
+		// unsigned int row = m_game_ptr->m_gameWindow.getHeight();
+		unsigned int row = fileLines.size() - 1;
+		// Read file lines from end to beginning
+		// Iterate through lines
+		for (auto iterator = fileLines.rbegin(); iterator != fileLines.rend(); ++iterator) {
+			std::vector<std::string> tiles = PhinyxEngine::Util::stringSplit(*iterator, '|');
+
+			// Iterate through tiles in this line
 			for (int i = 0; i < tiles.size(); i++) {
-				// TODO: load sprite textures based on data file here
 				if (tiles[i] == "5") {
-					// temporary rectangle for sprite
-					sf::RectangleShape shape(sf::Vector2f(20, 20));
-					shape.setFillColor(sf::Color::Red);
-					shape.setPosition(i * 20, 0);
+					// TODO: temporary rectangle for sky
+					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
+					shape.setFillColor(sf::Color::Cyan);
+					shape.setPosition(i * m_textureSize, row * m_textureSize);
 					m_sprites.push_back(shape);
 				}
-				else if (tiles[i] == "3") {
-					// temporary rectangle for sprite
-					sf::RectangleShape shape(sf::Vector2f(20, 20));
-					shape.setFillColor(sf::Color::Green);
-					shape.setPosition(0, i * 20);
+
+				else if (tiles[i] == "0") {
+					// TODO: 0 was meant to be for player
+					continue;
+				}
+
+				// Create a shape and set its texture based on the data line
+				else {
+					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
+					shape.setTexture(&m_levelTextures[tiles[i]]);
+					shape.setPosition(i * m_textureSize, row * m_textureSize);
+					// Append shape with texture to scene sprites
 					m_sprites.push_back(shape);
 				}
-				std::cout << tiles[i] << std::endl;
 			}
 
-			/*
-			for (std::string id : tiles) {
-			std::cout << id << std::endl;
-			}
-			*/
+			// TODO: can't read window height atm for some reason
+			// row -= m_textureSize;
+			row -= 1;
 		}
 		levelFile.close();
+		std::cout << "[INFO] Loaded level file: " << m_levelFilePath << std::endl;
 	}
 }
 
 void PhinyxEngine::LevelScene::input() {
-
+	// TODO
 }
 
 void PhinyxEngine::LevelScene::update(float dt) {
+	// TODO
 }
 
 void PhinyxEngine::LevelScene::draw() {
 	m_game_ptr->m_gameWindow.drawRectVector(m_sprites);
-	// std::cout << "Level scene working" << std::endl;
 }

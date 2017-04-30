@@ -16,9 +16,11 @@ namespace PhinyxEngine {
 			void parseDataFile();
 			void parseLevelFile();
 
+			unsigned int m_textureSize = 48;
 			std::string m_levelFilePath;
 			std::string m_dataFilePath;
 			std::vector<sf::RectangleShape> m_sprites;
+			std::map<std::string, sf::Texture> m_levelTextures;
 	};
 }
 
