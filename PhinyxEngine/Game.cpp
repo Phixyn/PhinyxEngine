@@ -1,23 +1,31 @@
 #include "include/Game.h"
+#include <iostream>
 
-PhinyxEngine::Game::Game() {
-	gameWindow.init();
-	addScene(std::make_unique<PhinyxEngine::LevelScene>(this));
+PhinyxEngine::Game::Game(bool debug) {
+	m_debugMode = debug;
+}
+
+void PhinyxEngine::Game::makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE) {
+	m_gameWindow.init(WIDTH, HEIGHT, TITLE, m_debugMode);
 }
 
 void PhinyxEngine::Game::mainLoop() {
-	while (gameWindow.isOpen()) {
-		gameWindow.pollForEvents();
+	while (m_gameWindow.isOpen()) {
+
+		m_deltaTime = m_clock.restart().asSeconds();
+		// std::cout << "Setting delta time to " << deltaTime << std::endl;
+
+		m_gameWindow.pollForEvents();
 		// clear game window
-		gameWindow.clear();
+		m_gameWindow.clear();
 		// handle user input
 		m_scene_queue.front()->input();
 		// update scene
-		m_scene_queue.front()->update(0.0f);
+		m_scene_queue.front()->update(m_deltaTime);
 		// (re)draw scene
 		m_scene_queue.front()->draw();
 		// render window
-		gameWindow.render();
+		m_gameWindow.render();
 	}
 }
 
