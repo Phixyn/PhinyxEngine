@@ -17,13 +17,12 @@ namespace PhinyxEngine {
 			void removeScene();
 			void changeScene(std::unique_ptr<Scene> scene);
 
-			Window gameWindow;
-			bool debugMode;
+			Window m_gameWindow;
 		private:
-			std::queue<std::unique_ptr<Scene>> m_scene_queue;
-			sf::Clock clock;
-			float deltaTime;
+			float m_deltaTime;
 			bool m_debugMode;
+			std::queue<std::unique_ptr<Scene>> m_scene_queue;
+			sf::Clock m_clock;
 	};
 }
 

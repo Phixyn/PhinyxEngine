@@ -14,19 +14,21 @@ namespace PhinyxEngine {
 			void drawRect(sf::RectangleShape rect);
 			void drawText(sf::Text text);
 			void pollForEvents();
+
 			bool isOpen();
 			unsigned int getWidth();
 			unsigned int getHeight();
 			std::string getTitle();
 		private:
-			std::unique_ptr<sf::RenderWindow> window;
+			bool m_showDebugPane;
 			unsigned int m_WIDTH;
 			unsigned int m_HEIGHT;
 			std::string m_TITLE;
-			sf::RectangleShape debugPane;
-			sf::Text debugTextDeltaTimer;
-			sf::Font debugPaneFont;
-			bool m_showDebugPane;
+			std::unique_ptr<sf::RenderWindow> m_window;
+
+			sf::RectangleShape m_debugPane;
+			sf::Text m_debugTextDeltaTimer;
+			sf::Font m_debugPaneFont;
 	};
 }
 
