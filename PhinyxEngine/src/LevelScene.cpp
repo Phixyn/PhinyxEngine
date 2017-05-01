@@ -4,7 +4,7 @@
 #include <fstream>
 
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
-		Scene(game), m_player(100, 20)
+		Scene(game), m_player(100, 20, 100.0f)
 {
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
