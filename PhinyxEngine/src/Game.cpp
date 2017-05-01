@@ -15,7 +15,10 @@ void PhinyxEngine::Game::mainLoop() {
 	while (m_gameWindow.isOpen()) {
 
 		m_deltaTime = m_clock.restart().asSeconds();
-		// m_logger.log("DEBUG", "Setting delta time to " + std::to_string(m_deltaTime));
+		// Limit framerate to 60
+		if (m_deltaTime > 1.0f / 60.0f) {
+			m_deltaTime = 1.0f / 60.0f;
+		}
 
 		m_gameWindow.handleEvents();
 		// clear game window
