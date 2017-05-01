@@ -9,5 +9,5 @@ void PhinyxEngine::Entity::setTexture(sf::Texture *texture) {
 }
 
 PhinyxEngine::Collision PhinyxEngine::Entity::getCollision() {
-	return m_collision;
+	return PhinyxEngine::Collision(m_rect);
 }
