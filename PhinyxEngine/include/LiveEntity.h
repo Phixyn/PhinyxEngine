@@ -13,10 +13,12 @@ namespace PhinyxEngine {
 			// TODO: animate?
 
 			bool isAggressive();
+			bool isDead();
 		private:
 			int m_health;
 			int m_attackPower;
 			bool m_aggressive;
+			bool m_dead;
 	};
 }
 
