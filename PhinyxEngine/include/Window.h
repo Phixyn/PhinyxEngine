@@ -19,11 +19,13 @@ namespace PhinyxEngine {
 			void handleEvents();
 
 			bool isOpen();
+			bool hasFocus();
 			unsigned int getWidth();
 			unsigned int getHeight();
 			std::string getTitle();
 		private:
 			bool m_showDebugPane;
+			bool m_hasFocus;
 			unsigned int m_WIDTH;
 			unsigned int m_HEIGHT;
 			std::string m_TITLE;
@@ -33,7 +35,7 @@ namespace PhinyxEngine {
 			sf::Text m_debugTextDeltaTimer;
 			sf::Font m_debugPaneFont;
 
-			Logger logger;
+			Logger m_logger;
 	};
 }
 

@@ -6,8 +6,8 @@
 namespace PhinyxEngine {
 	class Player : public LiveEntity {
 		public:
-			Player(int health, int attackPower);
-			void handleEvents() override;
+			Player(int health, int attackPower, float speed, float jumpHeight);
+			// void handleEvents() override;
 			void update(float deltaTime) override;
 			void draw() override;
 	};

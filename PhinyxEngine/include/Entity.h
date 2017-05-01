@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "Collision.h"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine {
@@ -12,10 +13,12 @@ namespace PhinyxEngine {
 			virtual void draw() = 0;
 
 			void setTexture(sf::Texture *texture);
+			Collision getCollision();
 
 			float m_rectWidth;
 			float m_rectHeight;
 			sf::RectangleShape m_rect;
+			Collision m_collision; // TODO: make this private?
 	};
 }
 
