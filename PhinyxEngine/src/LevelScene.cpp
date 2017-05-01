@@ -4,7 +4,7 @@
 #include <fstream>
 
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
-		Scene(game), m_player(100, 20, 100.0f)
+		Scene(game), m_player(100, 20, 150.0f, 54.0f)
 {
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
@@ -68,15 +68,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 
 			// Iterate through tiles in this line
 			for (int column = 0; column < tiles.size(); column++) {
-				if (tiles[column] == "5") {
-					// TODO: temporary rectangle for sky
-					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
-					shape.setFillColor(sf::Color::Cyan);
-					shape.setPosition(column * m_textureSize, row * m_textureSize);
-					m_sprites.push_back(shape);
-				}
-
-				else if (tiles[column] == "-") {
+				if (tiles[column] == "-") {
 					// Blank tiles
 					continue;
 				}
@@ -89,25 +81,26 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 					logger.log("DEBUG", "Player x: " + std::to_string((column * m_player.m_rectWidth)));
 					logger.log("DEBUG", "Player y: " + std::to_string((row * m_player.m_rectHeight)));
 					m_player.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
-					//m_sprites.push_back(m_player.m_rect);
+					// m_liveEntities.push_back(&m_player);
 				}
 
 				else if (tiles[column] == "4") {
 					// Enemy sprite
 					// TODO: This is temporary and should be improved
+					// Ideally we should check tiles[column] == "enemy_x"
 					EnemyMonster enemy(100, 20);
 					enemy.setTexture(&m_levelTextures[tiles[column]]);
 					enemy.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
-					m_sprites.push_back(enemy.m_rect);
+					// m_liveEntities.push_back(&enemy);
 				}
 
-				// Create a shape and set its texture based on the data line
 				else {
+					// Create a shape and set its texture based on the data line
 					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
 					shape.setTexture(&m_levelTextures[tiles[column]]);
 					shape.setPosition(column * m_textureSize, row * m_textureSize);
-					// Append shape with texture to scene sprites
-					m_sprites.push_back(shape);
+					// Append a new entity with rect to tileEntities vector
+					m_tileEntities.push_back(PhinyxEngine::TileEntity(shape));
 				}
 			}
 
@@ -127,10 +120,35 @@ void PhinyxEngine::LevelScene::handleEvents() {
 
 void PhinyxEngine::LevelScene::update(float deltaTime) {
 	m_player.update(deltaTime);
+
+	// The direction vector to be used by onCollision
+	// The vector is set by handleCollision and used in onCollision to set the
+	// entity's velocity according to the direction given by handleCollision
+	sf::Vector2f direction;
+	for (TileEntity &tile : m_tileEntities) {
+		// Passing 1.0f as force needed to push the tile. Which means our
+		// player can't walk through the wall as they won't have enough force
+		// and the tile will always push the player away
+		if (tile.getCollision().handleCollision(m_player.getCollision(), direction, 1.0f)) {
+			m_player.onCollision(direction);
+		}
+	}
 	// TODO: enemies
 }
 
 void PhinyxEngine::LevelScene::draw() {
 	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
-	m_game_ptr->m_gameWindow.drawRectVector(m_sprites);
+
+	// TODO: liveEntities
+	// m_game_ptr->m_gameWindow.drawRect(m_enemy.m_rect);
+	/*
+	for (LiveEntity* liveEntity : m_liveEntities) {
+	m_game_ptr->m_gameWindow.drawRect(liveEntity->m_rect);
+	}
+	*/
+
+	// Draw our tiles
+	for (TileEntity &tile : m_tileEntities) {
+		m_game_ptr->m_gameWindow.drawRect(tile.m_rect);
+	}
 }

@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "Player.h"
+#include "TileEntity.h"
 #include "Util.h"
 #include "Logger.h"
 #include <SFML/Graphics.hpp>
@@ -18,10 +19,12 @@ namespace PhinyxEngine {
 			void parseDataFile();
 			void parseLevelFile();
 
-			unsigned int m_textureSize = 48;
+			float m_textureSize = 48;
 			std::string m_levelFilePath;
 			std::string m_dataFilePath;
-			std::vector<sf::RectangleShape> m_sprites;
+			std::vector<PhinyxEngine::TileEntity> m_tileEntities;
+			std::vector<PhinyxEngine::LiveEntity> m_liveEntities;
+			// std::vector<sf::RectangleShape> m_tileSprites;
 			std::map<std::string, sf::Texture> m_levelTextures;
 
 			Player m_player;
