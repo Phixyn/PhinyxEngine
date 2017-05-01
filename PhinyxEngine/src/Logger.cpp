@@ -16,4 +16,3 @@ void PhinyxEngine::Logger::log(std::string level, std::string message) {
 	oss << "[" << level << "]: " << message << std::endl;
 	std::cout << oss.str();
 }
-

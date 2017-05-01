@@ -17,11 +17,11 @@ void PhinyxEngine::Game::mainLoop() {
 		m_deltaTime = m_clock.restart().asSeconds();
 		// logger.log("DEBUG", "Setting delta time to " + std::to_string(m_deltaTime));
 
-		m_gameWindow.pollForEvents();
+		m_gameWindow.handleEvents();
 		// clear game window
 		m_gameWindow.clear();
 		// handle user input
-		m_scene_queue.front()->input();
+		m_scene_queue.front()->handleEvents();
 		// update scene
 		m_scene_queue.front()->update(m_deltaTime);
 		// (re)draw scene
