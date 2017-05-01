@@ -1,6 +1,7 @@
 #ifndef COLLISION_H
 #define COLLISION_H
 
+#include "Logger.h"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine {
@@ -9,11 +10,12 @@ namespace PhinyxEngine {
 			Collision(sf::RectangleShape &rect);
 			void moveRect(float dirX, float dirY);
 
-			bool detectCollision(Collision &colliderRect, float force);
+			bool handleCollision(Collision &collider, sf::Vector2f &direction, float force);
 			sf::Vector2f getPosition();
 			sf::Vector2f getHalfSize();
 		private:
 			sf::RectangleShape &m_rect;
+			Logger m_logger;
 	};
 }
 

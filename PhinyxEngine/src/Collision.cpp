@@ -5,14 +5,14 @@ PhinyxEngine::Collision::Collision(sf::RectangleShape &rect) : m_rect(rect){
 }
 
 void PhinyxEngine::Collision::moveRect(float dirX, float dirY) {
-
+	m_rect.move(dirX, dirY);
 }
 
-bool PhinyxEngine::Collision::detectCollision(Collision &colliderRect, float force) {
+bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f &direction, float force) {
 	// The half sizes will be used to project another rect between colliderRect
 	// and this rect.
-	sf::Vector2f colliderPos = colliderRect.getPosition();
-	sf::Vector2f colliderHalfSize = colliderRect.getHalfSize();
+	sf::Vector2f colliderPos = collider.getPosition();
+	sf::Vector2f colliderHalfSize = collider.getHalfSize();
 	sf::Vector2f rectPos = getPosition();
 	sf::Vector2f rectHalfSize = getHalfSize();
 
@@ -36,6 +36,7 @@ bool PhinyxEngine::Collision::detectCollision(Collision &colliderRect, float for
 		// Handle moving the collided rects based on their forces against
 		// each other
 		if (intersectX > intersectY) {
+			// m_logger.log("DEBUG", "Collision detected on X axis");
 			// Physics.txt
 			// The collision is based on the X axis because intersectX is bigger
 			// So we need to move rects based on the X axis
@@ -45,25 +46,33 @@ bool PhinyxEngine::Collision::detectCollision(Collision &colliderRect, float for
 				// Move the two rects based on their force
 				moveRect(intersectX * (1.0f - force), 0.0f);
 				// Move the collider in the opposite direction
-				colliderRect.moveRect(-intersectX * force, 0.0f);
+				collider.moveRect(-intersectX * force, 0.0f);
+				// Set the collider's directions
+				direction.x = 1.0f;
+				direction.y = 0.0f;
 			}
 			else {
 				// Opposite direction to the above
-				// Move the two rects based on their force
 				moveRect(-intersectX * (1.0f - force), 0.0f);
-				// Move the collider in the opposite direction
-				colliderRect.moveRect(intersectX * force, 0.0f);
+				collider.moveRect(intersectX * force, 0.0f);
+				direction.x = -1.0f;
+				direction.y = 0.0f;
 			}
 		}
 		else {
+			// m_logger.log("DEBUG", "Collision detected on Y axis");
 			// Move rects on the Y axis
 			if (deltaY > 0.0f) {
 				moveRect(0.0f, intersectY * (1.0f - force));
-				colliderRect.moveRect(0.0f, -intersectY * force);
+				collider.moveRect(0.0f, -intersectY * force);
+				direction.x = 0.0f;
+				direction.y = 1.0f;
 			}
 			else {
 				moveRect(0.0f, -intersectY * (1.0f - force));
-				colliderRect.moveRect(0.0f, intersectY * force);
+				collider.moveRect(0.0f, intersectY * force);
+				direction.x = 0.0f;
+				direction.y = -1.0f;
 			}
 		}
 
