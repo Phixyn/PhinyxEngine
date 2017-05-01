@@ -45,11 +45,14 @@ void PhinyxEngine::Window::drawText(sf::Text text) {
 }
 
 void PhinyxEngine::Window::handleEvents() {
-	sf::Event evt;
+	sf::Event sfEvent;
 
-	while (m_window->pollEvent(evt)) {
-		if (evt.type == sf::Event::Closed) {
-			m_window->close();
+	while (m_window->pollEvent(sfEvent)) {
+		switch (sfEvent.type) {
+			case sf::Event::Closed:
+				logger.log("DEBUG", "Closing render window.");
+				m_window->close();
+				break;
 		}
 	}
 }
