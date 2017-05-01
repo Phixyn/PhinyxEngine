@@ -5,7 +5,7 @@ PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) : Entity() {
 	m_attackPower = attackPower;
 }
 
-void PhinyxEngine::LiveEntity::input() {
+void PhinyxEngine::LiveEntity::handleEvents() {
 	// TODO
 }
 

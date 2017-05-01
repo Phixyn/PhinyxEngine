@@ -120,7 +120,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 	}
 }
 
-void PhinyxEngine::LevelScene::input() {
+void PhinyxEngine::LevelScene::handleEvents() {
 	// TODO
 }
 

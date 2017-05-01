@@ -44,7 +44,7 @@ void PhinyxEngine::Window::drawText(sf::Text text) {
 	m_window->draw(text);
 }
 
-void PhinyxEngine::Window::pollForEvents() {
+void PhinyxEngine::Window::handleEvents() {
 	sf::Event evt;
 
 	while (m_window->pollEvent(evt)) {

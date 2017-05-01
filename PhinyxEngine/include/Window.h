@@ -16,7 +16,7 @@ namespace PhinyxEngine {
 			void drawRect(sf::RectangleShape rect);
 			void drawRectVector(std::vector<sf::RectangleShape> rectVector);
 			void drawText(sf::Text text);
-			void pollForEvents();
+			void handleEvents();
 
 			bool isOpen();
 			unsigned int getWidth();

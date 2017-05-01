@@ -11,7 +11,7 @@ namespace PhinyxEngine {
 	class LevelScene : public Scene {
 		public:
 			LevelScene(Game &game, std::string levelFile, std::string dataFile);
-			void input() override;
+			void handleEvents() override;
 			void update(float deltaTime) override;
 			void draw() override;
 		private:
