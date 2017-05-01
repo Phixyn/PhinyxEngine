@@ -124,7 +124,7 @@ void PhinyxEngine::LevelScene::input() {
 	// TODO
 }
 
-void PhinyxEngine::LevelScene::update(float dt) {
+void PhinyxEngine::LevelScene::update(float deltaTime) {
 	// TODO
 }
 

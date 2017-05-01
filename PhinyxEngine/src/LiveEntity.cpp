@@ -9,7 +9,7 @@ void PhinyxEngine::LiveEntity::input() {
 	// TODO
 }
 
-void PhinyxEngine::LiveEntity::update(float dt) {
+void PhinyxEngine::LiveEntity::update(float deltaTime) {
 	// TODO
 }
 

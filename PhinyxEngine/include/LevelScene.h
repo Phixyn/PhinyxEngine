@@ -12,7 +12,7 @@ namespace PhinyxEngine {
 		public:
 			LevelScene(Game &game, std::string levelFile, std::string dataFile);
 			void input() override;
-			void update(float dt) override;
+			void update(float deltaTime) override;
 			void draw() override;
 		private:
 			void parseDataFile();

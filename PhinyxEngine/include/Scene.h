@@ -7,7 +7,7 @@ namespace PhinyxEngine {
 		public:
 			Scene(Game &game);
 			virtual void input() = 0;
-			virtual void update(float dt) = 0;
+			virtual void update(float deltaTime) = 0;
 			virtual void draw() = 0;
 		protected:
 			Game *m_game_ptr;

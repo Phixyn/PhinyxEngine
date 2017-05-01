@@ -8,7 +8,7 @@ namespace PhinyxEngine {
 		public:
 			LiveEntity(int health, int attackPower);
 			void input() override;
-			void update(float dt) override;
+			void update(float deltaTime) override;
 			void draw() override;
 			// TODO: animate?
 
