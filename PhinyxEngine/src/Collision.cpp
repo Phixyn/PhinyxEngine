@@ -36,7 +36,6 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 		// Handle moving the collided rects based on their forces against
 		// each other
 		if (intersectX > intersectY) {
-			// m_logger.log("DEBUG", "Collision detected on X axis");
 			// Physics.txt
 			// The collision is based on the X axis because intersectX is bigger
 			// So we need to move rects based on the X axis
@@ -60,7 +59,6 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 			}
 		}
 		else {
-			// m_logger.log("DEBUG", "Collision detected on Y axis");
 			// Move rects on the Y axis
 			if (deltaY > 0.0f) {
 				moveRect(0.0f, intersectY * (1.0f - force));

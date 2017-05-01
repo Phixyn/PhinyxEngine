@@ -28,7 +28,7 @@ namespace PhinyxEngine {
 			std::map<std::string, sf::Texture> m_levelTextures;
 
 			Player m_player;
-			Logger logger;
+			Logger m_logger;
 	};
 }
 

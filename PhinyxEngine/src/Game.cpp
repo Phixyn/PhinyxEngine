@@ -1,21 +1,21 @@
 #include "../include/Game.h"
 
 PhinyxEngine::Game::Game(bool debug) {
-	logger.log("INFO", "Initializing game.");
+	m_logger.log("INFO", "Initializing game.");
 	m_debugMode = debug;
 }
 
 void PhinyxEngine::Game::makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE) {
-	logger.log("DEBUG", "Making game window.");
+	m_logger.log("DEBUG", "Making game window.");
 	m_gameWindow.init(WIDTH, HEIGHT, TITLE, m_debugMode);
 }
 
 void PhinyxEngine::Game::mainLoop() {
-	logger.log("DEBUG", "Entering main loop.");
+	m_logger.log("DEBUG", "Entering main loop.");
 	while (m_gameWindow.isOpen()) {
 
 		m_deltaTime = m_clock.restart().asSeconds();
-		// logger.log("DEBUG", "Setting delta time to " + std::to_string(m_deltaTime));
+		// m_logger.log("DEBUG", "Setting delta time to " + std::to_string(m_deltaTime));
 
 		m_gameWindow.handleEvents();
 		// clear game window
@@ -29,7 +29,7 @@ void PhinyxEngine::Game::mainLoop() {
 		// render window
 		m_gameWindow.render();
 	}
-	logger.log("DEBUG", "Exited main loop.");
+	m_logger.log("DEBUG", "Exited main loop.");
 }
 
 void PhinyxEngine::Game::addScene(std::unique_ptr<Scene> scene) {

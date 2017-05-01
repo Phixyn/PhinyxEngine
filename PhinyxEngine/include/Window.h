@@ -33,7 +33,7 @@ namespace PhinyxEngine {
 			sf::Text m_debugTextDeltaTimer;
 			sf::Font m_debugPaneFont;
 
-			Logger logger;
+			Logger m_logger;
 	};
 }
 

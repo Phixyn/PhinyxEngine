@@ -22,7 +22,7 @@ namespace PhinyxEngine {
 			bool m_debugMode;
 			std::queue<std::unique_ptr<Scene>> m_scene_queue;
 			sf::Clock m_clock;
-			Logger logger;
+			Logger m_logger;
 	};
 }
 
