@@ -3,6 +3,8 @@
 void PhinyxEngine::Window::init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane) {
 	m_logger.log("DEBUG", "Creating render window.");
 	m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), TITLE);
+	m_window->requestFocus();
+	m_hasFocus = true;
 	m_WIDTH = WIDTH;
 	m_HEIGHT = HEIGHT;
 	m_TITLE = TITLE;
@@ -53,12 +55,24 @@ void PhinyxEngine::Window::handleEvents() {
 				m_logger.log("DEBUG", "Closing render window.");
 				m_window->close();
 				break;
+			case sf::Event::LostFocus:
+				m_logger.log("DEBUG", "Lost window focus.");
+				m_hasFocus = false;
+				break;
+			case sf::Event::GainedFocus:
+				m_logger.log("DEBUG", "Gained window focus.");
+				m_hasFocus = true;
+				break;
 		}
 	}
 }
 
 bool PhinyxEngine::Window::isOpen() {
 	return m_window->isOpen();
+}
+
+bool PhinyxEngine::Window::hasFocus() {
+	return m_hasFocus;
 }
 
 unsigned int PhinyxEngine::Window::getWidth() {

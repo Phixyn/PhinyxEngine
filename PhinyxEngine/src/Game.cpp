@@ -20,16 +20,20 @@ void PhinyxEngine::Game::mainLoop() {
 			m_deltaTime = 1.0f / 60.0f;
 		}
 
+		// Handle window events
 		m_gameWindow.handleEvents();
-		// clear game window
+		// Clear game window
 		m_gameWindow.clear();
-		// handle user input
-		m_scene_queue.front()->handleEvents();
-		// update scene
-		m_scene_queue.front()->update(m_deltaTime);
-		// (re)draw scene
+		// Only handle events and update if we have focus on our window
+		if (m_gameWindow.hasFocus()) {
+			// Handle scene events
+			m_scene_queue.front()->handleEvents();
+			// Update scene
+			m_scene_queue.front()->update(m_deltaTime);
+		}
+		// (Re)draw scene
 		m_scene_queue.front()->draw();
-		// render window
+		// Render window
 		m_gameWindow.render();
 	}
 	m_logger.log("DEBUG", "Exited main loop.");
