@@ -11,7 +11,7 @@ namespace PhinyxEngine {
 			void update(float deltaTime) override;
 			void draw() override;
 		private:
-			float force;
+			float m_force;
 	};
 }
 
