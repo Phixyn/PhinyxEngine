@@ -20,3 +20,11 @@ void PhinyxEngine::LiveEntity::draw() {
 bool PhinyxEngine::LiveEntity::isAggressive() {
 	return m_aggressive;
 }
+
+bool PhinyxEngine::LiveEntity::isDead() {
+	return m_dead;
+}
+
+void PhinyxEngine::LiveEntity::setDead(bool dead) {
+	m_dead = dead;
+}

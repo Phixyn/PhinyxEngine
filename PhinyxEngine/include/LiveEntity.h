@@ -14,6 +14,7 @@ namespace PhinyxEngine {
 
 			bool isAggressive();
 			bool isDead();
+			void setDead(bool dead);
 		private:
 			int m_health;
 			int m_attackPower;
