@@ -1,8 +1,18 @@
 #include "../include/LiveEntity.h"
 
-PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) : Entity() {
+PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) :
+	Entity(), m_acceleration(0.0f, 0.0f)
+{
 	m_health = health;
 	m_attackPower = attackPower;
+}
+
+PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, float speed) :
+	Entity(), m_acceleration(0.0f, 0.0f)
+{
+	m_health = health;
+	m_attackPower = attackPower;
+	m_speed = speed;
 }
 
 void PhinyxEngine::LiveEntity::handleEvents() {
@@ -27,4 +37,12 @@ bool PhinyxEngine::LiveEntity::isDead() {
 
 void PhinyxEngine::LiveEntity::setDead(bool dead) {
 	m_dead = dead;
+}
+
+float PhinyxEngine::LiveEntity::getDirection() {
+	return m_direction;
+}
+
+void PhinyxEngine::LiveEntity::setDirection(float direction) {
+	m_direction = direction;
 }
