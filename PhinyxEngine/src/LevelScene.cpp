@@ -89,7 +89,7 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 					logger.log("DEBUG", "Player x: " + std::to_string((column * m_player.m_rectWidth)));
 					logger.log("DEBUG", "Player y: " + std::to_string((row * m_player.m_rectHeight)));
 					m_player.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
-					m_sprites.push_back(m_player.m_rect);
+					//m_sprites.push_back(m_player.m_rect);
 				}
 
 				else if (tiles[column] == "4") {
@@ -121,13 +121,16 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 }
 
 void PhinyxEngine::LevelScene::handleEvents() {
-	// TODO
+	m_player.handleEvents();
+	// TODO: enemies
 }
 
 void PhinyxEngine::LevelScene::update(float deltaTime) {
-	// TODO
+	m_player.update(deltaTime);
+	// TODO: enemies
 }
 
 void PhinyxEngine::LevelScene::draw() {
+	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
 	m_game_ptr->m_gameWindow.drawRectVector(m_sprites);
 }
