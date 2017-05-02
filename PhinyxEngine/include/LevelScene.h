@@ -8,15 +8,32 @@
 #include "Logger.h"
 #include <SFML/Graphics.hpp>
 
-namespace PhinyxEngine {
-	class LevelScene : public Scene {
+namespace PhinyxEngine
+{
+	class LevelScene : public Scene
+	{
 		public:
-			LevelScene(Game &game, std::string levelFile, std::string dataFile);
+			/// <summary> Default constructor. </summary>
+			///
+			/// <param name="game"> A pointer to an instance of the Game
+			/// class. </param>
+			/// <param name="levelFilePath"> A string containing the path for the
+			/// level file. </param>
+			/// <param name="dataFilePath"> A string containing the path for the
+			/// level's data file. </param>
+			LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath);
+			/// <summary> Handles events specific to the level
+			/// scenes. </summary>
 			void handleEvents() override;
+			/// <param name="deltaTime"> The delta time for the update
+			/// frequency rate. </param>
 			void update(float deltaTime) override;
+			/// <summary> Draws the level scene. </summary>
 			void draw() override;
 		private:
+			/// <summary> Parses the level's data file. </summary>
 			void parseDataFile();
+			/// <summary> Parses the level's map file. </summary>
 			void parseLevelFile();
 
 			float m_textureSize = 48;

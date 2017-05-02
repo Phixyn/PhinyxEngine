@@ -23,18 +23,21 @@ PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std:
 /// Loads the textures found in the file and stores them in a
 /// map with the entity ID and its corresponding texture file name.
 /// </summary>
-void PhinyxEngine::LevelScene::parseDataFile() {
+void PhinyxEngine::LevelScene::parseDataFile()
+{
 	std::string fileLine;
 	std::ifstream dataFile;
 	dataFile.open(m_dataFilePath);
 
-	if (!dataFile.is_open()) {
+	if (!dataFile.is_open())
 		m_logger.log("ERROR", "Unable to open level data file.");
-	}
 
-	else {
-		while (std::getline(dataFile, fileLine)) {
-			if (fileLine.find('=') != std::string::npos) {
+	else
+	{
+		while (std::getline(dataFile, fileLine))
+		{
+			if (fileLine.find('=') != std::string::npos)
+			{
 				std::vector<std::string> lineSplitVector = PhinyxEngine::Util::stringSplit(fileLine, '=');
 				std::string textureID = lineSplitVector[0];
 				std::string textureFileName = lineSplitVector[1];
@@ -55,21 +58,23 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 /// The entity's texture is retrieved from the m_levelTextures map, which is
 /// populated in the parseDataFile() method.
 /// </summary>
-void PhinyxEngine::LevelScene::parseLevelFile() {
+void PhinyxEngine::LevelScene::parseLevelFile()
+{
 	std::ifstream levelFile;
 	levelFile.open(m_levelFilePath);
 
-	if (!levelFile.is_open()) {
+	if (!levelFile.is_open())
 		m_logger.log("ERROR", "Unable to open level file.");
-	}
 
-	else {
+	else
+	{
 		std::string fileLine;
 		std::vector<std::string> fileLines;
 
 		// Read all file lines and store in fileLines vector
 		// TODO: Ignore lines that begin with a #
-		while (std::getline(levelFile, fileLine)) {
+		while (std::getline(levelFile, fileLine))
+		{
 			fileLines.push_back(fileLine);
 		}
 
@@ -80,17 +85,21 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 		unsigned int row = fileLines.size() - 1;
 		// Read file lines from end to beginning
 		// Iterate through lines
-		for (auto iterator = fileLines.rbegin(); iterator != fileLines.rend(); ++iterator) {
+		for (auto iterator = fileLines.rbegin(); iterator != fileLines.rend(); ++iterator)
+		{
 			std::vector<std::string> tiles = PhinyxEngine::Util::stringSplit(*iterator, '|');
 
 			// Iterate through tiles in this line
-			for (int column = 0; column < tiles.size(); column++) {
-				if (tiles[column] == "-") {
+			for (int column = 0; column < tiles.size(); column++)
+			{
+				if (tiles[column] == "-")
+				{
 					// Blank tiles
 					continue;
 				}
 
-				else if (tiles[column] == "0") {
+				else if (tiles[column] == "0")
+				{
 					// Player sprite
 					m_player.setTexture(&m_levelTextures[tiles[column]]);
 					m_logger.log("DEBUG", "Player rect width: " + std::to_string(m_player.m_rectWidth));
@@ -101,7 +110,8 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 					// m_liveEntities.push_back(&m_player);
 				}
 
-				else if (tiles[column] == "4") {
+				else if (tiles[column] == "4")
+				{
 					// Enemy sprite
 					// TODO: This is temporary and should be improved
 					// Ideally we should check tiles[column] == "enemy_x"
@@ -111,7 +121,8 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 					// m_liveEntities.push_back(&enemy);
 				}
 
-				else {
+				else
+				{
 					// Create a shape and set its texture based on the data line
 					sf::RectangleShape shape(sf::Vector2f(m_textureSize, m_textureSize));
 					shape.setTexture(&m_levelTextures[tiles[column]]);
@@ -130,8 +141,8 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 	}
 }
 
-/// <summary> Handles events of the scene's entities </summary>
-void PhinyxEngine::LevelScene::handleEvents() {
+void PhinyxEngine::LevelScene::handleEvents()
+{
 	m_player.handleEvents();
 	// TODO: enemies
 }
@@ -140,18 +151,21 @@ void PhinyxEngine::LevelScene::handleEvents() {
 /// Checks for collision between the scene's entities.
 /// Calls the update methods for the entities.
 /// </summary>
-void PhinyxEngine::LevelScene::update(float deltaTime) {
+void PhinyxEngine::LevelScene::update(float deltaTime)
+{
 	m_player.update(deltaTime);
 
 	// The direction vector to be used by onCollision
 	// The vector is set by handleCollision and used in onCollision to set the
 	// entity's velocity according to the direction given by handleCollision
 	sf::Vector2f direction;
-	for (TileEntity &tile : m_tileEntities) {
+	for (TileEntity &tile : m_tileEntities)
+	{
 		// Passing 1.0f as force needed to push the tile. Which means our
 		// player can't walk through the wall as they won't have enough force
 		// and the tile will always push the player away
-		if (tile.getCollision().handleCollision(m_player.getCollision(), direction, 1.0f)) {
+		if (tile.getCollision().handleCollision(m_player.getCollision(), direction, 1.0f))
+		{
 			m_player.onCollision(direction);
 		}
 	}
@@ -162,19 +176,22 @@ void PhinyxEngine::LevelScene::update(float deltaTime) {
 /// Draws the scene's entities into the game's window
 /// Accesses the game's window via the game pointer member variable
 /// </summary>
-void PhinyxEngine::LevelScene::draw() {
+void PhinyxEngine::LevelScene::draw()
+{
 	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
 
 	// TODO: liveEntities
 	// m_game_ptr->m_gameWindow.drawRect(m_enemy.m_rect);
 	/*
-	for (LiveEntity* liveEntity : m_liveEntities) {
-	m_game_ptr->m_gameWindow.drawRect(liveEntity->m_rect);
+	for (LiveEntity* liveEntity : m_liveEntities)
+	{
+		m_game_ptr->m_gameWindow.drawRect(liveEntity->m_rect);
 	}
 	*/
 
 	// Draw our tiles
-	for (TileEntity &tile : m_tileEntities) {
+	for (TileEntity &tile : m_tileEntities)
+	{
 		m_game_ptr->m_gameWindow.drawRect(tile.m_rect);
 	}
 }
