@@ -3,6 +3,11 @@
 #include "../include/EnemyMonster.h"
 #include <fstream>
 
+/// <summary>
+/// Constructor for the class. Initializes the member variables for the LevelScene
+/// in an initializer statement (?) and calls methods to parse the level and level
+/// data files.
+/// </summary>
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
 		Scene(game), m_player(100, 20, 150.0f, 54.0f)
 {
@@ -12,6 +17,12 @@ PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std:
 	parseLevelFile();
 }
 
+/// <summary>
+/// Parses the level's data file which specifies the textures for
+/// all the entities specified in the level file.
+/// Loads the textures found in the file and stores them in a
+/// map with the entity ID and its corresponding texture file name.
+/// </summary>
 void PhinyxEngine::LevelScene::parseDataFile() {
 	std::string fileLine;
 	std::ifstream dataFile;
@@ -30,7 +41,7 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 				sf::Texture textureToLoad;
 				textureToLoad.loadFromFile(textureFileName);
 				m_logger.log("INFO", "Loaded texture file: " + textureFileName);
-				// Add texture ID (e.g. '1') and texture file name (e.g. 'grass.png') to map
+				// Add entity ID (e.g. "1") and texture file name (e.g. "grass.png") to map
 				m_levelTextures.insert(std::make_pair(textureID, textureToLoad));
 			}
 		}
@@ -38,6 +49,12 @@ void PhinyxEngine::LevelScene::parseDataFile() {
 	}
 }
 
+/// <summary>
+/// Parses the level file which contains all the entities to load.
+/// Constructs the entity's RectangleShape and sets its texture.
+/// The entity's texture is retrieved from the m_levelTextures map, which is
+/// populated in the parseDataFile() method.
+/// </summary>
 void PhinyxEngine::LevelScene::parseLevelFile() {
 	std::ifstream levelFile;
 	levelFile.open(m_levelFilePath);
@@ -113,11 +130,16 @@ void PhinyxEngine::LevelScene::parseLevelFile() {
 	}
 }
 
+/// <summary> Handles events of the scene's entities </summary>
 void PhinyxEngine::LevelScene::handleEvents() {
 	m_player.handleEvents();
 	// TODO: enemies
 }
 
+/// <summary>
+/// Checks for collision between the scene's entities.
+/// Calls the update methods for the entities.
+/// </summary>
 void PhinyxEngine::LevelScene::update(float deltaTime) {
 	m_player.update(deltaTime);
 
@@ -136,6 +158,10 @@ void PhinyxEngine::LevelScene::update(float deltaTime) {
 	// TODO: enemies
 }
 
+/// <summary>
+/// Draws the scene's entities into the game's window
+/// Accesses the game's window via the game pointer member variable
+/// </summary>
 void PhinyxEngine::LevelScene::draw() {
 	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
 

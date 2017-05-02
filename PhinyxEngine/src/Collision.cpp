@@ -8,6 +8,10 @@ void PhinyxEngine::Collision::moveRect(float dirX, float dirY) {
 	m_rect.move(dirX, dirY);
 }
 
+/// <summary>
+/// Performs AABB collision detection between two rectangle shapes.
+/// Handles and solves collisions if they occur.
+/// </summary>
 bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f &direction, float force) {
 	// The half sizes will be used to project another rect between colliderRect
 	// and this rect.
@@ -80,10 +84,12 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 	return false;
 }
 
+/// <summary> Returns a SFML Vector2f object containing the rect's postion. </summary>
 sf::Vector2f PhinyxEngine::Collision::getPosition() {
 	return m_rect.getPosition();
 }
 
+/// <summary> Returns a SFML Vector2f object containing the rect's half size. </summary>
 sf::Vector2f PhinyxEngine::Collision::getHalfSize() {
 	return m_rect.getSize() / 2.0f;
 }

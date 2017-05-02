@@ -1,5 +1,6 @@
 #include "../include/Entity.h"
 
+/// <summary> Initilizes the Collision. </summary>
 PhinyxEngine::Entity::Entity() : m_collision(m_rect) {
 
 }

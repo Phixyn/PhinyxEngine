@@ -1,10 +1,10 @@
 #include "../include/Util.h"
 
-/**
- * Split a strinh into a vector based on a token. The token can be any char.
- * Returns a vector containing all matches.
- * TODO: Add error handling?
- */
+/// <summary>
+/// Split a string into a vector based on a token. The token can be any char.
+/// Returns a vector containing all matches.
+/// TODO: Add error handling?
+/// </summary>
 std::vector<std::string> PhinyxEngine::Util::stringSplit(std::string const &stringData, char token) {
 	std::vector<std::string> resultVector;
 

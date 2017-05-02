@@ -28,6 +28,12 @@ void PhinyxEngine::LiveEntity::draw() {
 	// TODO
 }
 
+/// <summary>
+/// Takes a direction vector.
+/// Adjusts the live entity's velocity based on the direction vector.
+/// </summary>
+///
+/// <param name="direction"> A SFML Vector2f containing the direction. </param>
 void PhinyxEngine::LiveEntity::onCollision(sf::Vector2f direction) {
 	// TODO: simplify if statements here
 	// Handle X axis collision
