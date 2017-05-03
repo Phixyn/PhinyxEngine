@@ -1,18 +1,20 @@
 #include "../include/Collision.h"
 
-PhinyxEngine::Collision::Collision(sf::RectangleShape &rect) : m_rect(rect){
+PhinyxEngine::Collision::Collision(sf::RectangleShape &rect) : m_rect(rect)
+{
 
 }
 
-void PhinyxEngine::Collision::moveRect(float dirX, float dirY) {
+void PhinyxEngine::Collision::moveRect(float dirX, float dirY)
+{
 	m_rect.move(dirX, dirY);
 }
 
 /// <summary>
-/// Performs AABB collision detection between two rectangle shapes.
-/// Handles and solves collisions if they occur.
+/// TODO
 /// </summary>
-bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f &direction, float force) {
+bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f &direction, float force)
+{
 	// The half sizes will be used to project another rect between colliderRect
 	// and this rect.
 	sf::Vector2f colliderPos = collider.getPosition();
@@ -29,7 +31,8 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 	float intersectY = abs(deltaY) - (colliderHalfSize.y + rectHalfSize.y);
 
 	// Check if the two rects intersect
-	if (intersectX < 0.0f && intersectY < 0.0f) {
+	if (intersectX < 0.0f && intersectY < 0.0f)
+	{
 		// If the two rects intersect, there is a collision
 		// Handle any movement required and return true
 
@@ -39,13 +42,15 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 
 		// Handle moving the collided rects based on their forces against
 		// each other
-		if (intersectX > intersectY) {
+		if (intersectX > intersectY)
+		{
 			// Physics.txt
 			// The collision is based on the X axis because intersectX is bigger
 			// So we need to move rects based on the X axis
 
 			// Calculate which direction to move the rects
-			if (deltaX > 0.0f) {
+			if (deltaX > 0.0f)
+			{
 				// Move the two rects based on their force
 				moveRect(intersectX * (1.0f - force), 0.0f);
 				// Move the collider in the opposite direction
@@ -54,7 +59,8 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 				direction.x = 1.0f;
 				direction.y = 0.0f;
 			}
-			else {
+			else
+			{
 				// Opposite direction to the above
 				moveRect(-intersectX * (1.0f - force), 0.0f);
 				collider.moveRect(intersectX * force, 0.0f);
@@ -62,34 +68,35 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 				direction.y = 0.0f;
 			}
 		}
-		else {
+		else
+		{
 			// Move rects on the Y axis
-			if (deltaY > 0.0f) {
+			if (deltaY > 0.0f)
+			{
 				moveRect(0.0f, intersectY * (1.0f - force));
 				collider.moveRect(0.0f, -intersectY * force);
 				direction.x = 0.0f;
 				direction.y = 1.0f;
 			}
-			else {
+			else
+			{
 				moveRect(0.0f, -intersectY * (1.0f - force));
 				collider.moveRect(0.0f, intersectY * force);
 				direction.x = 0.0f;
 				direction.y = -1.0f;
 			}
 		}
-
 		return true;
 	}
-
 	return false;
 }
 
-/// <summary> Returns a SFML Vector2f object containing the rect's postion. </summary>
-sf::Vector2f PhinyxEngine::Collision::getPosition() {
+sf::Vector2f PhinyxEngine::Collision::getPosition()
+{
 	return m_rect.getPosition();
 }
 
-/// <summary> Returns a SFML Vector2f object containing the rect's half size. </summary>
-sf::Vector2f PhinyxEngine::Collision::getHalfSize() {
+sf::Vector2f PhinyxEngine::Collision::getHalfSize()
+{
 	return m_rect.getSize() / 2.0f;
 }

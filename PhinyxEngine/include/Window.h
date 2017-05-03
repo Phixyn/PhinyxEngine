@@ -9,7 +9,7 @@
 
 namespace PhinyxEngine
 {
-	/// <summary> Test documentation for class. </summary>
+	/// <summary> Placeholder documentation. </summary>
 	class Window
 	{
 		public:

@@ -4,8 +4,11 @@
 #include "Entity.h"
 #include "Logger.h"
 
-namespace PhinyxEngine {
-	class LiveEntity : public Entity {
+namespace PhinyxEngine
+{
+	/// <summary> Placeholder documentation. </summary>
+	class LiveEntity : public Entity
+	{
 		public:
 			/// <summary>
 			/// Default constructor taking parameters for the entity's health

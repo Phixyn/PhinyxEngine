@@ -5,6 +5,7 @@ namespace PhinyxEngine
 {
 	// Forward declaration for the Game class.
 	class Game;
+	/// <summary> Placeholder documentation. </summary>
 	class Scene
 	{
 		public:
