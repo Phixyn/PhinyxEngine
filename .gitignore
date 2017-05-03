@@ -111,7 +111,3 @@ ClientBin/
 *.publishsettings
 *.d
 FakesAssemblies/
-
-# Ignore SFML installation temporarily until
-# clarified on how best handle this
-SFML-2.4.2/
