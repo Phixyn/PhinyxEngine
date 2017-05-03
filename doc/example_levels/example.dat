@@ -1,7 +1,7 @@
 [LevelData]
 
-0=player.png
-1=dirt.png
-2=grass.png
-3=grass_dead.png
-4=enemy.png
+0=assets/player.png
+1=assets/dirt.png
+2=assets/grass.png
+3=assets/grass_dead.png
+4=assets/enemy.png
