@@ -72,15 +72,20 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Utility class providing various miscellaneous methods used throughout the engine.  
+ <a href="class_phinyx_engine_1_1_util.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_util_8h_source.html">Util.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7155f5f2efdafa13d52199e6914b4623"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_util.html#a7155f5f2efdafa13d52199e6914b4623">stringSplit</a> (std::string const &amp;stringData, char token)</td></tr>
-<tr class="memdesc:a7155f5f2efdafa13d52199e6914b4623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a string into a vector based on a token. The token can be any char. Returns a vector containing all matches. TODO: Add error handling?  <a href="#a7155f5f2efdafa13d52199e6914b4623">More...</a><br /></td></tr>
+<tr class="memdesc:a7155f5f2efdafa13d52199e6914b4623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string by a given token into a vector. The token can be any character. A common use for this is parsing configuration files and level files (e.g. splitting a key-value pair by the '=' character).  <a href="#a7155f5f2efdafa13d52199e6914b4623">More...</a><br /></td></tr>
 <tr class="separator:a7155f5f2efdafa13d52199e6914b4623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utility class providing various miscellaneous methods used throughout the engine. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7155f5f2efdafa13d52199e6914b4623"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7155f5f2efdafa13d52199e6914b4623">&#9670;&nbsp;</a></span>stringSplit()</h2>
 
@@ -115,7 +120,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Split a string into a vector based on a token. The token can be any char. Returns a vector containing all matches. TODO: Add error handling? </p>
+<p>Splits a string by a given token into a vector. The token can be any character. A common use for this is parsing configuration files and level files (e.g. splitting a key-value pair by the '=' character). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringData</td><td>A reference to the string to be split. </td></tr>
+    <tr><td class="paramname">token</td><td>Token by which to split the string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing all the results of the string split operation. </dd></dl>
 
 </div>
 </div>

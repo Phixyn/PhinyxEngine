@@ -1,11 +1,8 @@
 #include "../include/Util.h"
 
-/// <summary>
-/// Split a string into a vector based on a token. The token can be any char.
-/// Returns a vector containing all matches.
-/// TODO: Add error handling?
-/// </summary>
-std::vector<std::string> PhinyxEngine::Util::stringSplit(std::string const &stringData, char token) {
+std::vector<std::string> PhinyxEngine::Util::stringSplit(std::string const &stringData, char token)
+{
+	// TODO: Add error handling?
 	std::vector<std::string> resultVector;
 
 	// Iterators for the string
@@ -13,7 +10,8 @@ std::vector<std::string> PhinyxEngine::Util::stringSplit(std::string const &stri
 	std::string::const_iterator endPos = stringData.end();
 	std::string::const_iterator matchPos = std::find(startPos, endPos, token);
 
-	while (matchPos != endPos) {
+	while (matchPos != endPos)
+	{
 		resultVector.push_back(std::string(startPos, matchPos));
 		startPos = matchPos + 1;
 		matchPos = std::find(startPos, endPos, token);

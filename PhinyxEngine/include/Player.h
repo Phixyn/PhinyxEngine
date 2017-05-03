@@ -3,8 +3,10 @@
 
 #include "LiveEntity.h"
 
-namespace PhinyxEngine {
-	class Player : public LiveEntity {
+namespace PhinyxEngine
+{
+	class Player : public LiveEntity
+	{
 		public:
 			Player(int health, int attackPower, float speed, float jumpHeight);
 			// void handleEvents() override;
