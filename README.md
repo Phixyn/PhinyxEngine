@@ -11,9 +11,9 @@ Version 0.3.0 is the last planned release for this assignment, with development 
 
 The API documentation was generated with [DoxyGen](http://www.stack.nl/~dimitri/doxygen/) and can be found in the `doc/html` folder. Open `index.html` in a web browser to get started.
 
-## Compiled Static Library
+## Compiled Library
 
-PhinyxEngine can be used as a static library. See the project's [Releases](https://github.com/IMDCGP207-1617/game-engine-implementation-Phixyn/releases) for the latest `.lib` file.
+PhinyxEngine can be linked as a library when compiling your game. See the project's [Releases](https://github.com/IMDCGP207-1617/game-engine-implementation-Phixyn/releases) for the latest `.lib` file.
 
 ## Example Game
 
@@ -45,3 +45,4 @@ TODO
 * Debug panel.
 * Game window resizing to a range of resolutions.
 * Handling of entity health, attacks, scores, etc.
+* Better background image loading and support.
