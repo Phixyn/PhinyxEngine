@@ -220,6 +220,7 @@ void PhinyxEngine::LevelScene::setBackgroundImage(std::string imageFilePath)
 		return;
 	}
 
+	m_logger.log("INFO", "Loaded background image file: " + imageFilePath);
 	// TODO: Handle tileable backgrounds?
 	// m_backgroundTexture.setRepeated(true);
 	m_backgroundSprite.setTexture(m_backgroundTexture);
