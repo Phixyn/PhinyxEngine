@@ -11,13 +11,15 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+PhinyxEngine/*.dll
+ExampleGame/*.dll
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
-*.lib
+PhinyxEngine/*.lib
+ExampleGame/*.lib
 
 # Executables
 *.exe
@@ -39,7 +41,8 @@
 x64/
 x86/
 bld/
-[Bb]in/
+PhinyxEngine/[Bb]in/
+ExampleGame/[Bb]in/
 [Oo]bj/
 [Ll]og/
 
