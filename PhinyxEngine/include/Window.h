@@ -29,6 +29,18 @@ namespace PhinyxEngine
 			/// the window. </summary>
 			void render();
 
+
+			/// <summary>
+			/// Draws a SFML Drawable object on the window.
+			/// </summary>
+			///
+			/// <param name="drawable">
+			/// Reference to the SFML Drawable instance to be drawn on the
+			/// window.
+			/// </param>
+			void draw(const sf::Drawable &drawable);
+
+			// TODO: these methods are not needed, should just use the above
 			/// <summary> Draws a SFML RectangleShape on the window. </summary>
 			///
 			/// <param name="rect"> Instance of SFML RectangleShape to be drawn

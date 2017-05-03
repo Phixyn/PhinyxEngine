@@ -51,6 +51,11 @@ void PhinyxEngine::Window::render()
 	m_window->display();
 }
 
+void PhinyxEngine::Window::draw(const sf::Drawable &drawable)
+{
+	m_window->draw(drawable);
+}
+
 void PhinyxEngine::Window::drawRect(sf::RectangleShape rect)
 {
 	m_window->draw(rect);
