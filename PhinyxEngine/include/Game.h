@@ -5,17 +5,24 @@
 #include "Scene.h"
 #include <queue>
 
-/// <summary> TODO: Placeholder documentation for namespace PhinyxEngine. </summary>
+/// <summary>
+/// TODO: Placeholder documentation for namespace PhinyxEngine.
+/// </summary>
 namespace PhinyxEngine
 {
-	/// <summary> TODO: Placeholder documentation for Game class. </summary>
+	/// <summary>
+	/// TODO: Placeholder documentation for Game class.
+	/// </summary>
 	class Game
 	{
 		public:
 			/// <summary> Default constructor. </summary>
 			Game(bool debug);
 
-			/// <summary> Creates the game window using the specified width, height and title. </summary>
+			/// <summary>
+			/// Creates the game window using the specified width, height
+			/// and title.
+			/// </summary>
 			///
 			/// <param name="WIDTH"> The width of the window. </param>
 			/// <param name="HEIGHT"> The height of the window. </param>

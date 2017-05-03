@@ -17,7 +17,7 @@ void PhinyxEngine::Game::makeGameWindow(const unsigned int WIDTH, const unsigned
 	m_gameWindow.init(WIDTH, HEIGHT, TITLE, m_debugMode);
 }
 
-/// <summary> Handles the game's main loop (TODO: list the steps). </summary>
+/// <summary> (TODO: list the steps). </summary>
 void PhinyxEngine::Game::mainLoop()
 {
 	m_logger.log("DEBUG", "Entering main loop.");

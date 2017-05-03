@@ -1,5 +1,8 @@
 #include "../include/Player.h"
 
+/// <summary>
+/// Calls the superclass constructor and initializes member variables.
+/// </summary>
 PhinyxEngine::Player::Player(int health, int attackPower, float speed, float jumpHeight) :
 	LiveEntity(health, attackPower, speed, jumpHeight)
 {
@@ -15,6 +18,10 @@ void PhinyxEngine::Player::handleEvents()
 }
 */
 
+/// <summary>
+/// Updates the player's velocity based on movement keys pressed. Moves the
+/// player's rectangle based on their velocity.
+/// </summary>
 void PhinyxEngine::Player::update(float deltaTime)
 {
 	// Gradually decrease velocity if a movement key is not pressed
@@ -32,9 +39,9 @@ void PhinyxEngine::Player::update(float deltaTime)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && m_canJump)
 	{
 		m_canJump = false;
-		// Maths.exe is not responding
-		// Close program | Google solution
-		// 400.0f = gravity, should be moved to a variable
+		// For the jumping velocity calculation, a kinematic equation is used
+		// which is explained here: https://youtu.be/v1V3T5BPd7E (1:50).
+		// TODO: 400.0f = gravity, should be moved to a variable
 		m_velocity.y = -sqrtf(2.0f * 400.0f * m_jumpHeight);
 	}
 
