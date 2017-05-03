@@ -1,4 +1,4 @@
-#include "../include/LiveEntity.h"
+#include "../include/LiveEntity.hpp"
 
 /// <summary>
 /// Calls the superclass constructor and initializes member variables.

@@ -1,6 +1,6 @@
-#include "../include/LevelScene.h"
-#include "../include/Game.h"
-#include "../include/EnemyMonster.h"
+#include "../include/LevelScene.hpp"
+#include "../include/Game.hpp"
+#include "../include/EnemyMonster.hpp"
 #include <fstream>
 
 /// <summary>
@@ -15,6 +15,16 @@ PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std:
 	m_dataFilePath = dataFilePath;
 	parseDataFile();
 	parseLevelFile();
+}
+
+PhinyxEngine::LevelScene::LevelScene(Game & game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath) :
+	Scene(game), m_player(100, 20, 150.0f, 54.0f)
+{
+	m_levelFilePath = levelFilePath;
+	m_dataFilePath = dataFilePath;
+	parseDataFile();
+	parseLevelFile();
+	setBackgroundImage(backgroundImagePath);
 }
 
 /// <summary>
@@ -170,6 +180,11 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 		}
 	}
 	// TODO: enemies
+
+	// Set the center of the game view
+	m_game_ptr->m_gameWindow.m_view.setCenter(m_player.m_rect.getPosition());
+	// Set the center of the scene's background image based on the view's center
+	m_backgroundSprite.setPosition(m_game_ptr->m_gameWindow.m_view.getCenter().x, m_game_ptr->m_gameWindow.m_view.getCenter().y);
 }
 
 /// <summary>
@@ -178,6 +193,7 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 /// </summary>
 void PhinyxEngine::LevelScene::draw()
 {
+	m_game_ptr->m_gameWindow.draw(m_backgroundSprite);
 	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
 
 	// TODO: liveEntities
@@ -194,4 +210,21 @@ void PhinyxEngine::LevelScene::draw()
 	{
 		m_game_ptr->m_gameWindow.drawRect(tile.m_rect);
 	}
+}
+
+void PhinyxEngine::LevelScene::setBackgroundImage(std::string imageFilePath)
+{
+	if (!m_backgroundTexture.loadFromFile(imageFilePath))
+	{
+		m_logger.log("ERROR", "Could not load level background image: " + imageFilePath);
+		return;
+	}
+
+	m_logger.log("INFO", "Loaded background image file: " + imageFilePath);
+	// TODO: Handle tileable backgrounds?
+	// m_backgroundTexture.setRepeated(true);
+	m_backgroundSprite.setTexture(m_backgroundTexture);
+	// m_backgroundSprite.setOrigin(m_game_ptr->m_gameWindow.m_view.getCenter().x, m_game_ptr->m_gameWindow.m_view.getCenter().y / 2.0f);
+	m_backgroundSprite.setOrigin(m_game_ptr->m_gameWindow.m_view.getCenter());
+	m_backgroundSprite.setTextureRect(sf::IntRect(0, 0, m_game_ptr->m_gameWindow.m_view.getSize().x, m_game_ptr->m_gameWindow.m_view.getSize().y));
 }

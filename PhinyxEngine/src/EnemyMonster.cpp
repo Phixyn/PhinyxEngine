@@ -1,4 +1,4 @@
-#include "../include/EnemyMonster.h"
+#include "../include/EnemyMonster.hpp"
 
 /// <summary>
 /// Calls the superclass constructor and initializes member variables.

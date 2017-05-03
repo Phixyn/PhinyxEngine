@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['game',['Game',['../class_phinyx_engine_1_1_game.html',1,'PhinyxEngine::Game'],['../class_phinyx_engine_1_1_game.html#a54cfbe817f8b8e4938636b33a4f294ee',1,'PhinyxEngine::Game::Game()']]],
+  ['game',['Game',['../class_phinyx_engine_1_1_game.html',1,'PhinyxEngine::Game'],['../class_phinyx_engine_1_1_game.html#a5336619d3bd432bc882e0d3c1b569470',1,'PhinyxEngine::Game::Game()']]],
   ['game_2ecpp',['Game.cpp',['../_game_8cpp.html',1,'']]],
-  ['game_2eh',['Game.h',['../_game_8h.html',1,'']]],
+  ['game_2ehpp',['Game.hpp',['../_game_8hpp.html',1,'']]],
   ['getcollision',['getCollision',['../class_phinyx_engine_1_1_entity.html#a4eb505f5caddc226abd77fd637817897',1,'PhinyxEngine::Entity']]],
   ['getdirection',['getDirection',['../class_phinyx_engine_1_1_live_entity.html#a8ee10451f935e7a9202b89a90f455795',1,'PhinyxEngine::LiveEntity']]],
   ['gethalfsize',['getHalfSize',['../class_phinyx_engine_1_1_collision.html#aa3eb30bd9db8e23e92829c28fc2e7980',1,'PhinyxEngine::Collision']]],

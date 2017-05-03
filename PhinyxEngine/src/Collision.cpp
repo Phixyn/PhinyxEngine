@@ -1,4 +1,4 @@
-#include "../include/Collision.h"
+#include "../include/Collision.hpp"
 
 PhinyxEngine::Collision::Collision(sf::RectangleShape &rect) : m_rect(rect)
 {

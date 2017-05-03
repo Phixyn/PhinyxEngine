@@ -3,17 +3,15 @@
 ## 0.3.0
 
 * Added documentation
+* Added background image support for levels
+* Added side scrolling / camera centering on player
+* Changed header file extensions to .hpp
 
 ## 0.2.0
-
-#### New features:
 
 * User input
 * Collision detection (AABB)
 * Player jumping
-
-#### Fixes:
-
 * Improved entity classes
 * Disabled game window resize
 * Limited framerate to 60 due to issues with jumping

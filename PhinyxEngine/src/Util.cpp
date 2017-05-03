@@ -1,4 +1,4 @@
-#include "../include/Util.h"
+#include "../include/Util.hpp"
 
 std::vector<std::string> PhinyxEngine::Util::stringSplit(std::string const &stringData, char token)
 {

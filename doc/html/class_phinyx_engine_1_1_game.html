@@ -76,16 +76,13 @@ $(function() {
 <p>TODO: Placeholder documentation for <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class.  
  <a href="class_phinyx_engine_1_1_game.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_game_8h_source.html">Game.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_game_8hpp_source.html">Game.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a54cfbe817f8b8e4938636b33a4f294ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_game.html#a54cfbe817f8b8e4938636b33a4f294ee">Game</a> (bool debug)</td></tr>
-<tr class="memdesc:a54cfbe817f8b8e4938636b33a4f294ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a54cfbe817f8b8e4938636b33a4f294ee">More...</a><br /></td></tr>
-<tr class="separator:a54cfbe817f8b8e4938636b33a4f294ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af77431cfe3b47eaecb2c5ebed796dc3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_game.html#af77431cfe3b47eaecb2c5ebed796dc3b">makeGameWindow</a> (const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE)</td></tr>
-<tr class="memdesc:af77431cfe3b47eaecb2c5ebed796dc3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the game window using the specified width, height and title.  <a href="#af77431cfe3b47eaecb2c5ebed796dc3b">More...</a><br /></td></tr>
-<tr class="separator:af77431cfe3b47eaecb2c5ebed796dc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5336619d3bd432bc882e0d3c1b569470"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_game.html#a5336619d3bd432bc882e0d3c1b569470">Game</a> (const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug)</td></tr>
+<tr class="memdesc:a5336619d3bd432bc882e0d3c1b569470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a5336619d3bd432bc882e0d3c1b569470">More...</a><br /></td></tr>
+<tr class="separator:a5336619d3bd432bc882e0d3c1b569470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad49cde89fef6508b3e52f313850c89a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_game.html#ad49cde89fef6508b3e52f313850c89a3">mainLoop</a> ()</td></tr>
 <tr class="memdesc:ad49cde89fef6508b3e52f313850c89a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the game's main loop.  <a href="#ad49cde89fef6508b3e52f313850c89a3">More...</a><br /></td></tr>
 <tr class="separator:ad49cde89fef6508b3e52f313850c89a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,8 +105,8 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>TODO: Placeholder documentation for <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a54cfbe817f8b8e4938636b33a4f294ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54cfbe817f8b8e4938636b33a4f294ee">&#9670;&nbsp;</a></span>Game()</h2>
+<a id="a5336619d3bd432bc882e0d3c1b569470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5336619d3bd432bc882e0d3c1b569470">&#9670;&nbsp;</a></span>Game()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,17 +114,42 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">PhinyxEngine::Game::Game </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>debug</em></td><td>)</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>WIDTH</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>HEIGHT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>TITLE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debug</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
-<p>Sets member variable m_debugMode. </p>
+<p>Initializes the <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> instance and member variables. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">WIDTH</td><td>The width of the game window. </td></tr>
+    <tr><td class="paramname">HEIGHT</td><td>The height of the game window. </td></tr>
+    <tr><td class="paramname">TITLE</td><td>A title for the game window. </td></tr>
     <tr><td class="paramname">debug</td><td>A boolean specifying if the game is to be run in debug mode. </td></tr>
   </table>
   </dd>
@@ -210,51 +232,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af77431cfe3b47eaecb2c5ebed796dc3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af77431cfe3b47eaecb2c5ebed796dc3b">&#9670;&nbsp;</a></span>makeGameWindow()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhinyxEngine::Game::makeGameWindow </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>WIDTH</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>HEIGHT</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>TITLE</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates the game window using the specified width, height and title. </p>
-<p>Calls the init() method of the <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">WIDTH</td><td>The width of the window. </td></tr>
-    <tr><td class="paramname">HEIGHT</td><td>The height of the window. </td></tr>
-    <tr><td class="paramname">TITLE</td><td>A title for the window. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="af3e6e21825e8dcecc7857189c023cb12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3e6e21825e8dcecc7857189c023cb12">&#9670;&nbsp;</a></span>removeScene()</h2>
 
@@ -293,7 +270,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/Phixyn/Projects/game-engine-implementation-Phixyn/PhinyxEngine/include/<a class="el" href="_game_8h_source.html">Game.h</a></li>
+<li>E:/Phixyn/Projects/game-engine-implementation-Phixyn/PhinyxEngine/include/<a class="el" href="_game_8hpp_source.html">Game.hpp</a></li>
 <li>E:/Phixyn/Projects/game-engine-implementation-Phixyn/PhinyxEngine/src/<a class="el" href="_game_8cpp.html">Game.cpp</a></li>
 </ul>
 </div><!-- contents -->

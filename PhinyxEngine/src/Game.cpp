@@ -1,20 +1,11 @@
-#include "../include/Game.h"
+#include "../include/Game.hpp"
 
-/// <summary> Sets member variable m_debugMode. </summary>
-///
-/// <param name="debug"> A boolean specifying if the game is to be run in
-/// debug mode. </param>
-PhinyxEngine::Game::Game(bool debug)
+/// <summary> Initializes the Window instance and member variables. </summary>
+PhinyxEngine::Game::Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug) :
+	m_gameWindow(WIDTH, HEIGHT, TITLE, m_debugMode)
 {
 	m_logger.log("INFO", "Initializing game.");
 	m_debugMode = debug;
-}
-
-/// <summary> Calls the init() method of the Window. </summary>
-void PhinyxEngine::Game::makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE)
-{
-	m_logger.log("DEBUG", "Making game window.");
-	m_gameWindow.init(WIDTH, HEIGHT, TITLE, m_debugMode);
 }
 
 /// <summary> (TODO: list the steps). </summary>
