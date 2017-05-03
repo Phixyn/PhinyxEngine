@@ -15,7 +15,7 @@ var searchData=
   ['m_5frectwidth',['m_rectWidth',['../class_phinyx_engine_1_1_entity.html#a88dfad3d71545fdcf0ab9d6772145759',1,'PhinyxEngine::Entity']]],
   ['m_5fspeed',['m_speed',['../class_phinyx_engine_1_1_live_entity.html#a2e2b9cc136bbbbc7f4c107b70c11071a',1,'PhinyxEngine::LiveEntity']]],
   ['m_5fvelocity',['m_velocity',['../class_phinyx_engine_1_1_live_entity.html#a96ce55478067adfc2b7628738034a2d6',1,'PhinyxEngine::LiveEntity']]],
+  ['m_5fview',['m_view',['../class_phinyx_engine_1_1_window.html#a8faf9189190f49cff5d48e59d1f943b7',1,'PhinyxEngine::Window']]],
   ['mainloop',['mainLoop',['../class_phinyx_engine_1_1_game.html#ad49cde89fef6508b3e52f313850c89a3',1,'PhinyxEngine::Game']]],
-  ['makegamewindow',['makeGameWindow',['../class_phinyx_engine_1_1_game.html#af77431cfe3b47eaecb2c5ebed796dc3b',1,'PhinyxEngine::Game']]],
   ['moverect',['moveRect',['../class_phinyx_engine_1_1_collision.html#ad4c8d028fc445264040d68d302866444',1,'PhinyxEngine::Collision']]]
 ];

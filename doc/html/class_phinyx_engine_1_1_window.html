@@ -66,6 +66,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_phinyx_engine_1_1_window-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhinyxEngine::Window Class Reference</div>  </div>
@@ -75,19 +76,22 @@ $(function() {
 <p>Placeholder documentation.  
  <a href="class_phinyx_engine_1_1_window.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_window_8h_source.html">Window.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_window_8hpp_source.html">Window.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6a73dc92ef69a149db50e82e029c7d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#a6a73dc92ef69a149db50e82e029c7d7e">init</a> (const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane)</td></tr>
-<tr class="memdesc:a6a73dc92ef69a149db50e82e029c7d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializer method.  <a href="#a6a73dc92ef69a149db50e82e029c7d7e">More...</a><br /></td></tr>
-<tr class="separator:a6a73dc92ef69a149db50e82e029c7d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7e23fe18b7d7dda2f4fade00533f38f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#ae7e23fe18b7d7dda2f4fade00533f38f">Window</a> (const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane)</td></tr>
+<tr class="memdesc:ae7e23fe18b7d7dda2f4fade00533f38f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#ae7e23fe18b7d7dda2f4fade00533f38f">More...</a><br /></td></tr>
+<tr class="separator:ae7e23fe18b7d7dda2f4fade00533f38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ae0fd8ccef5c22887ea07a2468e6cf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#a6ae0fd8ccef5c22887ea07a2468e6cf8">clear</a> ()</td></tr>
 <tr class="memdesc:a6ae0fd8ccef5c22887ea07a2468e6cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the window by calling the clear method on the SFML <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> instance.  <a href="#a6ae0fd8ccef5c22887ea07a2468e6cf8">More...</a><br /></td></tr>
 <tr class="separator:a6ae0fd8ccef5c22887ea07a2468e6cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c6404dd632426c2b87a1f21b9f99e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#a60c6404dd632426c2b87a1f21b9f99e4">render</a> ()</td></tr>
 <tr class="memdesc:a60c6404dd632426c2b87a1f21b9f99e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the display method of the SFML <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> to render the window.  <a href="#a60c6404dd632426c2b87a1f21b9f99e4">More...</a><br /></td></tr>
 <tr class="separator:a60c6404dd632426c2b87a1f21b9f99e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc988244cf0c810d0c2ebe412632a06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#abdc988244cf0c810d0c2ebe412632a06">draw</a> (const sf::Drawable &amp;drawable)</td></tr>
+<tr class="memdesc:abdc988244cf0c810d0c2ebe412632a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a SFML Drawable object on the window.  <a href="#abdc988244cf0c810d0c2ebe412632a06">More...</a><br /></td></tr>
+<tr class="separator:abdc988244cf0c810d0c2ebe412632a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a423713600dd7365973425c0e74c176df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#a423713600dd7365973425c0e74c176df">drawRect</a> (sf::RectangleShape rect)</td></tr>
 <tr class="memdesc:a423713600dd7365973425c0e74c176df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a SFML RectangleShape on the window.  <a href="#a423713600dd7365973425c0e74c176df">More...</a><br /></td></tr>
 <tr class="separator:a423713600dd7365973425c0e74c176df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,10 +122,68 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8672922cb3fcdedfd43b512496de57a4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#a8672922cb3fcdedfd43b512496de57a4">getTitle</a> ()</td></tr>
 <tr class="memdesc:a8672922cb3fcdedfd43b512496de57a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing the title of the window.  <a href="#a8672922cb3fcdedfd43b512496de57a4">More...</a><br /></td></tr>
 <tr class="separator:a8672922cb3fcdedfd43b512496de57a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a8faf9189190f49cff5d48e59d1f943b7"><td class="memItemLeft" align="right" valign="top">sf::View&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_window.html#a8faf9189190f49cff5d48e59d1f943b7">m_view</a></td></tr>
+<tr class="separator:a8faf9189190f49cff5d48e59d1f943b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Placeholder documentation. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae7e23fe18b7d7dda2f4fade00533f38f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e23fe18b7d7dda2f4fade00533f38f">&#9670;&nbsp;</a></span>Window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PhinyxEngine::Window::Window </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>WIDTH</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>HEIGHT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>TITLE</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>showDebugPane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>Initializes a new SFML Render <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> for rendering 2D graphics. At the moment, a non-resizable window is created as resizing is not properly handled by the engine yet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">WIDTH</td><td>The width of the window. </td></tr>
+    <tr><td class="paramname">HEIGHT</td><td>The height of the window. </td></tr>
+    <tr><td class="paramname">TITLE</td><td>A title for the window. </td></tr>
+    <tr><td class="paramname">showDebugPane</td><td>A title for the window. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6ae0fd8ccef5c22887ea07a2468e6cf8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ae0fd8ccef5c22887ea07a2468e6cf8">&#9670;&nbsp;</a></span>clear()</h2>
 
@@ -138,6 +200,32 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Clears the window by calling the clear method on the SFML <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> instance. </p>
+
+</div>
+</div>
+<a id="abdc988244cf0c810d0c2ebe412632a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc988244cf0c810d0c2ebe412632a06">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PhinyxEngine::Window::draw </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Drawable &amp;&#160;</td>
+          <td class="paramname"><em>drawable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws a SFML Drawable object on the window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drawable</td><td>Reference to the SFML Drawable instance to be drawn on the window. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -319,58 +407,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6a73dc92ef69a149db50e82e029c7d7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a73dc92ef69a149db50e82e029c7d7e">&#9670;&nbsp;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhinyxEngine::Window::init </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>WIDTH</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>HEIGHT</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>TITLE</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>showDebugPane</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializer method. </p>
-<p>Initializes a new SFML Render <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> for rendering 2D graphics. At the moment, a non-resizable window is created as resizing is not properly handled by the engine yet. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">WIDTH</td><td>The width of the window. </td></tr>
-    <tr><td class="paramname">HEIGHT</td><td>The height of the window. </td></tr>
-    <tr><td class="paramname">TITLE</td><td>A title for the window. </td></tr>
-    <tr><td class="paramname">showDebugPane</td><td>A title for the window. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a743b63a077a9ad65fac5d25b676d9db5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a743b63a077a9ad65fac5d25b676d9db5">&#9670;&nbsp;</a></span>isOpen()</h2>
 
@@ -411,8 +447,23 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8faf9189190f49cff5d48e59d1f943b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8faf9189190f49cff5d48e59d1f943b7">&#9670;&nbsp;</a></span>m_view</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::View PhinyxEngine::Window::m_view</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/Phixyn/Projects/game-engine-implementation-Phixyn/PhinyxEngine/include/<a class="el" href="_window_8h_source.html">Window.h</a></li>
+<li>E:/Phixyn/Projects/game-engine-implementation-Phixyn/PhinyxEngine/include/<a class="el" href="_window_8hpp_source.html">Window.hpp</a></li>
 <li>E:/Phixyn/Projects/game-engine-implementation-Phixyn/PhinyxEngine/src/<a class="el" href="_window_8cpp.html">Window.cpp</a></li>
 </ul>
 </div><!-- contents -->

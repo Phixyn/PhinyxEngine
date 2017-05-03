@@ -2,7 +2,8 @@ var searchData=
 [
   ['scene',['Scene',['../class_phinyx_engine_1_1_scene.html',1,'PhinyxEngine::Scene'],['../class_phinyx_engine_1_1_scene.html#a3b45147e1379fd4298c0ebf30e91197c',1,'PhinyxEngine::Scene::Scene()']]],
   ['scene_2ecpp',['Scene.cpp',['../_scene_8cpp.html',1,'']]],
-  ['scene_2eh',['Scene.h',['../_scene_8h.html',1,'']]],
+  ['scene_2ehpp',['Scene.hpp',['../_scene_8hpp.html',1,'']]],
+  ['setbackgroundimage',['setBackgroundImage',['../class_phinyx_engine_1_1_level_scene.html#ade61d431738ee05768d7578057668470',1,'PhinyxEngine::LevelScene']]],
   ['setdead',['setDead',['../class_phinyx_engine_1_1_live_entity.html#a66d33f981a77e8c1085e5a8205135827',1,'PhinyxEngine::LiveEntity']]],
   ['setdirection',['setDirection',['../class_phinyx_engine_1_1_live_entity.html#a24898feadfddada39638677d1f690962',1,'PhinyxEngine::LiveEntity']]],
   ['settexture',['setTexture',['../class_phinyx_engine_1_1_entity.html#abcda4841049908811c5c5f12a47f4aff',1,'PhinyxEngine::Entity']]],

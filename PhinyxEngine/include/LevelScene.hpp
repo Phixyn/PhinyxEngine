@@ -51,8 +51,9 @@ namespace PhinyxEngine
 
 			/// <summary> Sets the scene's background image. </summary>
 			///
-			/// <param>
-			/// TODO
+			/// <param name="imageFilePath">
+			/// A string containing the path for the level's background
+			/// image file.
 			/// </param>
 			void setBackgroundImage(std::string imageFilePath);
 		private:
