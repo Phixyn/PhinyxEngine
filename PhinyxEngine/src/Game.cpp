@@ -1,7 +1,7 @@
 #include "../include/Game.h"
 
 /// <summary> Initializes the Window instance and member variables. </summary>
-PhinyxEngine::Game::Game(const float WIDTH, const float HEIGHT, const std::string TITLE, bool debug) :
+PhinyxEngine::Game::Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug) :
 	m_gameWindow(WIDTH, HEIGHT, TITLE, m_debugMode)
 {
 	m_logger.log("INFO", "Initializing game.");

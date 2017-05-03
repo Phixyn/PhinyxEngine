@@ -23,7 +23,7 @@ namespace PhinyxEngine
 			/// <param name="TITLE"> A title for the game window. </param>
 			/// <param name="debug"> A boolean specifying if the game is to be run in
 			/// debug mode. </param>
-			Game(const float WIDTH, const float HEIGHT, const std::string TITLE, bool debug);
+			Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug);
 
 			/// <summary> Handles the game's main loop. </summary>
 			void mainLoop();

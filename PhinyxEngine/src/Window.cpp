@@ -5,16 +5,20 @@
 /// At the moment, a non-resizable window is created as resizing is not
 /// properly handled by the engine yet.
 /// </summary>
-PhinyxEngine::Window::Window(const float WIDTH, const float HEIGHT, const std::string TITLE, bool showDebugPane)
+PhinyxEngine::Window::Window(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane) :
+	m_view(sf::Vector2f(WIDTH / 2.0f, HEIGHT / 2.0f), sf::Vector2f((float)WIDTH, (float)HEIGHT))
 {
-	m_logger.log("DEBUG", "Creating render window.");
-	m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), TITLE, sf::Style::Close);
-	m_window->requestFocus();
-	m_hasFocus = true;
 	m_WIDTH = WIDTH;
 	m_HEIGHT = HEIGHT;
 	m_TITLE = TITLE;
 	m_showDebugPane = showDebugPane;
+
+	m_logger.log("DEBUG", "Creating render window.");
+	m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), TITLE, sf::Style::Close);
+	m_window->requestFocus();
+	m_hasFocus = true;
+
+	// TODO: Debug panel
 	m_debugPane = sf::RectangleShape(sf::Vector2f(250.0f, 150.0f));
 	m_debugPane.setFillColor(sf::Color::White);
 }
@@ -42,6 +46,8 @@ void PhinyxEngine::Window::render()
 		drawText(m_debugTextDeltaTimer);
 	}
 
+	// Reset the view
+	m_window->setView(m_view);
 	m_window->display();
 }
 
@@ -100,12 +106,12 @@ bool PhinyxEngine::Window::hasFocus()
 	return m_hasFocus;
 }
 
-float PhinyxEngine::Window::getWidth()
+unsigned int PhinyxEngine::Window::getWidth()
 {
 	return m_WIDTH;
 }
 
-float PhinyxEngine::Window::getHeight()
+unsigned int PhinyxEngine::Window::getHeight()
 {
 	return m_HEIGHT;
 }

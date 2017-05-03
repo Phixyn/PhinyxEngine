@@ -170,6 +170,9 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 		}
 	}
 	// TODO: enemies
+
+	// Set the center of the game view
+	m_game_ptr->m_gameWindow.m_view.setCenter(m_player.m_rect.getPosition());
 }
 
 /// <summary>

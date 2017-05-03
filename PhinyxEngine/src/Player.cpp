@@ -9,6 +9,9 @@ PhinyxEngine::Player::Player(int health, int attackPower, float speed, float jum
 	m_rectWidth = 48.0f;
 	m_rectHeight = 52.0f;
 	m_rect = sf::RectangleShape(sf::Vector2f(m_rectWidth, m_rectHeight));
+	// Set the origin (center point for all transformations) of the
+	// player's rectangle to its center
+	// m_rect.setOrigin(sf::Vector2f(m_rect.getSize().x / 2.0f, m_rect.getSize().y));
 }
 
 /*
