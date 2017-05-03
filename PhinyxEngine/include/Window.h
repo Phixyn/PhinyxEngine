@@ -13,14 +13,13 @@ namespace PhinyxEngine
 	class Window
 	{
 		public:
-			// TODO: should this be a constructor instead?
-			/// <summary> Initializer method. </summary>
+			/// <summary> Default constructor. </summary>
 			///
 			/// <param name="WIDTH"> The width of the window. </param>
 			/// <param name="HEIGHT"> The height of the window. </param>
 			/// <param name="TITLE"> A title for the window. </param>
 			/// <param name="showDebugPane"> A title for the window. </param>
-			void init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane);
+			Window(const float WIDTH, const float HEIGHT, const std::string TITLE, bool showDebugPane);
 
 			/// <summary> Clears the window by calling the clear method on the
 			/// SFML Window instance. </summary>
@@ -57,12 +56,11 @@ namespace PhinyxEngine
 			/// <returns> A boolean indicating if the window has focus. </returns>
 			bool hasFocus();
 
-			// TODO: unsigned ints should be floats
 			/// <returns> The width of the window. </returns>
-			unsigned int getWidth();
+			float getWidth();
 
 			/// <returns> The height of the window. </returns>
-			unsigned int getHeight();
+			float getHeight();
 
 			/// <summary> Returns a string containing the title of the window. </summary>
 			/// <returns> A std::string containing the title of the window. </returns>
@@ -72,8 +70,8 @@ namespace PhinyxEngine
 			/// <summary> Boolean specifying if the window has focus.
 			/// This member variable is set in handleEvents() method. </summary>
 			bool m_hasFocus;
-			unsigned int m_WIDTH;
-			unsigned int m_HEIGHT;
+			float m_WIDTH;
+			float m_HEIGHT;
 			std::string m_TITLE;
 			std::unique_ptr<sf::RenderWindow> m_window;
 

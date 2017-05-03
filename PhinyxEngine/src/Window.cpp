@@ -5,7 +5,7 @@
 /// At the moment, a non-resizable window is created as resizing is not
 /// properly handled by the engine yet.
 /// </summary>
-void PhinyxEngine::Window::init(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane)
+PhinyxEngine::Window::Window(const float WIDTH, const float HEIGHT, const std::string TITLE, bool showDebugPane)
 {
 	m_logger.log("DEBUG", "Creating render window.");
 	m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT), TITLE, sf::Style::Close);
@@ -100,12 +100,12 @@ bool PhinyxEngine::Window::hasFocus()
 	return m_hasFocus;
 }
 
-unsigned int PhinyxEngine::Window::getWidth()
+float PhinyxEngine::Window::getWidth()
 {
 	return m_WIDTH;
 }
 
-unsigned int PhinyxEngine::Window::getHeight()
+float PhinyxEngine::Window::getHeight()
 {
 	return m_HEIGHT;
 }

@@ -3,9 +3,7 @@
 #include <memory>
 
 int main() {
-	PhinyxEngine::Game game(false);
+	PhinyxEngine::Game game(800, 600, "Phinyx Engine Demo", false);
 	game.addScene(std::make_unique<PhinyxEngine::LevelScene>(game, "example.lvl", "example.dat"));
-
-	game.makeGameWindow(800, 600, "Phinyx Engine Demo");
 	game.mainLoop();
 }

@@ -17,17 +17,13 @@ namespace PhinyxEngine
 	{
 		public:
 			/// <summary> Default constructor. </summary>
-			Game(bool debug);
-
-			/// <summary>
-			/// Creates the game window using the specified width, height
-			/// and title.
-			/// </summary>
 			///
-			/// <param name="WIDTH"> The width of the window. </param>
-			/// <param name="HEIGHT"> The height of the window. </param>
-			/// <param name="TITLE"> A title for the window. </param>
-			void makeGameWindow(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE);
+			/// <param name="WIDTH"> The width of the game window. </param>
+			/// <param name="HEIGHT"> The height of the game window. </param>
+			/// <param name="TITLE"> A title for the game window. </param>
+			/// <param name="debug"> A boolean specifying if the game is to be run in
+			/// debug mode. </param>
+			Game(const float WIDTH, const float HEIGHT, const std::string TITLE, bool debug);
 
 			/// <summary> Handles the game's main loop. </summary>
 			void mainLoop();
