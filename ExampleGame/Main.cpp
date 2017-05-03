@@ -1,5 +1,5 @@
-#include "Game.h"
-#include "LevelScene.h"
+#include "Game.hpp"
+#include "LevelScene.hpp"
 #include <memory>
 
 int main() {

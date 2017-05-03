@@ -1,7 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "Collision.h"
+#include "Collision.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine

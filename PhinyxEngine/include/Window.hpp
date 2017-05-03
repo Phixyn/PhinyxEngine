@@ -1,7 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "Logger.h"
+#include "Logger.hpp"
 #include <string>
 #include <memory>
 #include <vector>

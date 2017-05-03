@@ -1,7 +1,7 @@
 #ifndef COLLISION_H
 #define COLLISION_H
 
-#include "Logger.h"
+#include "Logger.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine

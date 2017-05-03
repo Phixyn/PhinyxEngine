@@ -1,11 +1,11 @@
 #ifndef LEVEL_SCENE_H
 #define LEVEL_SCENE_H
 
-#include "Scene.h"
-#include "Player.h"
-#include "TileEntity.h"
-#include "Util.h"
-#include "Logger.h"
+#include "Scene.hpp"
+#include "Player.hpp"
+#include "TileEntity.hpp"
+#include "Util.hpp"
+#include "Logger.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine

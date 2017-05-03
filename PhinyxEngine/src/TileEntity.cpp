@@ -1,4 +1,4 @@
-#include "../include/TileEntity.h"
+#include "../include/TileEntity.hpp"
 
 /// <summary>
 /// Calls the superclass constructor and initializes member variables.

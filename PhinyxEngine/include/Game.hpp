@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Window.h"
-#include "Scene.h"
+#include "Window.hpp"
+#include "Scene.hpp"
 #include <queue>
 
 /// <summary>

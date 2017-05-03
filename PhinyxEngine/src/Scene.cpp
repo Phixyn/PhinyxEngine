@@ -1,4 +1,4 @@
-#include "../include/Scene.h"
+#include "../include/Scene.hpp"
 
 /// <summary> Sets m_game_ptr to the reference of Game in the
 /// parameter. </summary>

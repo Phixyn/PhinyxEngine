@@ -1,4 +1,4 @@
-#include "../include/Player.h"
+#include "../include/Player.hpp"
 
 /// <summary>
 /// Calls the superclass constructor and initializes member variables.

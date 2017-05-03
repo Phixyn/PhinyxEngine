@@ -1,7 +1,7 @@
 #ifndef ENEMY_MONSTER_H
 #define ENEMY_MONSTER_H
 
-#include "LiveEntity.h"
+#include "LiveEntity.hpp"
 
 namespace PhinyxEngine
 {

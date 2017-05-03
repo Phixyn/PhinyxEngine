@@ -1,6 +1,6 @@
-#include "../include/LevelScene.h"
-#include "../include/Game.h"
-#include "../include/EnemyMonster.h"
+#include "../include/LevelScene.hpp"
+#include "../include/Game.hpp"
+#include "../include/EnemyMonster.hpp"
 #include <fstream>
 
 /// <summary>

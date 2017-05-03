@@ -1,4 +1,4 @@
-#include "../include/Game.h"
+#include "../include/Game.hpp"
 
 /// <summary> Initializes the Window instance and member variables. </summary>
 PhinyxEngine::Game::Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug) :

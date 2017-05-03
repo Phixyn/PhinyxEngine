@@ -1,4 +1,4 @@
-#include "../include/Entity.h"
+#include "../include/Entity.hpp"
 
 /// <summary>
 /// Initilizes the Collision object.

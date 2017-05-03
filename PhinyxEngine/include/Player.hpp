@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "LiveEntity.h"
+#include "LiveEntity.hpp"
 
 namespace PhinyxEngine
 {

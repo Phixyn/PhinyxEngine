@@ -1,8 +1,8 @@
 #ifndef LIVE_ENTITY_H
 #define LIVE_ENTITY_H
 
-#include "Entity.h"
-#include "Logger.h"
+#include "Entity.hpp"
+#include "Logger.hpp"
 
 namespace PhinyxEngine
 {

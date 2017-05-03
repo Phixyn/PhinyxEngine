@@ -1,7 +1,7 @@
 #ifndef TILE_ENTITY_H
 #define TILE_ENTITY_H
 
-#include "Entity.h"
+#include "Entity.hpp"
 
 namespace PhinyxEngine
 {

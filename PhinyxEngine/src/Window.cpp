@@ -1,4 +1,4 @@
-#include "../include/Window.h"
+#include "../include/Window.hpp"
 
 /// <summary>
 /// Initializes a new SFML Render Window for rendering 2D graphics.
