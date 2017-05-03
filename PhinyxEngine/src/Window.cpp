@@ -69,6 +69,13 @@ void PhinyxEngine::Window::drawText(sf::Text text)
 	m_window->draw(text);
 }
 
+// TODO not working as intended
+void PhinyxEngine::Window::resizeView(sf::Window &window, sf::View &view)
+{
+	float aspectRatio = (float)window.getSize().x / (float)window.getSize().y;
+	view.setSize(m_WIDTH * aspectRatio, m_HEIGHT);
+}
+
 /// <summary> Polls the SFML Window for events and handles them appropriately. </summary>
 void PhinyxEngine::Window::handleEvents()
 {
@@ -83,11 +90,9 @@ void PhinyxEngine::Window::handleEvents()
 				m_window->close();
 				break;
 			case sf::Event::LostFocus:
-				m_logger.log("DEBUG", "Lost window focus.");
 				m_hasFocus = false;
 				break;
 			case sf::Event::GainedFocus:
-				m_logger.log("DEBUG", "Gained window focus.");
 				m_hasFocus = true;
 				break;
 		}

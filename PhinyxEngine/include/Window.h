@@ -69,6 +69,19 @@ namespace PhinyxEngine
 			// View for the game, this could be moved to the game class in the future
 			sf::View m_view;
 		private:
+			/// <summary>
+			/// Resizes the game's view and its contents proportionally to an
+			/// aspect ratio.
+			/// </summary>
+			///
+			/// <param name="window">
+			/// A reference to the SFML Window instance that has the view.
+			/// </param>
+			/// <param name="view">
+			/// A reference to the SFML View to be resized.
+			/// </param>
+			void resizeView(sf::Window &window, sf::View &view);
+
 			bool m_showDebugPane;
 			/// <summary> Boolean specifying if the window has focus.
 			/// This member variable is set in handleEvents() method. </summary>
