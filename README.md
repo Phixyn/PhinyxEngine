@@ -12,6 +12,8 @@ The API documentation was generated with [DoxyGen](http://www.stack.nl/~dimitri/
 
 ## Usage
 
+#### Compiled Static Library
+
 PhinyxEngine can be linked as a library when compiling your game. See the project's [Releases](https://github.com/IMDCGP207-1617/game-engine-implementation-Phixyn/releases) for the latest `.lib` file.
 
 ## Example Game
@@ -54,3 +56,13 @@ In the `.lvl` file there must be a spawn point for the player, typically represe
 * Game window resizing to a range of resolutions.
 * Handling of entity health, attacks, scores, etc.
 * Better background image loading and support.
+
+## Credits
+
+SFML Framework by Laurent Gomila licensed under the [zlib/libpng license.](https://opensource.org/licenses/Zlib) Full SFML license can be [found here.](https://www.sfml-dev.org/license.php)
+
+[Example game player sprite](https://opengameart.org/content/cute-girl-free-sprites) by [pzUH](https://opengameart.org/users/pzuh) and licensed under [CC0](http://creativecommons.org/publicdomain/zero/1.0/).
+
+[Example game platform tiles](https://opengameart.org/content/platform-tiles-0) by [Alucard](https://opengameart.org/users/alucard) and licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+
+[Example game background image](https://opengameart.org/content/background-night) by [Alekei](https://opengameart.org/users/alekei) and licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/).
