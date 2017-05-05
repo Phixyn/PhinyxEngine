@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Placeholder class documentation  
+<p>Class for game entities such as monsters, tiles and the player character.  
  <a href="class_phinyx_engine_1_1_entity.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>&gt;</code></p>
@@ -86,7 +86,7 @@ Inheritance diagram for PhinyxEngine::Entity:</div>
 <area href="class_phinyx_engine_1_1_live_entity.html" title="Subclass of Entity for live entities. Examples of live entities are NPCs, monsters and the player cha..." alt="PhinyxEngine::LiveEntity" shape="rect" coords="94,56,273,80"/>
 <area href="class_phinyx_engine_1_1_tile_entity.html" title="Subclass of Entity for tile entities. Tiles can be anything from flooring and wall rectangle shapes..." alt="PhinyxEngine::TileEntity" shape="rect" coords="283,56,462,80"/>
 <area href="class_phinyx_engine_1_1_enemy_monster.html" title="Subclass of LiveEntity for enemy monsters. " alt="PhinyxEngine::EnemyMonster" shape="rect" coords="0,112,179,136"/>
-<area href="class_phinyx_engine_1_1_player.html" title="Placeholder documentation. " alt="PhinyxEngine::Player" shape="rect" coords="189,112,368,136"/>
+<area href="class_phinyx_engine_1_1_player.html" title="Subclass of LiveEntity for the player character. " alt="PhinyxEngine::Player" shape="rect" coords="189,112,368,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -96,7 +96,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:affca2c8ed5c8a746a659309b73160087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#affca2c8ed5c8a746a659309b73160087">More...</a><br /></td></tr>
 <tr class="separator:affca2c8ed5c8a746a659309b73160087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3815fcc1ec4b4b667ebcf81dad3b9a9f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_entity.html#a3815fcc1ec4b4b667ebcf81dad3b9a9f">handleEvents</a> ()=0</td></tr>
-<tr class="memdesc:a3815fcc1ec4b4b667ebcf81dad3b9a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to handle events of the <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Placeholder class documentation ">Entity</a>.  <a href="#a3815fcc1ec4b4b667ebcf81dad3b9a9f">More...</a><br /></td></tr>
+<tr class="memdesc:a3815fcc1ec4b4b667ebcf81dad3b9a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to handle events of the <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Class for game entities such as monsters, tiles and the player character. ">Entity</a>.  <a href="#a3815fcc1ec4b4b667ebcf81dad3b9a9f">More...</a><br /></td></tr>
 <tr class="separator:a3815fcc1ec4b4b667ebcf81dad3b9a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f238591bcadf99cadfe5805bdb2af53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_entity.html#a3f238591bcadf99cadfe5805bdb2af53">update</a> (float deltaTime)=0</td></tr>
 <tr class="memdesc:a3f238591bcadf99cadfe5805bdb2af53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to update the scene.  <a href="#a3f238591bcadf99cadfe5805bdb2af53">More...</a><br /></td></tr>
@@ -108,7 +108,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:abcda4841049908811c5c5f12a47f4aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the texture for the entity.  <a href="#abcda4841049908811c5c5f12a47f4aff">More...</a><br /></td></tr>
 <tr class="separator:abcda4841049908811c5c5f12a47f4aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eb505f5caddc226abd77fd637817897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_phinyx_engine_1_1_collision.html">Collision</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_entity.html#a4eb505f5caddc226abd77fd637817897">getCollision</a> ()</td></tr>
-<tr class="memdesc:a4eb505f5caddc226abd77fd637817897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new instance of <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Placeholder documentation. ">Collision</a> for this entity, which can be used to handle and solve collisions between this entity and other entities in the game.  <a href="#a4eb505f5caddc226abd77fd637817897">More...</a><br /></td></tr>
+<tr class="memdesc:a4eb505f5caddc226abd77fd637817897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new instance of <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Class for handling and solving collisions between entities. ">Collision</a> for this entity, which can be used to handle and solve collisions between this entity and other entities in the game.  <a href="#a4eb505f5caddc226abd77fd637817897">More...</a><br /></td></tr>
 <tr class="separator:a4eb505f5caddc226abd77fd637817897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -123,7 +123,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a78745b756a261b41e966cc0d6e645fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Placeholder class documentation </p>
+<div class="textblock"><p>Class for game entities such as monsters, tiles and the player character. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="affca2c8ed5c8a746a659309b73160087"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#affca2c8ed5c8a746a659309b73160087">&#9670;&nbsp;</a></span>Entity()</h2>
@@ -141,7 +141,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
-<p>Initilizes the <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Placeholder documentation. ">Collision</a> object. </p>
+<p>Initilizes the <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Class for handling and solving collisions between entities. ">Collision</a> object. </p>
 
 </div>
 </div>
@@ -190,8 +190,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a new instance of <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Placeholder documentation. ">Collision</a> for this entity, which can be used to handle and solve collisions between this entity and other entities in the game. </p>
-<dl class="section return"><dt>Returns</dt><dd>A new instance of <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Placeholder documentation. ">Collision</a> with the <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Placeholder class documentation ">Entity</a>'s rectangle. </dd></dl>
+<p>Returns a new instance of <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Class for handling and solving collisions between entities. ">Collision</a> for this entity, which can be used to handle and solve collisions between this entity and other entities in the game. </p>
+<dl class="section return"><dt>Returns</dt><dd>A new instance of <a class="el" href="class_phinyx_engine_1_1_collision.html" title="Class for handling and solving collisions between entities. ">Collision</a> with the <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Class for game entities such as monsters, tiles and the player character. ">Entity</a>'s rectangle. </dd></dl>
 
 </div>
 </div>
@@ -218,7 +218,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pure virtual method to handle events of the <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Placeholder class documentation ">Entity</a>. </p>
+<p>Pure virtual method to handle events of the <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Class for game entities such as monsters, tiles and the player character. ">Entity</a>. </p>
 
 <p>Implemented in <a class="el" href="class_phinyx_engine_1_1_live_entity.html#a380aa82a48996df553593e9e5d343c79">PhinyxEngine::LiveEntity</a>, and <a class="el" href="class_phinyx_engine_1_1_tile_entity.html#af7989c83d9c7af742144496c425d6bc6">PhinyxEngine::TileEntity</a>.</p>
 
@@ -241,7 +241,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the texture for the entity. </p>
-<p>Calls the setTexture method of this <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Placeholder class documentation ">Entity</a>'s SFML RectangleShape instance to give it a texture. </p>
+<p>Calls the setTexture method of this <a class="el" href="class_phinyx_engine_1_1_entity.html" title="Class for game entities such as monsters, tiles and the player character. ">Entity</a>'s SFML RectangleShape instance to give it a texture. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">texture</td><td>A pointer to a SFML Texture object required by SFML's setTexture method. </td></tr>

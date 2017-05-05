@@ -72,6 +72,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Subclass of <a class="el" href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens...">Scene</a> for game levels.  
+ <a href="class_phinyx_engine_1_1_level_scene.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_level_scene_8hpp_source.html">LevelScene.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhinyxEngine::LevelScene:</div>
@@ -79,7 +82,7 @@ Inheritance diagram for PhinyxEngine::LevelScene:</div>
  <div class="center">
   <img src="class_phinyx_engine_1_1_level_scene.png" usemap="#PhinyxEngine::LevelScene_map" alt=""/>
   <map id="PhinyxEngine::LevelScene_map" name="PhinyxEngine::LevelScene_map">
-<area href="class_phinyx_engine_1_1_scene.html" title="Placeholder documentation. " alt="PhinyxEngine::Scene" shape="rect" coords="0,0,162,24"/>
+<area href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens..." alt="PhinyxEngine::Scene" shape="rect" coords="0,0,162,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -112,10 +115,12 @@ Public Member Functions</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_phinyx_engine_1_1_scene"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_phinyx_engine_1_1_scene')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_phinyx_engine_1_1_scene.html">PhinyxEngine::Scene</a></td></tr>
 <tr class="memitem:ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c inherit pro_attribs_class_phinyx_engine_1_1_scene"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_phinyx_engine_1_1_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_scene.html#ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c">m_game_ptr</a></td></tr>
-<tr class="memdesc:ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c inherit pro_attribs_class_phinyx_engine_1_1_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to an instance of the <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class.  <a href="class_phinyx_engine_1_1_scene.html#ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c">More...</a><br /></td></tr>
+<tr class="memdesc:ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c inherit pro_attribs_class_phinyx_engine_1_1_scene"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to an instance of the <a class="el" href="class_phinyx_engine_1_1_game.html" title="Main game class used to initialize the game, create a game window and add scenes to it...">Game</a> class.  <a href="class_phinyx_engine_1_1_scene.html#ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c">More...</a><br /></td></tr>
 <tr class="separator:ab2c7ff0ca7c3ab4d5fe8eaf8ef66fb3c inherit pro_attribs_class_phinyx_engine_1_1_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Subclass of <a class="el" href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens...">Scene</a> for game levels. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a60fb773752f02b7d925ff8c43e7d4731"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60fb773752f02b7d925ff8c43e7d4731">&#9670;&nbsp;</a></span>LevelScene() <span class="overload">[1/2]</span></h2>
 
@@ -149,10 +154,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
-<p>Constructor for the class. Initializes the member variables for the <a class="el" href="class_phinyx_engine_1_1_level_scene.html">LevelScene</a> in an initializer statement (?) and calls methods to parse the level and level data files. </p>
+<p>Constructor for the class. Initializes the member variables for the <a class="el" href="class_phinyx_engine_1_1_level_scene.html" title="Subclass of Scene for game levels. ">LevelScene</a> in an initializer statement (?) and calls methods to parse the level and level data files. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>A pointer to an instance of the <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class. </td></tr>
+    <tr><td class="paramname">game</td><td>A pointer to an instance of the <a class="el" href="class_phinyx_engine_1_1_game.html" title="Main game class used to initialize the game, create a game window and add scenes to it...">Game</a> class. </td></tr>
     <tr><td class="paramname">levelFilePath</td><td>A string containing the path for the level file. </td></tr>
     <tr><td class="paramname">dataFilePath</td><td>A string containing the path for the level's data file. </td></tr>
   </table>
@@ -202,7 +207,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Overloaded constructor with a parameter for the scene's background image. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>A pointer to an instance of the <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class. </td></tr>
+    <tr><td class="paramname">game</td><td>A pointer to an instance of the <a class="el" href="class_phinyx_engine_1_1_game.html" title="Main game class used to initialize the game, create a game window and add scenes to it...">Game</a> class. </td></tr>
     <tr><td class="paramname">levelFilePath</td><td>A string containing the path for the level file. </td></tr>
     <tr><td class="paramname">dataFilePath</td><td>A string containing the path for the level's data file. </td></tr>
     <tr><td class="paramname">backgroundImagePath</td><td>A string containing the path for the background image file. </td></tr>

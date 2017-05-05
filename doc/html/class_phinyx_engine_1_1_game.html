@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>TODO: Placeholder documentation for <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class.  
+<p>Main game class used to initialize the game, create a game window and add scenes to it.  
  <a href="class_phinyx_engine_1_1_game.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_game_8hpp_source.html">Game.hpp</a>&gt;</code></p>
@@ -99,11 +99,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aab0392c882fef0eae39e879bfc497867"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_phinyx_engine_1_1_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_phinyx_engine_1_1_game.html#aab0392c882fef0eae39e879bfc497867">m_gameWindow</a></td></tr>
-<tr class="memdesc:aab0392c882fef0eae39e879bfc497867"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> instance for the game.  <a href="#aab0392c882fef0eae39e879bfc497867">More...</a><br /></td></tr>
+<tr class="memdesc:aab0392c882fef0eae39e879bfc497867"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_phinyx_engine_1_1_window.html" title="Class for creating and managing a game window. ">Window</a> instance for the game.  <a href="#aab0392c882fef0eae39e879bfc497867">More...</a><br /></td></tr>
 <tr class="separator:aab0392c882fef0eae39e879bfc497867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>TODO: Placeholder documentation for <a class="el" href="class_phinyx_engine_1_1_game.html" title="TODO: Placeholder documentation for Game class. ">Game</a> class. </p>
+<div class="textblock"><p>Main game class used to initialize the game, create a game window and add scenes to it. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5336619d3bd432bc882e0d3c1b569470"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5336619d3bd432bc882e0d3c1b569470">&#9670;&nbsp;</a></span>Game()</h2>
@@ -144,7 +144,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
-<p>Initializes the <a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> instance and member variables. </p>
+<p>Initializes the <a class="el" href="class_phinyx_engine_1_1_window.html" title="Class for creating and managing a game window. ">Window</a> instance and member variables. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">WIDTH</td><td>The width of the game window. </td></tr>
@@ -175,10 +175,10 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds a new scene to the game. </p>
-<p>Adds a pointer to a <a class="el" href="class_phinyx_engine_1_1_scene.html" title="Placeholder documentation. ">Scene</a> to the game's scene pointer queue. std::move() is used as to not push a copy of the pointer, but rather the pointer. </p>
+<p>Adds a pointer to a <a class="el" href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens...">Scene</a> to the game's scene pointer queue. std::move() is used as to not push a copy of the pointer, but rather the pointer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>A unique pointer to a <a class="el" href="class_phinyx_engine_1_1_scene.html" title="Placeholder documentation. ">Scene</a>. </td></tr>
+    <tr><td class="paramname">scene</td><td>A unique pointer to a <a class="el" href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens...">Scene</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -205,7 +205,7 @@ Public Attributes</h2></td></tr>
 <p>Changes to a new scene in the game by removing the top scene and adding a new scene to the queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>A unique pointer to a <a class="el" href="class_phinyx_engine_1_1_scene.html" title="Placeholder documentation. ">Scene</a>. </td></tr>
+    <tr><td class="paramname">scene</td><td>A unique pointer to a <a class="el" href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens...">Scene</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -248,7 +248,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Removes a scene from the game. </p>
-<p>Calls pop() on the <a class="el" href="class_phinyx_engine_1_1_scene.html" title="Placeholder documentation. ">Scene</a> pointer queue. </p>
+<p>Calls pop() on the <a class="el" href="class_phinyx_engine_1_1_scene.html" title="A class for scenes and scene management. Scenes can be anything from levels, to main menu screens...">Scene</a> pointer queue. </p>
 
 </div>
 </div>
@@ -265,7 +265,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_phinyx_engine_1_1_window.html" title="Placeholder documentation. ">Window</a> instance for the game. </p>
+<p><a class="el" href="class_phinyx_engine_1_1_window.html" title="Class for creating and managing a game window. ">Window</a> instance for the game. </p>
 
 </div>
 </div>
