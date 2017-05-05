@@ -10,6 +10,9 @@
 
 namespace PhinyxEngine
 {
+	/// <summary>
+	/// Subclass of Scene for game levels.
+	/// </summary>
 	class LevelScene : public Scene
 	{
 		public:

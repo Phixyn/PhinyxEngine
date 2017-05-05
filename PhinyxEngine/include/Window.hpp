@@ -9,7 +9,9 @@
 
 namespace PhinyxEngine
 {
-	/// <summary> Placeholder documentation. </summary>
+	/// <summary>
+	/// Class for creating and managing a game window.
+	/// </summary>
 	class Window
 	{
 		public:

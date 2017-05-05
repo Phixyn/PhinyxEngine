@@ -6,7 +6,9 @@
 
 namespace PhinyxEngine
 {
-	/// <summary> Placeholder documentation. </summary>
+	/// <summary>
+	/// Class for handling and solving collisions between entities.
+	/// </summary>
 	class Collision
 	{
 		public:

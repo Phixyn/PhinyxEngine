@@ -5,7 +5,10 @@ namespace PhinyxEngine
 {
 	// Forward declaration for the Game class.
 	class Game;
-	/// <summary> Placeholder documentation. </summary>
+	/// <summary>
+	/// A class for scenes and scene management. Scenes can be anything
+	/// from levels, to main menu screens.
+	/// </summary>
 	class Scene
 	{
 		public:

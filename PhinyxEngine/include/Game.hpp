@@ -6,12 +6,13 @@
 #include <queue>
 
 /// <summary>
-/// TODO: Placeholder documentation for namespace PhinyxEngine.
+/// Namespace for the game engine.
 /// </summary>
 namespace PhinyxEngine
 {
 	/// <summary>
-	/// TODO: Placeholder documentation for Game class.
+	/// Main game class used to initialize the game, create a game window
+	/// and add scenes to it.
 	/// </summary>
 	class Game
 	{
