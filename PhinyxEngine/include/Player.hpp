@@ -5,7 +5,9 @@
 
 namespace PhinyxEngine
 {
-	/// <summary> Placeholder documentation. </summary>
+	/// <summary>
+	/// Subclass of LiveEntity for the player character.
+	/// </summary>
 	class Player : public LiveEntity
 	{
 		public:

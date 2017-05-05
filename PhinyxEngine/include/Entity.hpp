@@ -6,7 +6,10 @@
 
 namespace PhinyxEngine
 {
-	/// <summary> Placeholder class documentation </summary>
+	/// <summary>
+	/// Class for game entities such as monsters, tiles and the player
+	/// character.
+	/// </summary>
 	class Entity
 	{
 		public:
