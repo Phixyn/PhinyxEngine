@@ -17,7 +17,7 @@ PhinyxEngine can be linked as a library when compiling your game. See the projec
 
 ## Example Game
 
-The source code for an example game implementation can be found in the `ExampleGame` folder. The executable for the game, along with all needed assets to run it, can be found in the project's [Releases](https://github.com/IMDCGP207-1617/game-engine-implementation-Phixyn/releases). Please download the latest zip file from there and extract it to a folder. Run the `.exe` to run it.
+The source code for an example game implementation can be found in the `ExampleGame` folder. The executable for the game, along with all needed assets to run it, can be found in the project's [Releases](https://github.com/IMDCGP207-1617/game-engine-implementation-Phixyn/releases). Please download the latest zip file from there and extract it to a folder. Run the `.exe` to run it. This zip file is now also in the repository.
 
 ## Project Dependencies
 
