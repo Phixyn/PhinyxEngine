@@ -17,6 +17,16 @@ namespace PhinyxEngine
 			Entity();
 
 			/// <summary>
+			/// Default virtual destructor for this class.
+			/// Deleting a derived class object using a pointer to a base class
+			/// that has a non-virtual destructor results in undefined and/or
+			/// undesirable behavior. To prevent this, and to ensure that the
+			/// base class' destructor is called after the derived class'
+			/// destructor, the base class should have a virtual destructor.
+			/// </summary>
+			virtual ~Entity() { }
+
+			/// <summary>
 			/// Pure virtual method to handle events of the Entity.
 			/// </summary>
 			virtual void handleEvents() = 0;

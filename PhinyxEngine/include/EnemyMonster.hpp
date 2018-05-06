@@ -19,6 +19,11 @@ namespace PhinyxEngine
 			/// monster. Each attack to another target entity will subtract
 			/// this value from the target entity's health.</param>
 			EnemyMonster(int health, int attackPower);
+
+			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~EnemyMonster() { }
 	};
 }
 

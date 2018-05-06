@@ -20,6 +20,11 @@ namespace PhinyxEngine
 			TileEntity(sf::RectangleShape rect);
 
 			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~TileEntity() { }
+
+			/// <summary>
 			/// Not yet implemented. Handles events pertaining to the
 			/// tile entity.
 			/// </summary>
