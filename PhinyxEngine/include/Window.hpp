@@ -23,6 +23,11 @@ namespace PhinyxEngine
 			/// <param name="showDebugPane"> A title for the window. </param>
 			Window(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane);
 
+			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~Window() { }
+
 			/// <summary> Clears the window by calling the clear method on the
 			/// SFML Window instance. </summary>
 			void clear();
@@ -65,20 +70,20 @@ namespace PhinyxEngine
 			/// <summary> Handles SFML events received in the window. </summary>
 			void handleEvents();
 
-			bool isOpen();
+			bool isOpen() const;
 
 			/// <returns> A boolean indicating if the window has focus. </returns>
-			bool hasFocus();
+			bool hasFocus() const;
 
 			/// <returns> The width of the window. </returns>
-			unsigned int getWidth();
+			unsigned int getWidth() const;
 
 			/// <returns> The height of the window. </returns>
-			unsigned int getHeight();
+			unsigned int getHeight() const;
 
 			/// <summary> Returns a string containing the title of the window. </summary>
 			/// <returns> A std::string containing the title of the window. </returns>
-			std::string getTitle();
+			std::string getTitle() const;
 
 			// View for the game, this could be moved to the game class in the future
 			sf::View m_view;

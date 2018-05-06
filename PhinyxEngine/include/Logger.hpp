@@ -25,6 +25,11 @@ namespace PhinyxEngine
 			Logger(bool showTimestamps = true);
 
 			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~Logger() { }
+
+			/// <summary>
 			/// TODO
 			/// </summary>
 			///
