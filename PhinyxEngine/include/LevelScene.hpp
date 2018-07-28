@@ -176,7 +176,7 @@ namespace PhinyxEngine
 			/// Size (in pixels) of the textures used by sprites in the scene.
 			/// </summary>
 			float m_textureSize = 48;
-			
+
 			/// <summary>
 			/// TODO
 			/// </summary>
