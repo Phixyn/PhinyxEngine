@@ -19,6 +19,7 @@ namespace PhinyxEngine
 	{
 		public:
 			/// <summary>
+			/// Default constructor.
 			/// Initializes the Game instance and member variables.
 			/// </summary>
 			///

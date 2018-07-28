@@ -50,12 +50,12 @@ namespace PhinyxEngine
 		private:
 			/// <summary>
 			/// Force of this tile entity.
-			/// 0 = solid and can't be moved
+			/// 0 = solid and can't be moved.
 			/// TODO:  Positive values should allow the player to move it by
 			/// m_force per second (?) (or should it be negative values that
-			/// allow this?)
+			/// allow this?).
 			/// TODO: Add getters and setters for this. And update/draw should
-			/// take force into consideration (can make tasks for this)
+			/// take force into consideration (can make tasks for this).
 			/// </summary>
 			float m_force;
 	};

@@ -249,7 +249,13 @@ namespace PhinyxEngine
 			float getMaxSpeed();
 
 			// TODO: animate?
-			/// <summary> Handles live entity collision. </summary>
+			/// <summary>
+			/// Handles live entity collision.
+			/// </summary>
+			///
+			/// <param name="direction">
+			/// A SFML Vector2f containing the entity's direction.
+			/// </param>
 			void onCollision(sf::Vector2f direction);
 
 			/// <summary>

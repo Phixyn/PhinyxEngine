@@ -17,7 +17,7 @@ namespace PhinyxEngine
 	{
 		public:
 			/// <summary>
-			/// Default emoty constructor.
+			/// Default empty constructor.
 			/// </summary>
 			Entity();
 

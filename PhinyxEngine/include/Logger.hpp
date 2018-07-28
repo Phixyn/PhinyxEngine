@@ -35,7 +35,9 @@ namespace PhinyxEngine
 			/// <param name="level">
 			/// Level of importance of the log message (e.g. info).
 			/// </param>
-			/// <param name="message"> The message to be logged. </param>
+			/// <param name="message">
+			/// The message to be logged.
+			/// </param>
 			void log(std::string level, std::string message);
 		private:
 			/// <summary>
