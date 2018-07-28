@@ -7,8 +7,8 @@
 namespace PhinyxEngine
 {
 	/// <summary>
-	/// Subclass of Entity for live entities. Examples of live entities are
-	/// NPCs, monsters and the player character.
+	/// Subclass of <see cref="Entity">Entity</see> for live entities.
+	/// Examples of live entities are NPCs, monsters and a player character.
 	/// </summary>
 	class LiveEntity : public Entity
 	{
@@ -59,20 +59,33 @@ namespace PhinyxEngine
 			/// </summary>
 			virtual ~LiveEntity() { }
 
-			/// <summary> Implements Entity's handleEvents() method. </summary>
+			/// <summary>
+			/// Handles events specific to the live entity.
+			/// </summary>
 			virtual void handleEvents() override;
 
-			/// <summary> Implements Entity's update() method. </summary>
+			/// <summary>
+			/// Updates the live entity.
+			/// </summary>
+			///
 			/// <param name="deltaTime">
 			/// The delta time for the update frequency rate.
 			/// </param>
 			virtual void update(float deltaTime) override;
 
-			/// <summary> Implements Entity's draw() method. </summary>
+			/// <summary>
+			/// Draws the live entity.
+			/// </summary>
 			virtual void draw() override;
 
 			// TODO: animate?
-			/// <summary> Handles live entity collision. </summary>
+			/// <summary>
+			/// Handles live entity collision.
+			/// </summary>
+			///
+			/// <param name="direction">
+			/// A SFML Vector2f containing the entity's direction.
+			/// </param>
 			void onCollision(sf::Vector2f direction);
 
 			/// <summary>
@@ -106,27 +119,68 @@ namespace PhinyxEngine
 			void setDead(bool dead);
 
 			// TODO: Direction handling
-			/// <summary> Not yet implemented. </summary>
+			/// <summary>
+			/// Not yet implemented.
+			/// </summary>
+			///
 			/// <returns>
 			/// A SFML Vector2f containing the entity's direction.
 			/// </returns>
 			sf::Vector2f getDirection();
 
-			/// <summary> Not yet implemented. </summary>
+			/// <summary>
+			/// Not yet implemented.
+			/// </summary>
+			///
 			/// <param name="direction">
 			/// A SFML Vector2f containing the entity's direction.
 			/// </param>
 			void setDirection(sf::Vector2f direction);
 		protected:
+			/// <summary>
+			/// Entity's health points. 0 = dead.
+			/// </summary>
 			int m_health;
+			/// <summary>
+			/// Entity's attack power. Each attack to another target entity will
+			/// subtract this value from the target entity's health.
+			/// </summary>
 			int m_attackPower;
+			/// <summary>
+			/// Entity's movement speed.
+			/// </summary>
 			float m_speed;
+			/// <summary>
+			/// Entity's jump height in pixels, which is added to its Y position
+			/// when it jumps.
+			/// </summary>
 			float m_jumpHeight;
+			/// <summary>
+			/// A boolean specifying if the live entity is aggressive.
+			/// If a live entity is aggressive, it may attack other entities
+			/// (such as the player or good/neutral NPCs).
+			/// </summary>
 			bool m_aggressive;
+			/// <summary>
+			/// A boolean specifying if the live entity is ded. X_X
+			/// </summary>
 			bool m_dead;
+			/// <summary>
+			/// A boolean specifying if this live entity has the ability to
+			/// jump vertically.
+			/// </summary>
 			bool m_canJump = true;
+			/// <summary>
+			/// A SFML Vector2f containing the entity's velocity.
+			/// </summary>
 			sf::Vector2f m_velocity;
+			/// <summary>
+			/// A SFML Vector2f containing the entity's direction.
+			/// </summary>
 			// sf::Vector2f m_direction;
+			/// <summary>
+			/// Instance of <see cref="Logger">Logger</see> for logging.
+			/// </summary>
 			Logger m_logger;
 	};
 }

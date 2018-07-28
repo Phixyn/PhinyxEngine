@@ -13,7 +13,9 @@ namespace PhinyxEngine
 	class Entity
 	{
 		public:
-			/// <summary> Default constructor. </summary>
+			/// <summary>
+			/// Default empty constructor.
+			/// </summary>
 			Entity();
 
 			/// <summary>
@@ -27,12 +29,12 @@ namespace PhinyxEngine
 			virtual ~Entity() { }
 
 			/// <summary>
-			/// Pure virtual method to handle events of the Entity.
+			/// Pure virtual method to handle events of the entity.
 			/// </summary>
 			virtual void handleEvents() = 0;
 
 			/// <summary>
-			/// Pure virtual method to update the scene.
+			/// Pure virtual method to update the entity.
 			/// </summary>
 			///
 			/// <param name="deltaTime">
@@ -41,13 +43,18 @@ namespace PhinyxEngine
 			virtual void update(float deltaTime) = 0;
 
 			/// <summary>
-			/// Pure virtual method for drawing the scene.
+			/// Pure virtual method for drawing the entity.
 			/// </summary>
 			virtual void draw() = 0;
 
 			/// <summary>
 			/// Sets the texture for the entity.
 			/// </summary>
+			///
+			/// <param name="texture">
+			/// A pointer to a SFML Texture object required by SFML's
+			/// setTexture method.
+			/// </param>
 			void setTexture(sf::Texture *texture);
 
 			/// <summary>
@@ -61,8 +68,17 @@ namespace PhinyxEngine
 			/// </returns>
 			Collision getCollision();
 
+			/// <summary>
+			/// Width of the entity's rectangle.
+			/// </summary>
 			float m_rectWidth;
+			/// <summary>
+			/// Height of the entity's rectangle.
+			/// </summary>
 			float m_rectHeight;
+			/// <summary>
+			/// SFML RectangleShape instance for the entity's rectangle.
+			/// </summary>
 			sf::RectangleShape m_rect;
 			Collision m_collision; // TODO: make this private?
 	};
