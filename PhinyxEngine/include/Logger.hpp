@@ -55,7 +55,7 @@ namespace PhinyxEngine
 			/// </list>
 			/// </para>
 			/// </summary>
-			struct tm m_timeInfo;
+			// struct tm m_timeInfo;
 			struct std::tm *m_timeInfo = std::localtime(&m_time_t);
 	};
 }
