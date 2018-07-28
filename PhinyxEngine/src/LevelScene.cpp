@@ -4,9 +4,7 @@
 #include <fstream>
 
 /// <summary>
-/// Constructor for the class. Initializes the member variables for the LevelScene
-/// in an initializer statement (?) and calls methods to parse the level and level
-/// data files.
+/// Initializes the member variables and calls methods to parse the level data files.
 /// </summary>
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
 		Scene(game), m_player(100, 20, 150.0f, 54.0f)
@@ -90,7 +88,7 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 
 		// We will start setting the position for the sprites
 		// from the bottom to the top of the screen
-		// TODO: Should be replaces with window height but it's not working atm
+		// TODO: Should be replaced with window height but it's not working atm
 		// unsigned int row = m_game_ptr->m_gameWindow.getHeight();
 		unsigned int row = fileLines.size() - 1;
 		// Read file lines from end to beginning
@@ -158,11 +156,12 @@ void PhinyxEngine::LevelScene::handleEvents()
 }
 
 /// <summary>
-/// Checks for collision between the scene's entities.
-/// Calls the update methods for the entities.
+/// <para> Checks for collision between the scene's entities. </para>
+/// <para> Calls the update methods for the entities. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::update(float deltaTime)
 {
+	// Update player entity
 	m_player.update(deltaTime);
 
 	// The direction vector to be used by onCollision
@@ -188,8 +187,8 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 }
 
 /// <summary>
-/// Draws the scene's entities into the game's window
-/// Accesses the game's window via the game pointer member variable
+/// <para> Draws the scene's entities into the game's window. </para>
+/// <para> Accesses the game's window via the game pointer member variable. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::draw()
 {

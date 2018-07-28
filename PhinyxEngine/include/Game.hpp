@@ -6,7 +6,8 @@
 #include <queue>
 
 /// <summary>
-/// Namespace for the game engine.
+/// Namespace for the game engine. Contains all the classes required for
+/// making a game, managing scenes, entities, player character and more.
 /// </summary>
 namespace PhinyxEngine
 {
@@ -17,7 +18,10 @@ namespace PhinyxEngine
 	class Game
 	{
 		public:
-			/// <summary> Default constructor. </summary>
+			/// <summary>
+			/// Default constructor.
+			/// Initializes the Game instance and member variables.
+			/// </summary>
 			///
 			/// <param name="WIDTH"> The width of the game window. </param>
 			/// <param name="HEIGHT"> The height of the game window. </param>
@@ -31,26 +35,63 @@ namespace PhinyxEngine
 			/// </summary>
 			~Game() { }
 
-			/// <summary> Handles the game's main loop. </summary>
+			/// <summary>
+			/// Performs the game's main loop.
+			/// </summary>
 			void mainLoop();
 
-			/// <summary> Adds a new scene to the game. </summary>
+			/// <summary>
+			/// Adds a new scene to the game.
+			/// </summary>
+			///
+			/// <param name="scene">
+			/// A unique pointer to a <see cref="Scene">Scene</see> object.
+			/// </param>
+			///
+			/// <seealso cref="Scene" />
 			void addScene(std::unique_ptr<Scene> scene);
-
-			/// <summary> Removes a scene from the game. </summary>
+			/// <summary>
+			/// Removes a scene from the game.
+			/// </summary>
+			///
+			/// <seealso cref="Scene" />
 			void removeScene();
-
-			/// <summary> Changes the current game scene. </summary>
+			/// <summary>
+			/// Changes the current scene in the game.
+			/// </summary>
+			///
+			/// <param name="scene">
+			/// A unique pointer to a <see cref="Scene">Scene</see> object.
+			/// </param>
+			///
+			/// <seealso cref="Scene" />
 			void changeScene(std::unique_ptr<Scene> scene);
 
-			/// <summary> Window instance for the game. </summary>
+			/// <summary>
+			/// Window instance for the game.
+			/// </summary>
 			Window m_gameWindow;
 		private:
+			/// <summary>
+			/// The delta time for the game's update frequency rate.
+			/// </summary>
 			float m_deltaTime;
+			/// <summary>
+			/// Boolean specifying if the game is running in debug mode.
+			/// </summary>
 			bool m_debugMode;
-			/// <summary> Queue of unique pointers to Scene instances. </summary>
+			/// <summary>
+			/// Queue of unique pointers to <see cref="Scene">Scene</see>
+			/// instances.
+			/// </summary>
 			std::queue<std::unique_ptr<Scene>> m_scene_queue;
+			/// <summary>
+			/// TODO
+			/// </summary>
 			sf::Clock m_clock;
+			/// <summary>
+			/// Instance of <see cref="Logger">Logger</see> for logging.
+			/// </summary>
 			Logger m_logger;
 	};
 }

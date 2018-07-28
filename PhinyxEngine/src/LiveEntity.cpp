@@ -1,11 +1,12 @@
 #include "../include/LiveEntity.hpp"
 
-/// <summary>
-/// Calls the superclass constructor and initializes member variables.
-/// </summary>
+// TODO: address code duplication in constructors (see how Entity class does it)
+
 PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) :
 	Entity(), m_velocity(0.0f, 0.0f)
 {
+	// TODO: give entities unique IDs and include this in log statement below
+	m_logger.log("DEBUG", "Initializing a live entity.");
 	m_health = health;
 	m_attackPower = attackPower;
 }
