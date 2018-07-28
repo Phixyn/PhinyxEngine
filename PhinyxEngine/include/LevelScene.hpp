@@ -2,7 +2,7 @@
 #define LEVEL_SCENE_H
 
 #include "Scene.hpp"
-#include "Player.hpp"
+#include "PlayerEntity.hpp"
 #include "TileEntity.hpp"
 #include "Util.hpp"
 #include "Logger.hpp"
@@ -144,7 +144,7 @@ namespace PhinyxEngine
 			/// </summary>
 			///
 			/// <seealso cref="PlayerEntity" />
-			Player m_player;
+			PlayerEntity m_playerEntity;
 
 			/// <summary>
 			/// Instance of <see cref="Logger">Logger</see> for logging.

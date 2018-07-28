@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYER_ENTITY_H
+#define PLAYER_ENTITY_H
 
 #include "LiveEntity.hpp"
 
@@ -8,7 +8,7 @@ namespace PhinyxEngine
 	/// <summary>
 	/// Subclass of LiveEntity for the player character.
 	/// </summary>
-	class Player : public LiveEntity
+	class PlayerEntity : public LiveEntity
 	{
 		public:
 			/// <summary>
@@ -29,12 +29,12 @@ namespace PhinyxEngine
 			/// <param name="jumpHeight">
 			/// The height of a jump action of the player.
 			/// </param>
-			Player(int health, int attackPower, float speed, float jumpHeight);
+			PlayerEntity(int health, int attackPower, float speed, float jumpHeight);
 
 			/// <summary>
 			/// Default class destructor.
 			/// </summary>
-			~Player() { }
+			~PlayerEntity() { }
 
 			// void handleEvents() override;
 
