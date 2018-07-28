@@ -18,6 +18,11 @@ namespace PhinyxEngine
 			/// object. </param>
 			Collision(sf::RectangleShape &rect);
 
+			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~Collision() { }
+
 			/// <summary> Moves a SFML RectangleShape by calling its move()
 			/// method with the X and Y offsets passed in the parameters.
 			/// </summary>
@@ -51,12 +56,12 @@ namespace PhinyxEngine
 			/// <summary> Returns the position of this body. </summary>
 			/// <returns> SFML Vector2f object containing this body's
 			/// postion. </returns>
-			sf::Vector2f getPosition();
+			sf::Vector2f getPosition() const;
 
 			/// <summary> Returns the halfsize of this body. </summary>
 			/// <returns> SFML Vector2f object containing this body's
 			/// size divided by two. </returns>
-			sf::Vector2f getHalfSize();
+			sf::Vector2f getHalfSize() const;
 		private:
 			sf::RectangleShape &m_rect;
 			Logger m_logger;

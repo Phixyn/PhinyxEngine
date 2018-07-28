@@ -91,12 +91,12 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 	return false;
 }
 
-sf::Vector2f PhinyxEngine::Collision::getPosition()
+sf::Vector2f PhinyxEngine::Collision::getPosition() const
 {
 	return m_rect.getPosition();
 }
 
-sf::Vector2f PhinyxEngine::Collision::getHalfSize()
+sf::Vector2f PhinyxEngine::Collision::getHalfSize() const
 {
 	return m_rect.getSize() / 2.0f;
 }

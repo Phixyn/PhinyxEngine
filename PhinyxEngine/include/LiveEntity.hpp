@@ -49,17 +49,27 @@ namespace PhinyxEngine
 			/// </param>
 			LiveEntity(int health, int attackPower, float speed, float jumpHeight);
 
+			/// <summary>
+			/// Default virtual destructor for this class.
+			/// Deleting a derived class object using a pointer to a base class
+			/// that has a non-virtual destructor results in undefined and/or
+			/// undesirable behavior. To prevent this, and to ensure that the
+			/// base class' destructor is called after the derived class'
+			/// destructor, the base class should have a virtual destructor.
+			/// </summary>
+			virtual ~LiveEntity() { }
+
 			/// <summary> Implements Entity's handleEvents() method. </summary>
-			void handleEvents() override;
+			virtual void handleEvents() override;
 
 			/// <summary> Implements Entity's update() method. </summary>
 			/// <param name="deltaTime">
 			/// The delta time for the update frequency rate.
 			/// </param>
-			void update(float deltaTime) override;
+			virtual void update(float deltaTime) override;
 
 			/// <summary> Implements Entity's draw() method. </summary>
-			void draw() override;
+			virtual void draw() override;
 
 			// TODO: animate?
 			/// <summary> Handles live entity collision. </summary>
@@ -74,7 +84,7 @@ namespace PhinyxEngine
 			/// <returns>
 			/// A boolean specifying if the entity is aggressive.
 			/// </returns>
-			bool isAggressive();
+			bool isAggressive() const;
 
 			/// <summary>
 			/// Returns a value which specifies if the live entity is dead.
@@ -83,7 +93,7 @@ namespace PhinyxEngine
 			/// <returns>
 			/// A boolean specifying if the live entity is dead.
 			/// </returns>
-			bool isDead();
+			bool isDead() const;
 
 			/// <summary>
 			/// Sets the live entity's m_dead member variable, which specifies

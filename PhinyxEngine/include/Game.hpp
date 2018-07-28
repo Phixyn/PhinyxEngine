@@ -26,6 +26,11 @@ namespace PhinyxEngine
 			/// debug mode. </param>
 			Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug);
 
+			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~Game() { }
+
 			/// <summary> Handles the game's main loop. </summary>
 			void mainLoop();
 

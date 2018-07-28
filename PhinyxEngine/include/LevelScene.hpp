@@ -41,6 +41,11 @@ namespace PhinyxEngine
 			/// for the background image file. </param>
 			LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath);
 
+			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~LevelScene() { }
+
 			/// <summary> Handles events specific to the level
 			/// scenes. </summary>
 			void handleEvents() override;

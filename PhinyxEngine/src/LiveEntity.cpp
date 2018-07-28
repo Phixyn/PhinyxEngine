@@ -72,12 +72,12 @@ void PhinyxEngine::LiveEntity::onCollision(sf::Vector2f direction)
 	}
 }
 
-bool PhinyxEngine::LiveEntity::isAggressive()
+bool PhinyxEngine::LiveEntity::isAggressive() const
 {
 	return m_aggressive;
 }
 
-bool PhinyxEngine::LiveEntity::isDead()
+bool PhinyxEngine::LiveEntity::isDead() const
 {
 	return m_dead;
 }

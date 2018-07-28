@@ -31,6 +31,11 @@ namespace PhinyxEngine
 			/// </param>
 			Player(int health, int attackPower, float speed, float jumpHeight);
 
+			/// <summary>
+			/// Default class destructor.
+			/// </summary>
+			~Player() { }
+
 			// void handleEvents() override;
 
 			/// <summary> Overrides Entity's update() method. </summary>

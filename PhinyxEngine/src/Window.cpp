@@ -106,27 +106,27 @@ void PhinyxEngine::Window::handleEvents()
 
 /// <summary> Returns the result of SFML's Window isOpen method. </summary>
 /// <returns> A boolean indicating if the window is open. </returns>
-bool PhinyxEngine::Window::isOpen()
+bool PhinyxEngine::Window::isOpen() const
 {
 	return m_window->isOpen();
 }
 
-bool PhinyxEngine::Window::hasFocus()
+bool PhinyxEngine::Window::hasFocus() const
 {
 	return m_hasFocus;
 }
 
-unsigned int PhinyxEngine::Window::getWidth()
+unsigned int PhinyxEngine::Window::getWidth() const
 {
 	return m_WIDTH;
 }
 
-unsigned int PhinyxEngine::Window::getHeight()
+unsigned int PhinyxEngine::Window::getHeight() const
 {
 	return m_HEIGHT;
 }
 
-std::string PhinyxEngine::Window::getTitle()
+std::string PhinyxEngine::Window::getTitle() const
 {
 	return m_TITLE;
 }
