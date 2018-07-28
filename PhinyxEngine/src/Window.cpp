@@ -18,6 +18,7 @@ PhinyxEngine::Window::Window(const unsigned int WIDTH, const unsigned int HEIGHT
 	m_window->requestFocus();
 	m_hasFocus = true;
 
+	// TODO: move this to Game.cpp
 	// TODO: Debug panel
 	m_debugPane = sf::RectangleShape(sf::Vector2f(250.0f, 150.0f));
 	m_debugPane.setFillColor(sf::Color::White);
@@ -34,6 +35,7 @@ void PhinyxEngine::Window::clear()
 /// </summary>
 void PhinyxEngine::Window::render()
 {
+	// TODO move this to Game.cpp
 	if (m_showDebugPane == true)
 	{
 		m_debugPaneFont.loadFromFile("arial.ttf");

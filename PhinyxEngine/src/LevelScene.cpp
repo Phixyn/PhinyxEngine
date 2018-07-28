@@ -1,31 +1,42 @@
-#include "../include/LevelScene.hpp"
-#include "../include/Game.hpp"
+#include "../include/AgentEntity.hpp"
 #include "../include/EnemyMonster.hpp"
+#include "../include/Game.hpp"
+#include "../include/LevelScene.hpp"
+#include "../include/Util.hpp"
 #include <fstream>
 
 /// <summary>
-/// Constructor for the class. Initializes the member variables for the LevelScene
-/// in an initializer statement (?) and calls methods to parse the level and level
-/// data files.
+/// Initializes the member variables and calls methods to parse the level data files.
 /// </summary>
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
-		Scene(game), m_player(100, 20, 150.0f, 54.0f)
+		Scene(game), m_playerEntity(100, 20, 150.0f, 54.0f) // m_playerEntity(&player)
 {
+	m_logger.log("DEBUG", "Initializing level scene.");
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
 	parseDataFile();
 	parseLevelFile();
 }
 
-PhinyxEngine::LevelScene::LevelScene(Game & game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath) :
-	Scene(game), m_player(100, 20, 150.0f, 54.0f)
+PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath) :
+	Scene(game), m_playerEntity(100, 20, 150.0f, 54.0f) // m_playerEntity(&player)
 {
+	m_logger.log("DEBUG", "Initializing level scene.");
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
 	parseDataFile();
 	parseLevelFile();
 	setBackgroundImage(backgroundImagePath);
 }
+
+/*
+PhinyxEngine::LevelScene::LevelScene(Game &game, PlayerEntity &player, std::string backgroundImagePath) :
+	Scene(game), m_playerEntity(&player)
+{
+	m_logger.log("DEBUG", "Initializing level scene.");
+	setBackgroundImage(backgroundImagePath);
+}
+*/
 
 /// <summary>
 /// Parses the level's data file which specifies the textures for
@@ -111,12 +122,13 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 				else if (tiles[column] == "0")
 				{
 					// Player sprite
-					m_player.setTexture(&m_levelTextures[tiles[column]]);
-					m_logger.log("DEBUG", "Player rect width: " + std::to_string(m_player.m_rectWidth));
-					m_logger.log("DEBUG", "Player rect height: " + std::to_string(m_player.m_rectHeight));
-					m_logger.log("DEBUG", "Player x: " + std::to_string((column * m_player.m_rectWidth)));
-					m_logger.log("DEBUG", "Player y: " + std::to_string((row * m_player.m_rectHeight)));
-					m_player.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
+					m_playerEntity.setTexture(m_levelTextures[tiles[column]]);
+					// TODO need getters in entity class
+					m_logger.log("DEBUG", "Player rect width: " + std::to_string(m_playerEntity.getRectWidth()));
+					m_logger.log("DEBUG", "Player rect height: " + std::to_string(m_playerEntity.getRectHeight()));
+					m_logger.log("DEBUG", "Player x: " + std::to_string((column * m_playerEntity.getRectWidth())));
+					m_logger.log("DEBUG", "Player y: " + std::to_string((row * m_playerEntity.getRectHeight())));
+					m_playerEntity.getRect().setPosition(column * m_textureSize, row * m_textureSize);
 					// m_liveEntities.push_back(&m_player);
 				}
 
@@ -126,8 +138,8 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 					// TODO: This is temporary and should be improved
 					// Ideally we should check tiles[column] == "enemy_x"
 					EnemyMonster enemy(100, 20);
-					enemy.setTexture(&m_levelTextures[tiles[column]]);
-					enemy.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
+					enemy.setTexture(m_levelTextures[tiles[column]]);
+					enemy.getRect().setPosition(column * m_textureSize, row * m_textureSize);
 					// m_liveEntities.push_back(&enemy);
 				}
 
@@ -138,7 +150,7 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 					shape.setTexture(&m_levelTextures[tiles[column]]);
 					shape.setPosition(column * m_textureSize, row * m_textureSize);
 					// Append a new entity with rect to tileEntities vector
-					m_tileEntities.push_back(PhinyxEngine::TileEntity(shape));
+					m_tileEntities.push_back(&PhinyxEngine::TileEntity(shape));
 				}
 			}
 
@@ -151,40 +163,50 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 	}
 }
 
-void PhinyxEngine::LevelScene::handleEvents()
+void PhinyxEngine::LevelScene::handleEvents(sf::Event sfEvent)
 {
-	m_player.handleEvents();
+	m_playerEntity.handleEvents(sfEvent);
+
+	// Handle events for live entities in this scene
+	for (auto &liveEntity : m_liveEntities)
+	{
+		// TODO we should handle the event in the entity instead of here?
+		// TODO Let the entity know that there was a mouse click on it, and let it decide what to do with it
+		liveEntity->handleEvents(sfEvent);
+	}
+
 	// TODO: enemies
 }
 
 /// <summary>
-/// Checks for collision between the scene's entities.
-/// Calls the update methods for the entities.
+/// <para> Checks for collision between the scene's entities. </para>
+/// <para> Calls the update methods for the entities. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::update(float deltaTime)
 {
-	m_player.update(deltaTime);
+	// Update player entity
+	m_playerEntity.update(deltaTime);
 
 	// The direction vector to be used by onCollision
 	// The vector is set by handleCollision and used in onCollision to set the
 	// entity's velocity according to the direction given by handleCollision
 	sf::Vector2f direction;
-	for (TileEntity &tile : m_tileEntities)
+	for (TileEntity *tile : m_tileEntities)
 	{
 		// Passing 1.0f as force needed to push the tile. Which means our
 		// player can't walk through the wall as they won't have enough force
 		// and the tile will always push the player away
-		if (tile.getCollision().handleCollision(m_player.getCollision(), direction, 1.0f))
+		if (tile->getCollision().handleCollision(m_playerEntity.getCollision(), direction, 1.0f))
 		{
-			m_player.onCollision(direction);
+			m_playerEntity.onCollision(direction);
 		}
 	}
 	// TODO: enemies
 
 	// Set the center of the game view
-	m_game_ptr->m_gameWindow.m_view.setCenter(m_player.m_rect.getPosition());
+	m_game_ptr->m_view.setCenter(m_playerEntity.getRect().getPosition());
 	// Set the center of the scene's background image based on the view's center
-	m_backgroundSprite.setPosition(m_game_ptr->m_gameWindow.m_view.getCenter().x, m_game_ptr->m_gameWindow.m_view.getCenter().y);
+	m_backgroundSprite.setPosition(m_game_ptr->m_view.getCenter().x, m_game_ptr->m_view.getCenter().y);
 }
 
 /// <summary>
@@ -193,8 +215,9 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 /// </summary>
 void PhinyxEngine::LevelScene::draw()
 {
-	m_game_ptr->m_gameWindow.draw(m_backgroundSprite);
-	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
+	m_game_ptr->draw(m_backgroundSprite);
+	m_game_ptr->draw(m_playerEntity.getSprite());
+	// m_game_ptr->drawRect(m_playerEntity.getRect());
 
 	// TODO: liveEntities
 	// m_game_ptr->m_gameWindow.drawRect(m_enemy.m_rect);
@@ -206,9 +229,10 @@ void PhinyxEngine::LevelScene::draw()
 	*/
 
 	// Draw our tiles
-	for (TileEntity &tile : m_tileEntities)
+	for (TileEntity *tile : m_tileEntities)
 	{
-		m_game_ptr->m_gameWindow.drawRect(tile.m_rect);
+		// m_game_ptr->drawRect(tile->getRect());
+		m_game_ptr->draw(tile->getSprite());
 	}
 }
 
@@ -225,6 +249,6 @@ void PhinyxEngine::LevelScene::setBackgroundImage(std::string imageFilePath)
 	// m_backgroundTexture.setRepeated(true);
 	m_backgroundSprite.setTexture(m_backgroundTexture);
 	// m_backgroundSprite.setOrigin(m_game_ptr->m_gameWindow.m_view.getCenter().x, m_game_ptr->m_gameWindow.m_view.getCenter().y / 2.0f);
-	m_backgroundSprite.setOrigin(m_game_ptr->m_gameWindow.m_view.getCenter());
-	m_backgroundSprite.setTextureRect(sf::IntRect(0, 0, m_game_ptr->m_gameWindow.m_view.getSize().x, m_game_ptr->m_gameWindow.m_view.getSize().y));
+	m_backgroundSprite.setOrigin(m_game_ptr->m_view.getCenter());
+	m_backgroundSprite.setTextureRect(sf::IntRect(0, 0, m_game_ptr->m_view.getSize().x, m_game_ptr->m_view.getSize().y));
 }

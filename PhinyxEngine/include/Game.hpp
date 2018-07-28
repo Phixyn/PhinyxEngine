@@ -1,12 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Window.hpp"
 #include "Scene.hpp"
+#include <memory>
 #include <queue>
 
 /// <summary>
-/// Namespace for the game engine.
+/// Namespace for the game engine. Contains all the classes required for
+/// making a game, managing scenes, entities, player character and more.
 /// </summary>
 namespace PhinyxEngine
 {
@@ -17,40 +18,158 @@ namespace PhinyxEngine
 	class Game
 	{
 		public:
-			/// <summary> Default constructor. </summary>
+			/// <summary>
+			/// Initializes the Game instance and member variables.
+			/// </summary>
 			///
 			/// <param name="WIDTH"> The width of the game window. </param>
 			/// <param name="HEIGHT"> The height of the game window. </param>
 			/// <param name="TITLE"> A title for the game window. </param>
-			/// <param name="debug"> A boolean specifying if the game is to be run in
-			/// debug mode. </param>
-			Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug);
+			/// <param name="SHOW_DEBUG_PANE"> A boolean specifying whether the
+			/// debug pane should be displayed. Defaults to true. </param>
+			Game(const unsigned int WIDTH,
+				const unsigned int HEIGHT,
+				const std::string TITLE,
+				const bool SHOW_DEBUG_PANE = true);
 
 			/// <summary>
 			/// Default class destructor.
 			/// </summary>
 			~Game() { }
 
-			/// <summary> Handles the game's main loop. </summary>
+			/// <summary>
+			/// Clears the game window by calling the clear method on the SFML
+			/// RenderWindow instance.
+			/// </summary>
+			void clear();
+
+			/// <summary>
+			/// Resets the view (<see cref="m_view">m_view</see>) inside
+			/// the game window and calls the display method of the SFML
+			/// RenderWindow to render the window.
+			/// </summary>
+			void render();
+
+			/// <summary>
+			/// Draws a SFML Drawable object on the window.
+			/// </summary>
+			///
+			/// <param name="drawable">
+			/// Reference to the SFML Drawable object to be drawn on the
+			/// window.
+			/// </param>
+			void draw(const sf::Drawable &drawable);
+
+			// TODO: these methods are not needed, should just use the above
+			/// <summary> Draws a SFML RectangleShape on the window. </summary>
+			///
+			/// <param name="rect"> Instance of SFML RectangleShape to be drawn
+			/// on the window. </param>
+			void drawRect(sf::RectangleShape rect);
+
+			/// <summary>
+			/// Draws the SFML RectangleShape objects in the paramater's vector
+			/// onto the SFML Window.
+			/// </summary>
+			///
+			/// <param name="rectVector"> A std::vector containing instances
+			/// of SFML RectangleShape to be drawn on the window. </param>
+			void drawRectVector(std::vector<sf::RectangleShape> rectVector);
+
+			/// <summary> Draws SFML Text onto the window. </summary>
+			/// <param name="text"> Instance of SFML Text to be drawn on the window. </param>
+			void drawText(sf::Text text);
+
+			/// <summary>
+			/// Polls the SFML Window for events received in the window, and
+			/// handles them appropriately.
+			/// </summary>
+			void handleEvents();
+
+			/// <returns>
+			/// A boolean indicating if the window is open.
+			/// </returns>
+			bool isOpen();
+			/// <returns>
+			/// A boolean indicating if the window has focus.
+			/// </returns>
+			bool hasFocus();
+
+			/// <summary>
+			/// Performs the game's main loop.
+			/// </summary>
 			void mainLoop();
-
-			/// <summary> Adds a new scene to the game. </summary>
+			/// <summary>
+			/// Adds a new scene to the game.
+			/// </summary>
+			///
+			/// <param name="scene">
+			/// A unique pointer to a <see cref="Scene">Scene</see> object.
+			/// </param>
+			///
+			/// <seealso cref="Scene" />
 			void addScene(std::unique_ptr<Scene> scene);
-
-			/// <summary> Removes a scene from the game. </summary>
+			/// <summary>
+			/// Removes a scene from the game.
+			/// </summary>
+			///
+			/// <seealso cref="Scene" />
 			void removeScene();
-
-			/// <summary> Changes the current game scene. </summary>
+			/// <summary>
+			/// Changes the current scene in the game.
+			/// </summary>
+			///
+			/// <param name="scene">
+			/// A unique pointer to a <see cref="Scene">Scene</see> object.
+			/// </param>
+			///
+			/// <seealso cref="Scene" />
 			void changeScene(std::unique_ptr<Scene> scene);
 
-			/// <summary> Window instance for the game. </summary>
-			Window m_gameWindow;
+			/// <summary>
+			/// SFML View instance for the game window.
+			/// </summary>
+			sf::View m_view;
+			/// <summary>
+			/// Unique pointer to a SFML RenderWindow object.
+			/// TODO this and m_view can be made private maybe?
+			/// </summary>
+			std::unique_ptr<sf::RenderWindow> m_window;
 		private:
+			/// <summary> Width of the game window. </summary>
+			unsigned int m_width;
+			/// <summary> Height of the game window. </summary>
+			unsigned int m_height;
+			/// <summary> Title of the game window seen in titlebar. </summary>
+			std::string m_title;
+			/// <summary>
+			/// Boolean specifying if the window has focus.
+			/// This member variable is set in handleEvents() method.
+			/// </summary>
+			bool m_hasFocus;
+
+			/// <summary>
+			/// The delta time for the game's update frequency rate.
+			/// </summary>
 			float m_deltaTime;
-			bool m_debugMode;
-			/// <summary> Queue of unique pointers to Scene instances. </summary>
-			std::queue<std::unique_ptr<Scene>> m_scene_queue;
+			/// <summary>
+			/// Boolean specifying if the debug pane should be displayed in the
+			/// game window. Defaults to true in the constructor.
+			/// </summary>
+			bool m_showDebugPane;
+			/// <summary>
+			/// Instance of SFML Clock used to measure time. Used to get
+			/// a <see cref="m_deltaTime">delta time</see>.
+			/// </summary>
 			sf::Clock m_clock;
+			/// <summary>
+			/// Queue of unique pointers to <see cref="Scene">Scene</see>
+			/// instances.
+			/// </summary>
+			std::queue<std::unique_ptr<Scene>> m_sceneQueue;
+			/// <summary>
+			/// Instance of <see cref="Logger">Logger</see> for logging.
+			/// </summary>
 			Logger m_logger;
 	};
 }
