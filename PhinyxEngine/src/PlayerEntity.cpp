@@ -1,9 +1,9 @@
-#include "../include/Player.hpp"
+#include "../include/PlayerEntity.hpp"
 
 /// <summary>
 /// Calls the superclass constructor and initializes member variables.
 /// </summary>
-PhinyxEngine::Player::Player(int health, int attackPower, float speed, float jumpHeight) :
+PhinyxEngine::PlayerEntity::PlayerEntity(int health, int attackPower, float speed, float jumpHeight) :
 	LiveEntity(health, attackPower, speed, jumpHeight)
 {
 	m_rectWidth = 48.0f;
@@ -15,7 +15,7 @@ PhinyxEngine::Player::Player(int health, int attackPower, float speed, float jum
 }
 
 /*
-void PhinyxEngine::Player::handleEvents()
+void PhinyxEngine::PlayerEntity::handleEvents()
 {
 
 }
@@ -25,7 +25,7 @@ void PhinyxEngine::Player::handleEvents()
 /// Updates the player's velocity based on movement keys pressed. Moves the
 /// player's rectangle based on their velocity.
 /// </summary>
-void PhinyxEngine::Player::update(float deltaTime)
+void PhinyxEngine::PlayerEntity::update(float deltaTime)
 {
 	// Gradually decrease velocity if a movement key is not pressed
 	// m_velocity.x *= 0.5f;
@@ -54,7 +54,7 @@ void PhinyxEngine::Player::update(float deltaTime)
 	m_rect.move(m_velocity * deltaTime);
 }
 
-void PhinyxEngine::Player::draw()
+void PhinyxEngine::PlayerEntity::draw()
 {
 	// TODO
 }

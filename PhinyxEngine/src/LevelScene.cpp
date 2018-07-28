@@ -7,7 +7,7 @@
 /// Initializes the member variables and calls methods to parse the level data files.
 /// </summary>
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
-		Scene(game), m_player(100, 20, 150.0f, 54.0f)
+		Scene(game), m_playerEntity(100, 20, 150.0f, 54.0f)
 {
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
@@ -15,8 +15,8 @@ PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std:
 	parseLevelFile();
 }
 
-PhinyxEngine::LevelScene::LevelScene(Game & game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath) :
-	Scene(game), m_player(100, 20, 150.0f, 54.0f)
+PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath) :
+	Scene(game), m_playerEntity(100, 20, 150.0f, 54.0f)
 {
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
@@ -109,13 +109,13 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 				else if (tiles[column] == "0")
 				{
 					// Player sprite
-					m_player.setTexture(&m_levelTextures[tiles[column]]);
-					m_logger.log("DEBUG", "Player rect width: " + std::to_string(m_player.m_rectWidth));
-					m_logger.log("DEBUG", "Player rect height: " + std::to_string(m_player.m_rectHeight));
-					m_logger.log("DEBUG", "Player x: " + std::to_string((column * m_player.m_rectWidth)));
-					m_logger.log("DEBUG", "Player y: " + std::to_string((row * m_player.m_rectHeight)));
-					m_player.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
-					// m_liveEntities.push_back(&m_player);
+					m_playerEntity.setTexture(&m_levelTextures[tiles[column]]);
+					m_logger.log("DEBUG", "Player rect width: " + std::to_string(m_playerEntity.m_rectWidth));
+					m_logger.log("DEBUG", "Player rect height: " + std::to_string(m_playerEntity.m_rectHeight));
+					m_logger.log("DEBUG", "Player x: " + std::to_string((column * m_playerEntity.m_rectWidth)));
+					m_logger.log("DEBUG", "Player y: " + std::to_string((row * m_playerEntity.m_rectHeight)));
+					m_playerEntity.m_rect.setPosition(column * m_textureSize, row * m_textureSize);
+					// m_liveEntities.push_back(&m_playerEntity);
 				}
 
 				else if (tiles[column] == "4")
@@ -151,7 +151,7 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 
 void PhinyxEngine::LevelScene::handleEvents()
 {
-	m_player.handleEvents();
+	m_playerEntity.handleEvents();
 	// TODO: enemies
 }
 
@@ -162,7 +162,7 @@ void PhinyxEngine::LevelScene::handleEvents()
 void PhinyxEngine::LevelScene::update(float deltaTime)
 {
 	// Update player entity
-	m_player.update(deltaTime);
+	m_playerEntity.update(deltaTime);
 
 	// The direction vector to be used by onCollision
 	// The vector is set by handleCollision and used in onCollision to set the
@@ -173,15 +173,15 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 		// Passing 1.0f as force needed to push the tile. Which means our
 		// player can't walk through the wall as they won't have enough force
 		// and the tile will always push the player away
-		if (tile.getCollision().handleCollision(m_player.getCollision(), direction, 1.0f))
+		if (tile.getCollision().handleCollision(m_playerEntity.getCollision(), direction, 1.0f))
 		{
-			m_player.onCollision(direction);
+			m_playerEntity.onCollision(direction);
 		}
 	}
 	// TODO: enemies
 
 	// Set the center of the game view
-	m_game_ptr->m_gameWindow.m_view.setCenter(m_player.m_rect.getPosition());
+	m_game_ptr->m_gameWindow.m_view.setCenter(m_playerEntity.m_rect.getPosition());
 	// Set the center of the scene's background image based on the view's center
 	m_backgroundSprite.setPosition(m_game_ptr->m_gameWindow.m_view.getCenter().x, m_game_ptr->m_gameWindow.m_view.getCenter().y);
 }
@@ -193,7 +193,7 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 void PhinyxEngine::LevelScene::draw()
 {
 	m_game_ptr->m_gameWindow.draw(m_backgroundSprite);
-	m_game_ptr->m_gameWindow.drawRect(m_player.m_rect);
+	m_game_ptr->m_gameWindow.drawRect(m_playerEntity.m_rect);
 
 	// TODO: liveEntities
 	// m_game_ptr->m_gameWindow.drawRect(m_enemy.m_rect);
