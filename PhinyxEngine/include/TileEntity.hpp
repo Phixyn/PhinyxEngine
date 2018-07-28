@@ -6,9 +6,9 @@
 namespace PhinyxEngine
 {
 	/// <summary>
-	/// Subclass of Entity for tile entities. Tiles can be anything from
-	/// flooring and wall rectangle shapes, to traps or items that can be
-	/// picked up by the player.
+	/// Subclass of <see cref="Entity">Entity</see> for tile entities. Tiles can
+	/// be anything from flooring and wall rectangle shapes, to traps or items
+	/// that can be picked up by the player.
 	/// </summary>
 	class TileEntity : public Entity
 	{
@@ -25,10 +25,14 @@ namespace PhinyxEngine
 			~TileEntity() { }
 
 			/// <summary>
-			/// Not yet implemented. Handles events pertaining to the
+			/// Not yet implemented. Handles events specific to the
 			/// tile entity.
 			/// </summary>
-			void handleEvents() override;
+			///
+			/// <param name="sfEvent">
+			/// A SFML event (e.g. generated user input) object.
+			/// </param>
+			void handleEvents(sf::Event sfEvent) override;
 
 			/// <summary>
 			/// Not yet implemented. Updates the tile entity.
@@ -44,6 +48,15 @@ namespace PhinyxEngine
 			/// </summary>
 			void draw() override;
 		private:
+			/// <summary>
+			/// Force of this tile entity.
+			/// 0 = solid and can't be moved
+			/// TODO:  Positive values should allow the player to move it by
+			/// m_force per second (?) (or should it be negative values that
+			/// allow this?)
+			/// TODO: Add getters and setters for this. And update/draw should
+			/// take force into consideration (can make tasks for this)
+			/// </summary>
 			float m_force;
 	};
 }

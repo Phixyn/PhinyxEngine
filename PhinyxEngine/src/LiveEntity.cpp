@@ -1,37 +1,117 @@
 #include "../include/LiveEntity.hpp"
+#include "../include/DeadEntityState.hpp"
 
-/// <summary>
-/// Calls the superclass constructor and initializes member variables.
-/// </summary>
+// TODO: address code duplication in constructors (see how Entity class does it)
+
 PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) :
-	Entity(), m_velocity(0.0f, 0.0f)
+	Entity(), m_health(health), m_attackPower(attackPower), m_velocity(0.0f, 0.0f)
 {
-	m_health = health;
-	m_attackPower = attackPower;
+	// TODO: give entities unique IDs and include this in log statement below
+	m_logger.log("DEBUG", "Initializing a live entity.");
+	setMaxSpeed(0.25f);
 }
 
 PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, float speed, float jumpHeight) :
-	Entity(), m_velocity(0.0f, 0.0f)
+	Entity(), m_health(health), m_attackPower(attackPower), m_speed(speed), m_jumpHeight(jumpHeight), m_velocity(0.0f, 0.0f)
 {
-	m_health = health;
-	m_attackPower = attackPower;
-	m_speed = speed;
-	m_jumpHeight = jumpHeight;
+	m_logger.log("DEBUG", "Initializing a live entity.");
+	setMaxSpeed(speed);
 }
 
-void PhinyxEngine::LiveEntity::handleEvents()
+PhinyxEngine::LiveEntity::LiveEntity(int health, sf::Vector2f size, sf::Vector2f position) :
+	Entity(size, position), m_health(health), m_velocity(0.0f, 0.0f)
+{
+	// TODO: give entities unique IDs and include this in log statement below
+	m_logger.log("DEBUG", "Initializing a live entity.");
+	// setSpriteColor(sf::Color::Red);
+	setMaxSpeed(0.25f);
+
+	// Set up entity info panel
+	std::ostringstream entityInfoSS;
+	// entityInfoSS << "State: " << getState()->getStateName() << "\nHealth: " << m_health << "\nPosX: " << getPosition().x << "\nPosY: " << getPosition().y << "\nVelocityX: " << m_velocity.x << "\nVelocityY: " << m_velocity.y;
+	entityInfoSS << "\nHealth: " << m_health << "\nPosX: " << getPosition().x << "\nPosY: " << getPosition().y << "\nVelocityX: " << m_velocity.x << "\nVelocityY: " << m_velocity.y;
+	m_infoPanel.setTextString(entityInfoSS.str());
+}
+
+PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, sf::Vector2f size, sf::Vector2f position) :
+	Entity(size, position), m_health(health), m_attackPower(attackPower), m_velocity(0.0f, 0.0f)
+{
+	setMaxSpeed(0.25f);
+}
+
+PhinyxEngine::LiveEntity::LiveEntity(int health, float speed, sf::Vector2f size, sf::Vector2f position) :
+	Entity(size, position), m_health(health), m_speed(speed), m_velocity(0.0f, 0.0f)
+{
+	m_logger.log("DEBUG", "Initializing a live entity.");
+	setMaxSpeed(speed);
+}
+
+PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, float speed, sf::Vector2f size, sf::Vector2f position) :
+	Entity(size, position), m_health(health), m_attackPower(attackPower), m_speed(speed), m_velocity(0.0f, 0.0f)
+{
+	m_logger.log("DEBUG", "Initializing a live entity.");
+	setMaxSpeed(speed);
+}
+
+PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, float speed, float jumpHeight, sf::Vector2f size, sf::Vector2f position) :
+	Entity(size, position), m_health(health), m_attackPower(attackPower), m_speed(speed), m_jumpHeight(jumpHeight), m_velocity(0.0f, 0.0f)
+{
+	m_logger.log("DEBUG", "Initializing a live entity.");
+	setMaxSpeed(speed);
+}
+
+void PhinyxEngine::LiveEntity::handleEvents(sf::Event sfEvent)
 {
 	// TODO
 }
 
 void PhinyxEngine::LiveEntity::update(float deltaTime)
 {
-	// TODO
+	// m_state->update(); // TODO
+	// m_sprite.move(m_velocity);
+
+	// Check if entity is dead
+	if (m_health <= 0 && !m_dead)
+	{
+		setDead(true);
+		// TODO Could be a part of setDead()
+		setState(new DeadEntityState());
+	}
 }
 
 void PhinyxEngine::LiveEntity::draw()
 {
 	// TODO
+}
+
+void PhinyxEngine::LiveEntity::setHealth(int health)
+{
+	m_health = health;
+}
+
+int PhinyxEngine::LiveEntity::getHealth()
+{
+	return m_health;
+}
+
+void PhinyxEngine::LiveEntity::setSpeed(float speed)
+{
+	m_speed = speed;
+}
+
+void PhinyxEngine::LiveEntity::setMaxSpeed(float maxSpeed)
+{
+	m_maxSpeed = maxSpeed;
+}
+
+float PhinyxEngine::LiveEntity::getSpeed()
+{
+	return m_speed;
+}
+
+float PhinyxEngine::LiveEntity::getMaxSpeed()
+{
+	return m_maxSpeed;
 }
 
 /// <summary>
@@ -84,7 +164,19 @@ bool PhinyxEngine::LiveEntity::isDead() const
 
 void PhinyxEngine::LiveEntity::setDead(bool dead)
 {
+	// TODO: give entities unique IDs and include this in log statement below
+	m_logger.log("DEBUG", "Setting m_dead.");
 	m_dead = dead;
+}
+
+sf::Vector2f PhinyxEngine::LiveEntity::getVelocity()
+{
+	return m_velocity;
+}
+
+void PhinyxEngine::LiveEntity::setVelocity(sf::Vector2f velocity)
+{
+	m_velocity = velocity;
 }
 
 /*

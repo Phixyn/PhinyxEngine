@@ -9,7 +9,7 @@ PhinyxEngine::TileEntity::TileEntity(sf::RectangleShape rect) :
 	m_rect = rect;
 }
 
-void PhinyxEngine::TileEntity::handleEvents()
+void PhinyxEngine::TileEntity::handleEvents(sf::Event sfEvent)
 {
 	// TODO
 }

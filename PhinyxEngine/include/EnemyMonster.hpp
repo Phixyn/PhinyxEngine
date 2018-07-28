@@ -24,6 +24,30 @@ namespace PhinyxEngine
 			/// Default class destructor.
 			/// </summary>
 			~EnemyMonster() { }
+
+			/// <summary>
+			/// Not yet implemented. Handles events pertaining to the
+			/// tile entity.
+			/// </summary>
+			///
+			/// <param name="sfEvent">
+			/// A SFML event (e.g. generated user input) object.
+			/// </param>
+			void handleEvents(sf::Event sfEvent) override;
+
+			/// <summary>
+			/// Not yet implemented. Updates the tile entity.
+			/// </summary>
+			///
+			/// <param name="deltaTime">
+			/// The delta time for the update frequency rate.
+			/// </param>
+			void update(float deltaTime) override;
+
+			/// <summary>
+			/// Not yet implemented. Draws the tile entity.
+			/// </summary>
+			void draw() override;
 	};
 }
 

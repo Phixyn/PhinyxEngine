@@ -2,19 +2,79 @@
 #define ENTITY_H
 
 #include "Collision.hpp"
-#include <SFML/Graphics.hpp>
+// #include <SFML/Graphics.hpp>
+#include "InfoPanel.hpp"
+#include "BaseEntityState.hpp"
+#include "Logger.hpp"
 
 namespace PhinyxEngine
 {
 	/// <summary>
-	/// Class for game entities such as monsters, tiles and the player
+	/// Class for game entities such as items, NPCs, tiles and the player
 	/// character.
 	/// </summary>
 	class Entity
 	{
 		public:
-			/// <summary> Default constructor. </summary>
+			/// <summary>
+			/// Default emoty constructor.
+			/// </summary>
 			Entity();
+
+			/// <summary>
+			/// Default constructor with an argument for the entity's size.
+			/// </summary>
+			///
+			/// <param name="size">
+			/// A SFML Vector2f containing the entity's size.
+			/// </param>
+			Entity(sf::Vector2f size);
+
+			/// <summary>
+			/// Overloaded constructor with an additional argument for the
+			/// entity's position in the game.
+			/// </summary>
+			///
+			/// <param name="size">
+			/// A SFML Vector2f containing the entity's size.
+			/// </param>
+			/// <param name="position">
+			/// A SFML Vector2f containing the entity's position on the
+			/// game scene.
+			/// </param>
+			Entity(sf::Vector2f size, sf::Vector2f position);
+
+			/// <summary>
+			/// Overloaded constructor with an argument for a file containing
+			/// a texture for the entity.
+			/// </summary>
+			///
+			/// <param name="size">
+			/// A SFML Vector2f containing the entity's size.
+			/// </param>
+			/// <param name="textureFilePath">
+			/// A string specifying a filename of a texture image for this
+			/// entity.
+			/// </param>
+			Entity(sf::Vector2f size, std::string textureFilePath);
+
+			/// <summary>
+			/// Overloaded constructor with an argument for position and
+			/// texture file.
+			/// </summary>
+			///
+			/// <param name="size">
+			/// A SFML Vector2f containing the entity's size.
+			/// </param>
+			/// <param name="position">
+			/// A SFML Vector2f containing the entity's position on the
+			/// game scene.
+			/// </param>
+			/// <param name="textureFilePath">
+			/// A string specifying a filename of a texture image for this
+			/// entity.
+			/// </param>
+			Entity(sf::Vector2f size, sf::Vector2f position, std::string textureFilePath);
 
 			/// <summary>
 			/// Default virtual destructor for this class.
@@ -27,12 +87,16 @@ namespace PhinyxEngine
 			virtual ~Entity() { }
 
 			/// <summary>
-			/// Pure virtual method to handle events of the Entity.
+			/// Pure virtual method to handle events of the entity.
 			/// </summary>
-			virtual void handleEvents() = 0;
+			///
+			/// <param name="sfEvent">
+			/// A SFML event (e.g. generated user input) object.
+			/// </param>
+			virtual void handleEvents(sf::Event sfEvent) = 0;
 
 			/// <summary>
-			/// Pure virtual method to update the scene.
+			/// Pure virtual method to update the entity.
 			/// </summary>
 			///
 			/// <param name="deltaTime">
@@ -41,14 +105,165 @@ namespace PhinyxEngine
 			virtual void update(float deltaTime) = 0;
 
 			/// <summary>
-			/// Pure virtual method for drawing the scene.
+			/// Pure virtual method for drawing the entity.
 			/// </summary>
 			virtual void draw() = 0;
 
 			/// <summary>
 			/// Sets the texture for the entity.
 			/// </summary>
-			void setTexture(sf::Texture *texture);
+			///
+			/// <param name="texture">
+			/// An instance of a SFML Texture object required by SFML's
+			/// setTexture method.
+			/// </param>
+			void setTexture(sf::Texture texture);
+			/// <summary>
+			/// Sets the texture for the entity after loading the texture from
+			/// the given file path.
+			/// </summary>
+			///
+			/// <param name="textureFilePath">
+			/// A string specifying a filename of a texture image for this
+			/// entity.
+			/// </param>
+			void setTexture(std::string textureFilePath);
+			/// <summary>
+			/// Sets the entity's rectangle's color. Most likely temporary and
+			/// for debugging purposes.
+			/// </summary>
+			///
+			/// <param name="color">
+			/// A reference to a SFML Color object.
+			/// </param>
+			void setColor(sf::Color color);
+			/// <summary>
+			/// Sets the entity's sprite's color tint.
+			/// </summary>
+			///
+			/// <param name="color">
+			/// A reference to a SFML Color object.
+			/// </param>
+			void setSpriteColor(sf::Color color);
+			/// <summary>
+			/// Sets the position of the entity in the game scene.
+			/// </summary>
+			///
+			/// <param name="position">
+			/// A reference to a SFML Vector2f containing the new position
+			/// for the entity on the game scene.
+			/// </param>
+			void setPosition(sf::Vector2f &position);
+			/// <summary>
+			/// Toggles the entity's information panel on or off, depending on
+			/// its current state.
+			/// </summary>
+			///
+			/// <seealso cref="InfoPanel" />
+			void toggleInfoPanel();
+
+			/// <summary>
+			/// Gets the width of the entity's rectangle.
+			/// </summary>
+			///
+			/// <returns>
+			/// A float containing the rectangle's width.
+			/// </returns>
+			float getRectWidth() const;
+			/// <summary>
+			/// Gets the height of the entity's rectangle.
+			/// </summary>
+			///
+			/// <returns>
+			/// A float containing the rectangle's height.
+			/// </returns>
+			float getRectHeight() const;
+			/// <summary>
+			/// Gets the position of the entity in the game scene.
+			/// </summary>
+			///
+			/// <returns>
+			/// A SFML Vector2f containing the entity's position on the
+			/// game scene.
+			/// </returns>
+			sf::Vector2f getPosition() const;
+
+			/// <summary>
+			/// Gets the entity's rectangle.
+			/// </summary>
+			///
+			/// <returns>
+			/// A SFML RectangleShape instance containing the entity's
+			/// rectangle.
+			/// </returns>
+			sf::RectangleShape getRect() const;
+			/// <summary>
+			/// Gets the entity's sprite.
+			/// </summary>
+			///
+			/// <returns>
+			/// A SFML Sprite instance of the entity.
+			/// </returns>
+			sf::Sprite getSprite() const;
+			/// <summary>
+			/// Gets the entity's <see cref="InfoPanel">InfoPanel</see> object.
+			/// </summary>
+			///
+			/// <returns>
+			/// A <see cref="InfoPanel">InfoPanel</see> instance of the entity.
+			/// </returns>
+			///
+			/// <seealso cref="InfoPanel" />
+			PhinyxEngine::InfoPanel& getInfoPanel();
+			/// <summary>
+			/// Returns a boolean indicating if this entity's info panel UI
+			/// element is enabled and being displayed in the UI.
+			/// </summary>
+			///
+			/// <returns>
+			/// A boolean indicating if the entity's info panel is enabled.
+			/// </returns>
+			///
+			/// <seealso cref="InfoPanel" />
+			bool isInfoPanelEnabled() const;
+
+			/// <summary>
+			/// Returns a boolean indicating if this entity has been selected
+			/// by the user via a mouse click.
+			/// </summary>
+			///
+			/// <returns>
+			/// A boolean indicating if the entity is currently selected.
+			/// </returns>
+			bool isSelected() const;
+			/// <summary>
+			/// Toggles the entity's selected state to true or false, depending
+			/// on its current value.
+			/// </summary>
+			void toggleSelected();
+
+			/// <summary>
+			/// Returns a pointer to a BaseEntityState object for this entity's
+			/// current state.
+			/// </summary>
+			///
+			/// <returns>
+			/// An instance of the current state of the entity.
+			/// </returns>
+			///
+			/// <seealso cref="BaseEntityState" />
+			BaseEntityState* getState();
+			/// <summary>
+			/// Sets the entity's current state. Exits the entity's current
+			/// state, sets the state and enters the new state.
+			/// </summary>
+			///
+			/// <param name="state">
+			/// A pointer to a new state object.
+			/// </param>
+			///
+			/// <seealso cref="BaseEntityState" />
+			void setState(BaseEntityState* state);
 
 			/// <summary>
 			/// Returns a new instance of Collision for this entity, which
@@ -60,11 +275,67 @@ namespace PhinyxEngine
 			/// A new instance of Collision with the Entity's rectangle.
 			/// </returns>
 			Collision getCollision();
-
-			float m_rectWidth;
-			float m_rectHeight;
-			sf::RectangleShape m_rect;
 			Collision m_collision; // TODO: make this private?
+		protected:
+			/// <summary>
+			/// Width of the entity's rectangle.
+			/// </summary>
+			float m_rectWidth;
+			/// <summary>
+			/// Height of the entity's rectangle.
+			/// </summary>
+			float m_rectHeight;
+			/// <summary>
+			/// SFML Vector2f instance containing the position of the entity.
+			/// </summary>
+			sf::Vector2f m_position;
+			/// <summary>
+			/// SFML RectangleShape instance for the entity's rectangle.
+			/// </summary>
+			sf::RectangleShape m_rect;
+			/// <summary>
+			/// SFML Sprite instance for the entity's sprite.
+			/// </summary>
+			sf::Sprite m_sprite;
+			/// <summary>
+			/// SFML Texture instance for the entity's texture.
+			/// </summary>
+			sf::Texture m_texture;
+			/// <summary>
+			/// SFML Color instance for the entity's rectangle color.
+			/// </summary>
+			sf::Color m_color;
+
+			/// <summary>
+			/// Instance of <see cref="InfoPanel">InfoPanel</see> used for
+			/// displaying entity information on screen.
+			/// </summary>
+			InfoPanel m_infoPanel;
+			/// <summary>
+			/// A boolean specifying if the entity's info panel should be
+			/// displayed in the UI. An info panel displays useful information
+			/// about an entity.
+			/// </summary>
+			///
+			/// <seealso cref="InfoPanel" />
+			bool m_displayInfoPanel = false;
+			/// <summary>
+			/// A boolean specifying if the entity is currently selected by the
+			/// user.
+			/// </summary>
+			bool m_isSelected = false;
+
+			/// <summary>
+			/// An pointer to a BaseEntityState object, representing the
+			/// current state of this entity.
+			/// </summary>
+			/// <seealso cref="BaseEntityState" />
+			// BaseEntityState* m_state; // TODO: state machine
+
+			/// <summary>
+			/// Instance of <see cref="Logger">Logger</see> for logging.
+			/// </summary>
+			Logger m_logger;
 	};
 }
 
