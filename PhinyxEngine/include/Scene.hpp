@@ -7,15 +7,19 @@ namespace PhinyxEngine
 	class Game;
 	/// <summary>
 	/// A class for scenes and scene management. Scenes can be anything
-	/// from levels, to main menu screens.
+	/// from levels to main menu screens.
 	/// </summary>
 	class Scene
 	{
 		public:
-			/// <summary> Default constructor. </summary>
+			/// <summary>
+			/// Default constructor taking an argument for a reference to a
+			/// <see cref="Game">Game</see> object.
+			/// </summary>
 			///
 			/// <param name="game">
-			/// A pointer to an instance of the Game class.
+			/// A pointer to a <see cref="Game">Game</see> object, used to
+			/// access game properties and methods.
 			/// </param>
 			Scene(Game &game);
 
@@ -36,17 +40,24 @@ namespace PhinyxEngine
 			/// </summary>
 			virtual void handleEvents() = 0;
 
-			/// <summary> Pure virtual method to update the scene. </summary>
+			/// <summary>
+			/// Pure virtual method to update the scene.
+			/// </summary>
 			///
 			/// <param name="deltaTime">
 			/// The delta time for the update frequency rate.
 			/// </param>
 			virtual void update(float deltaTime) = 0;
 
-			/// <summary> Pure virtual method for drawing the scene. </summary>
+			/// <summary>
+			/// Pure virtual method for drawing the scene.
+			/// </summary>
 			virtual void draw() = 0;
 		protected:
-			/// <summary> Pointer to an instance of the Game class. </summary>
+			/// <summary>
+			/// Pointer to a <see cref="Game">Game</see> object, used to
+			/// access game properties and methods.
+			/// </summary>
 			Game *m_game_ptr;
 	};
 }

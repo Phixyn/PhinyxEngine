@@ -8,7 +8,7 @@ namespace PhinyxEngine
 {
 	/// <summary>
 	/// Utility class providing various miscellaneous methods used throughout
-	/// the engine.
+	/// the game engine.
 	/// </summary>
 	class Util
 	{

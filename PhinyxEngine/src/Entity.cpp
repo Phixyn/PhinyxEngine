@@ -1,9 +1,10 @@
 #include "../include/Entity.hpp"
 
 /// <summary>
-/// Initilizes the Collision object.
+/// Initilizes the entity's <see cref="Collision">Collision</see> object.
 /// </summary>
-PhinyxEngine::Entity::Entity() : m_collision(m_rect)
+PhinyxEngine::Entity::Entity() :
+	m_collision(m_rect)
 {
 
 }
@@ -12,10 +13,6 @@ PhinyxEngine::Entity::Entity() : m_collision(m_rect)
 /// Calls the setTexture method of this Entity's SFML RectangleShape instance
 /// to give it a texture.
 /// </summary>
-///
-/// <param name="texture">
-/// A pointer to a SFML Texture object required by SFML's setTexture method.
-/// </param>
 void PhinyxEngine::Entity::setTexture(sf::Texture *texture)
 {
 	m_rect.setTexture(texture);
