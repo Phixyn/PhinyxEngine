@@ -12,7 +12,7 @@ namespace PhinyxEngine
 	/// the UI is a simple rectangle with text displayed inside it. This
 	/// can be used to display game information, tooltips, HUD elements
 	/// and more. It may also be attached to entities to display their
-	/// information, such as health and current state.
+	/// information, such as current health and position.
 	/// </summary>
 	class InfoPanel
 	{

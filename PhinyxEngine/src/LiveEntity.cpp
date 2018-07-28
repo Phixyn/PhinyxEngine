@@ -1,5 +1,4 @@
 #include "../include/LiveEntity.hpp"
-#include "../include/DeadEntityState.hpp"
 
 // TODO: address code duplication in constructors (see how Entity class does it)
 
@@ -28,7 +27,6 @@ PhinyxEngine::LiveEntity::LiveEntity(int health, sf::Vector2f size, sf::Vector2f
 
 	// Set up entity info panel
 	std::ostringstream entityInfoSS;
-	// entityInfoSS << "State: " << getState()->getStateName() << "\nHealth: " << m_health << "\nPosX: " << getPosition().x << "\nPosY: " << getPosition().y << "\nVelocityX: " << m_velocity.x << "\nVelocityY: " << m_velocity.y;
 	entityInfoSS << "\nHealth: " << m_health << "\nPosX: " << getPosition().x << "\nPosY: " << getPosition().y << "\nVelocityX: " << m_velocity.x << "\nVelocityY: " << m_velocity.y;
 	m_infoPanel.setTextString(entityInfoSS.str());
 }
@@ -67,7 +65,6 @@ void PhinyxEngine::LiveEntity::handleEvents(sf::Event sfEvent)
 
 void PhinyxEngine::LiveEntity::update(float deltaTime)
 {
-	// m_state->update(); // TODO
 	// m_sprite.move(m_velocity);
 
 	// Check if entity is dead
@@ -75,7 +72,6 @@ void PhinyxEngine::LiveEntity::update(float deltaTime)
 	{
 		setDead(true);
 		// TODO Could be a part of setDead()
-		setState(new DeadEntityState());
 	}
 }
 

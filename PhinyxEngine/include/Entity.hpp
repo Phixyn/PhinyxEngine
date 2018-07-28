@@ -4,7 +4,6 @@
 #include "Collision.hpp"
 // #include <SFML/Graphics.hpp>
 #include "InfoPanel.hpp"
-#include "BaseEntityState.hpp"
 #include "Logger.hpp"
 
 namespace PhinyxEngine
@@ -243,29 +242,6 @@ namespace PhinyxEngine
 			void toggleSelected();
 
 			/// <summary>
-			/// Returns a pointer to a BaseEntityState object for this entity's
-			/// current state.
-			/// </summary>
-			///
-			/// <returns>
-			/// An instance of the current state of the entity.
-			/// </returns>
-			///
-			/// <seealso cref="BaseEntityState" />
-			BaseEntityState* getState();
-			/// <summary>
-			/// Sets the entity's current state. Exits the entity's current
-			/// state, sets the state and enters the new state.
-			/// </summary>
-			///
-			/// <param name="state">
-			/// A pointer to a new state object.
-			/// </param>
-			///
-			/// <seealso cref="BaseEntityState" />
-			void setState(BaseEntityState* state);
-
-			/// <summary>
 			/// Returns a new instance of Collision for this entity, which
 			/// can be used to handle and solve collisions between this
 			/// entity and other entities in the game.
@@ -324,13 +300,6 @@ namespace PhinyxEngine
 			/// user.
 			/// </summary>
 			bool m_isSelected = false;
-
-			/// <summary>
-			/// An pointer to a BaseEntityState object, representing the
-			/// current state of this entity.
-			/// </summary>
-			/// <seealso cref="BaseEntityState" />
-			// BaseEntityState* m_state; // TODO: state machine
 
 			/// <summary>
 			/// Instance of <see cref="Logger">Logger</see> for logging.

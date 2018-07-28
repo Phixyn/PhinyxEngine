@@ -1,5 +1,4 @@
 #include "../include/Entity.hpp"
-#include "../include/IdleEntityState.hpp"
 
 /// <summary>
 /// Initilizes the entity's <see cref="Collision">Collision</see> object.
@@ -20,7 +19,6 @@ PhinyxEngine::Entity::Entity(sf::Vector2f size)	:
 	m_rectHeight = size.y;
 	m_logger.log("DEBUG", "Creating a new entity.");
 	m_rect = sf::RectangleShape(sf::Vector2f(m_rectWidth, m_rectHeight));
-	// m_state = new IdleEntityState();
 }
 
 PhinyxEngine::Entity::Entity(sf::Vector2f size, sf::Vector2f position) :
@@ -135,28 +133,6 @@ bool PhinyxEngine::Entity::isSelected() const
 void PhinyxEngine::Entity::toggleSelected()
 {
 	m_isSelected = !m_isSelected;
-}
-
-PhinyxEngine::BaseEntityState* PhinyxEngine::Entity::getState()
-{
-	// return m_state;
-	return nullptr;
-}
-
-void PhinyxEngine::Entity::setState(BaseEntityState* state)
-{
-	// Don't try to use null pointers
-	if (state == nullptr)
-	{
-		m_logger.log("ERROR", "Entity::setState() received null pointer.");
-		return;
-	}
-
-	/*
-	m_state->exit();
-	m_state = state;
-	m_state->enter();
-	*/
 }
 
 PhinyxEngine::Collision PhinyxEngine::Entity::getCollision()
