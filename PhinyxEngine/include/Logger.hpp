@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iomanip>
-#include <ctime>
+#include <time.h>
 
 namespace PhinyxEngine
 {
@@ -44,8 +44,6 @@ namespace PhinyxEngine
 			/// Boolean specifying if timestamps should appear in log messages.
 			/// </summary>
 			bool m_showTimestamps;
-			std::time_t m_time_t = std::time(nullptr);
-
 			/// <summary>
 			/// <para> Structure to hold a calendar date and time broken down
 			/// into its components. </para>
@@ -55,8 +53,7 @@ namespace PhinyxEngine
 			/// </list>
 			/// </para>
 			/// </summary>
-			// struct tm m_timeInfo;
-			struct std::tm *m_timeInfo = std::localtime(&m_time_t);
+			struct tm m_timeInfo;
 	};
 }
 
