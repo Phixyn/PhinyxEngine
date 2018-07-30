@@ -39,12 +39,12 @@ void PhinyxEngine::Game::mainLoop()
 		if (m_gameWindow.hasFocus())
 		{
 			// Handle scene events
-			m_scene_queue.front()->handleEvents();
+			m_sceneQueue.front()->handleEvents();
 			// Update scene
-			m_scene_queue.front()->update(m_deltaTime);
+			m_sceneQueue.front()->update(m_deltaTime);
 		}
 		// (Re)draw scene
-		m_scene_queue.front()->draw();
+		m_sceneQueue.front()->draw();
 		// Render window
 		m_gameWindow.render();
 	}
@@ -59,7 +59,7 @@ void PhinyxEngine::Game::mainLoop()
 /// </summary>
 void PhinyxEngine::Game::addScene(std::unique_ptr<Scene> scene)
 {
-	m_scene_queue.push(std::move(scene));
+	m_sceneQueue.push(std::move(scene));
 }
 
 /// <summary>
@@ -67,7 +67,7 @@ void PhinyxEngine::Game::addScene(std::unique_ptr<Scene> scene)
 /// </summary>
 void PhinyxEngine::Game::removeScene()
 {
-	m_scene_queue.pop();
+	m_sceneQueue.pop();
 }
 
 /// <summary>

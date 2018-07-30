@@ -84,7 +84,7 @@ namespace PhinyxEngine
 			/// Queue of unique pointers to <see cref="Scene">Scene</see>
 			/// instances.
 			/// </summary>
-			std::queue<std::unique_ptr<Scene>> m_scene_queue;
+			std::queue<std::unique_ptr<Scene>> m_sceneQueue;
 			/// <summary>
 			/// TODO
 			/// </summary>
