@@ -7,9 +7,6 @@ PhinyxEngine::Game::Game(const unsigned int WIDTH, const unsigned int HEIGHT, co
 	m_debugMode = debug;
 }
 
-/// <summary>
-/// Handles user input, updates game state and renders the game scene.
-/// </summary>
 void PhinyxEngine::Game::mainLoop()
 {
 	m_logger.log("DEBUG", "Entering main loop.");
@@ -32,7 +29,7 @@ void PhinyxEngine::Game::mainLoop()
 		// TODO: Test this
 		/*if (m_sceneQueue.empty())
 		{
-			m_logger.log("FATAL", "Game has no scenes. Unable to continue game main loop. Please add a scene to the game.");
+			m_logger.log("CRITICAL", "Game has no scenes. Unable to continue game main loop. Please add a scene to the game.");
 			exit(1);
 		}*/
 		// Only handle events and update if we have focus on our window
@@ -51,31 +48,41 @@ void PhinyxEngine::Game::mainLoop()
 	m_logger.log("DEBUG", "Exited main loop.");
 }
 
-
 /// <summary>
-/// Adds a pointer to a <see cref="Scene">Scene</see> to the game's scene
-/// pointer queue. std::move() is used as to not push a copy of the pointer,
-/// but rather the pointer itself.
+/// <para> Adds a pointer to a <see cref="Scene">Scene</see> object to the
+/// game's scene pointer queue. std::move() is used as to not push a copy
+/// of the pointer, but rather the pointer itself. </para>
 /// </summary>
 void PhinyxEngine::Game::addScene(std::unique_ptr<Scene> scene)
 {
+	m_logger.log("DEBUG", "Adding new scene to game.");
 	m_sceneQueue.push(std::move(scene));
 }
 
 /// <summary>
-/// Calls pop() on the <see cref="Scene">Scene</see> pointer queue.
+/// <para> Calls pop() on the <see cref="Scene">Scene</see> pointer queue. </para>
 /// </summary>
 void PhinyxEngine::Game::removeScene()
 {
-	m_sceneQueue.pop();
+	if (!m_sceneQueue.empty())
+	{
+		m_logger.log("DEBUG", "Removing a scene from game.");
+		m_sceneQueue.pop();
+	}
+	else
+	{
+		m_logger.log("ERROR", "Could not remove scene from game: scene queue is empty.");
+		return;
+	}
 }
 
 /// <summary>
-/// Changes to a new scene in the game by removing the top scene and adding
-/// a new scene to the queue.
+/// <para> Changes to a new scene in the game by removing the top scene and
+/// adding a new scene to the queue. </para>
 /// </summary>
 void PhinyxEngine::Game::changeScene(std::unique_ptr<Scene> scene)
 {
+	m_logger.log("DEBUG", "Changing game scene.");
 	removeScene();
 	addScene(std::move(scene));
 }
