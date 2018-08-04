@@ -1,8 +1,5 @@
 #include "../include/EnemyMonster.hpp"
 
-/// <summary>
-/// Calls the superclass constructor and initializes member variables.
-/// </summary>
 PhinyxEngine::EnemyMonster::EnemyMonster(int health, int attackPower) :
 	LiveEntity(health, attackPower)
 {
