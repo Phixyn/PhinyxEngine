@@ -1,9 +1,9 @@
 #include "../include/Window.hpp"
 
 /// <summary>
-/// Initializes a new SFML Render Window for rendering 2D graphics.
+/// <para> Initializes a new SFML Render Window for rendering 2D graphics.
 /// At the moment, a non-resizable window is created as resizing is not
-/// properly handled by the engine yet.
+/// properly handled by the engine yet. </para>
 /// </summary>
 PhinyxEngine::Window::Window(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane) :
 	m_view(sf::Vector2f(WIDTH / 2.0f, HEIGHT / 2.0f), sf::Vector2f((float)WIDTH, (float)HEIGHT))

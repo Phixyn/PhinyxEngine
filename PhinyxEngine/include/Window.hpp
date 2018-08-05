@@ -16,13 +16,15 @@ namespace PhinyxEngine
 	{
 		public:
 			/// <summary>
-			/// Default constructor.
+			/// Default constructor. Creates an SFML RenderWindow with the
+			/// given properties.
 			/// </summary>
 			///
 			/// <param name="WIDTH"> The width of the window. </param>
 			/// <param name="HEIGHT"> The height of the window. </param>
 			/// <param name="TITLE"> A title for the window. </param>
-			/// <param name="showDebugPane"> A title for the window. </param>
+			/// <param name="showDebugPane"> A boolean specifying whether the
+			/// debug panel should be displayed. </param>
 			Window(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane);
 
 			/// <summary>
@@ -105,7 +107,7 @@ namespace PhinyxEngine
 			/// </summary>
 			///
 			/// <returns>
-			/// A std::string containing the title of the window.
+			/// A string object containing the title of the window.
 			/// </returns>
 			std::string getTitle() const;
 
@@ -149,7 +151,7 @@ namespace PhinyxEngine
 			/// </summary>
 			unsigned int m_HEIGHT;
 			/// <summary>
-			/// Title of the game window seen in titlebar.
+			/// Title of the game window seen on the titlebar.
 			/// </summary>
 			std::string m_TITLE;
 			/// <summary>
