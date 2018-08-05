@@ -1,8 +1,5 @@
 #include "../include/PlayerEntity.hpp"
 
-/// <summary>
-/// Calls the superclass constructor and initializes member variables.
-/// </summary>
 PhinyxEngine::PlayerEntity::PlayerEntity(int health, int attackPower, float speed, float jumpHeight) :
 	LiveEntity(health, attackPower, speed, jumpHeight)
 {
@@ -14,16 +11,15 @@ PhinyxEngine::PlayerEntity::PlayerEntity(int health, int attackPower, float spee
 	// m_rect.setOrigin(sf::Vector2f(m_rect.getSize().x / 2.0f, m_rect.getSize().y));
 }
 
-/*
+
 void PhinyxEngine::PlayerEntity::handleEvents()
 {
-
+	// TODO
 }
-*/
 
 /// <summary>
-/// Updates the player's velocity based on movement keys pressed. Moves the
-/// player's rectangle based on their velocity.
+/// <para> Updates the player's velocity based on movement keys pressed.
+/// Moves the player's rectangle based on their velocity. </para>
 /// </summary>
 void PhinyxEngine::PlayerEntity::update(float deltaTime)
 {

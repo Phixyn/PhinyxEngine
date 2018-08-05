@@ -1,8 +1,5 @@
 #include "../include/TileEntity.hpp"
 
-/// <summary>
-/// Calls the superclass constructor and initializes member variables.
-/// </summary>
 PhinyxEngine::TileEntity::TileEntity(sf::RectangleShape rect) :
 	Entity()
 {

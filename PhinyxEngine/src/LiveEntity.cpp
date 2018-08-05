@@ -1,7 +1,5 @@
 #include "../include/LiveEntity.hpp"
 
-// TODO: address code duplication in constructors (see how Entity class does it)
-
 PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) :
 	Entity(), m_velocity(0.0f, 0.0f)
 {
@@ -11,9 +9,15 @@ PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower) :
 	m_attackPower = attackPower;
 }
 
+// TODO: address code duplication in constructors by changing this to:
+// PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, float speed, float jumpHeight) :
+//		LiveEntity(health, attackPower)
+// and removing the assignment of health and attackPower
+
 PhinyxEngine::LiveEntity::LiveEntity(int health, int attackPower, float speed, float jumpHeight) :
 	Entity(), m_velocity(0.0f, 0.0f)
 {
+	m_logger.log("DEBUG", "Initializing a live entity.");
 	m_health = health;
 	m_attackPower = attackPower;
 	m_speed = speed;
@@ -35,12 +39,6 @@ void PhinyxEngine::LiveEntity::draw()
 	// TODO
 }
 
-/// <summary>
-/// Takes a direction vector.
-/// Adjusts the live entity's velocity based on the direction vector.
-/// </summary>
-///
-/// <param name="direction"> A SFML Vector2f containing the direction. </param>
 void PhinyxEngine::LiveEntity::onCollision(sf::Vector2f direction)
 {
 	// TODO: simplify if statements here
