@@ -19,15 +19,15 @@ namespace PhinyxEngine
 	{
 		public:
 			/// <summary>
-			/// Default constructor.
-			/// Initializes the Game instance and member variables.
+			/// <para> Default constructor. </para>
+			/// <para> Initializes the Game instance and member variables. </para>
 			/// </summary>
 			///
 			/// <param name="WIDTH"> The width of the game window. </param>
 			/// <param name="HEIGHT"> The height of the game window. </param>
 			/// <param name="TITLE"> A title for the game window. </param>
-			/// <param name="debug"> A boolean specifying if the game is to be run in
-			/// debug mode. </param>
+			/// <param name="debug"> A boolean specifying whether the game is
+			/// to be run in debug mode. </param>
 			Game(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool debug);
 
 			/// <summary>
@@ -36,7 +36,9 @@ namespace PhinyxEngine
 			~Game() { }
 
 			/// <summary>
-			/// Performs the game's main loop.
+			/// <para> Performs the game's main loop. </para>
+			/// <para> Handles user input, updates game state and renders
+			/// the game scene. </para>
 			/// </summary>
 			void mainLoop();
 
@@ -68,7 +70,7 @@ namespace PhinyxEngine
 			void changeScene(std::unique_ptr<Scene> scene);
 
 			/// <summary>
-			/// Window instance for the game.
+			/// <see cref="Window">Window</see> object for the game.
 			/// </summary>
 			Window m_gameWindow;
 		private:
@@ -82,7 +84,7 @@ namespace PhinyxEngine
 			bool m_debugMode;
 			/// <summary>
 			/// Queue of unique pointers to <see cref="Scene">Scene</see>
-			/// instances.
+			/// objects.
 			/// </summary>
 			std::queue<std::unique_ptr<Scene>> m_sceneQueue;
 			/// <summary>

@@ -10,9 +10,6 @@ void PhinyxEngine::Collision::moveRect(float dirX, float dirY)
 	m_rect.move(dirX, dirY);
 }
 
-/// <summary>
-/// TODO
-/// </summary>
 bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f &direction, float force)
 {
 	// The half sizes will be used to project another rect between colliderRect
@@ -44,7 +41,7 @@ bool PhinyxEngine::Collision::handleCollision(Collision &collider, sf::Vector2f 
 		// each other
 		if (intersectX > intersectY)
 		{
-			// Physics.txt
+			// Physics.exe
 			// The collision is based on the X axis because intersectX is bigger
 			// So we need to move rects based on the X axis
 

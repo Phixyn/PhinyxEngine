@@ -3,14 +3,13 @@
 #include "../include/EnemyMonster.hpp"
 #include <fstream>
 
-/// <summary>
-/// Initializes the member variables and calls methods to parse the level data files.
-/// </summary>
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath) :
 		Scene(game), m_playerEntity(100, 20, 150.0f, 54.0f)
 {
+	m_logger.log("DEBUG", "Initializing level scene.");
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
+	m_logger.log("DEBUG", "Parsing level data files.");
 	parseDataFile();
 	parseLevelFile();
 }
@@ -18,18 +17,22 @@ PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std:
 PhinyxEngine::LevelScene::LevelScene(Game &game, std::string levelFilePath, std::string dataFilePath, std::string backgroundImagePath) :
 	Scene(game), m_playerEntity(100, 20, 150.0f, 54.0f)
 {
+	m_logger.log("DEBUG", "Initializing level scene.");
 	m_levelFilePath = levelFilePath;
 	m_dataFilePath = dataFilePath;
+	m_logger.log("DEBUG", "Parsing level data files.");
 	parseDataFile();
 	parseLevelFile();
+	m_logger.log("DEBUG", "Setting level's background image.");
 	setBackgroundImage(backgroundImagePath);
 }
 
 /// <summary>
-/// Parses the level's data file which specifies the textures for
-/// all the entities specified in the level file.
-/// Loads the textures found in the file and stores them in a
-/// map with the entity ID and its corresponding texture file name.
+/// <para> Parses the level's data file which specifies the textures for
+/// all the entities specified in the level file. </para>
+///
+/// <para> Loads the textures found in the file and stores them in a map
+/// with the entity ID and its corresponding texture file name. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::parseDataFile()
 {
@@ -61,10 +64,11 @@ void PhinyxEngine::LevelScene::parseDataFile()
 }
 
 /// <summary>
-/// Parses the level file which contains all the entities to load.
-/// Constructs the entity's RectangleShape and sets its texture.
-/// The entity's texture is retrieved from the m_levelTextures map, which is
-/// populated in the parseDataFile() method.
+/// <para> Parses the level file which contains all the entities to load.
+/// Constructs the entity's RectangleShape and sets its texture. </para>
+///
+/// <para> The entity's texture is retrieved from the m_levelTextures map,
+/// which is populated in the parseDataFile() method. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::parseLevelFile()
 {
@@ -152,11 +156,13 @@ void PhinyxEngine::LevelScene::parseLevelFile()
 void PhinyxEngine::LevelScene::handleEvents()
 {
 	m_playerEntity.handleEvents();
-	// TODO: enemies
+	// TODO: call handleEvents for enemies and other live entities
 }
 
 /// <summary>
-/// <para> Checks for collision between the scene's entities. </para>
+/// <para> Checks for <see cref="Collision">collision</see> between the
+/// scene's entities. </para>
+///
 /// <para> Calls the update methods for the entities. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::update(float deltaTime)
@@ -178,7 +184,7 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 			m_playerEntity.onCollision(direction);
 		}
 	}
-	// TODO: enemies
+	// TODO: update enemies and other live entities
 
 	// Set the center of the game view
 	m_game_ptr->m_gameWindow.m_view.setCenter(m_playerEntity.m_rect.getPosition());
@@ -188,14 +194,17 @@ void PhinyxEngine::LevelScene::update(float deltaTime)
 
 /// <summary>
 /// <para> Draws the scene's entities into the game's window. </para>
-/// <para> Accesses the game's window via the game pointer member variable. </para>
+/// <para> Accesses the game's window via the
+/// <see cref="m_game_ptr">m_game_ptr</see> pointer member variable. </para>
 /// </summary>
 void PhinyxEngine::LevelScene::draw()
 {
+	// Draw scene's background image
 	m_game_ptr->m_gameWindow.draw(m_backgroundSprite);
+	// Draw player
 	m_game_ptr->m_gameWindow.drawRect(m_playerEntity.m_rect);
 
-	// TODO: liveEntities
+	// TODO: Draw all live entities in the scene
 	// m_game_ptr->m_gameWindow.drawRect(m_enemy.m_rect);
 	/*
 	for (LiveEntity* liveEntity : m_liveEntities)
@@ -204,13 +213,18 @@ void PhinyxEngine::LevelScene::draw()
 	}
 	*/
 
-	// Draw our tiles
+	// Draw tiles in the scene
 	for (TileEntity &tile : m_tileEntities)
 	{
 		m_game_ptr->m_gameWindow.drawRect(tile.m_rect);
 	}
 }
 
+/// <summary>
+/// <para> Attempts to load an image from a file and set it as background image
+/// for the level scene. Sets the background sprite's local origin and texture
+/// rect. </para>
+/// </summary>
 void PhinyxEngine::LevelScene::setBackgroundImage(std::string imageFilePath)
 {
 	if (!m_backgroundTexture.loadFromFile(imageFilePath))
@@ -220,6 +234,7 @@ void PhinyxEngine::LevelScene::setBackgroundImage(std::string imageFilePath)
 	}
 
 	m_logger.log("INFO", "Loaded background image file: " + imageFilePath);
+	m_logger.log("DEBUG", "Applying background image to level scene.");
 	// TODO: Handle tileable backgrounds?
 	// m_backgroundTexture.setRepeated(true);
 	m_backgroundSprite.setTexture(m_backgroundTexture);

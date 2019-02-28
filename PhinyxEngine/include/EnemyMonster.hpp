@@ -5,19 +5,27 @@
 
 namespace PhinyxEngine
 {
-	/// <summary> Subclass of LiveEntity for enemy monsters. </summary>
+	/// <summary>
+	/// Subclass of LiveEntity for enemy monsters.
+	/// </summary>
 	class EnemyMonster : public LiveEntity
 	{
 		public:
 			/// <summary>
-			/// Default constructor taking parameters for the monster's health
-			/// and attack power.
+			/// <para> Default constructor taking parameters for the monster's
+			/// health and attack power. </para>
+			/// <para> Calls the superclass constructor and initializes member
+			/// variables. </para>
 			/// </summary>
 			///
-			/// <param name="health">The health points of the monster.</param>
-			/// <param name="attackPower">The power of a single attack of the
-			/// monster. Each attack to another target entity will subtract
-			/// this value from the target entity's health.</param>
+			/// <param name="health">
+			/// The health points of the monster.
+			/// </param>
+			/// <param name="attackPower">
+			/// The power of a single attack of the monster. Each attack to
+			/// another target entity will subtract this value from the target
+			/// entity's health.
+			/// </param>
 			EnemyMonster(int health, int attackPower);
 
 			/// <summary>

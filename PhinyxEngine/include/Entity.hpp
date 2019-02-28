@@ -7,7 +7,7 @@
 namespace PhinyxEngine
 {
 	/// <summary>
-	/// Class for game entities such as monsters, tiles and the player
+	/// Class for game entities such as items, NPCs, tiles and the player
 	/// character.
 	/// </summary>
 	class Entity
@@ -58,16 +58,18 @@ namespace PhinyxEngine
 			void setTexture(sf::Texture *texture);
 
 			/// <summary>
-			/// Returns a new instance of Collision for this entity, which
-			/// can be used to handle and solve collisions between this
-			/// entity and other entities in the game.
+			/// Returns a new instance of <see cref="Collision">Collision</see>
+			/// for this entity, which can be used to handle and solve
+			/// collisions between this entity and other entities in the game.
 			/// </summary>
 			///
 			/// <returns>
-			/// A new instance of Collision with the Entity's rectangle.
+			/// A new instance of <see cref="Collision">Collision</see> with
+			/// the entity's rectangle.
 			/// </returns>
 			Collision getCollision();
 
+			// TODO: These should be protected instead of public
 			/// <summary>
 			/// Width of the entity's rectangle.
 			/// </summary>
@@ -80,6 +82,9 @@ namespace PhinyxEngine
 			/// SFML RectangleShape instance for the entity's rectangle.
 			/// </summary>
 			sf::RectangleShape m_rect;
+			/// <summary>
+			/// A <see cref="Collision">Collision</see> object for this entity.
+			/// </summary>
 			Collision m_collision; // TODO: make this private?
 	};
 }

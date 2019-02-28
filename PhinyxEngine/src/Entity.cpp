@@ -10,7 +10,7 @@ PhinyxEngine::Entity::Entity() :
 }
 
 /// <summary>
-/// Calls the setTexture method of this Entity's SFML RectangleShape instance
+/// Calls the setTexture method of this entity's SFML RectangleShape instance
 /// to give it a texture.
 /// </summary>
 void PhinyxEngine::Entity::setTexture(sf::Texture *texture)

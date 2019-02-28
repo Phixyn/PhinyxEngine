@@ -5,7 +5,6 @@
 #include "PlayerEntity.hpp"
 #include "TileEntity.hpp"
 #include "Util.hpp"
-#include "Logger.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace PhinyxEngine
@@ -17,9 +16,12 @@ namespace PhinyxEngine
 	{
 		public:
 			/// <summary>
-			/// Default constructor taking arguments for a reference to
-			/// <see cref="Game">Game</see> and strings containing the file
-			/// paths for the level data files.
+			/// <para> Default constructor taking arguments for a reference to
+			/// a <see cref="Game">Game</see> object and strings containing the
+			/// file paths for the level data files. </para>
+			///
+			/// <para> Initializes member variables and calls methods to parse
+			/// the level data files. </para>
 			/// </summary>
 			///
 			/// <param name="game">
@@ -40,7 +42,8 @@ namespace PhinyxEngine
 			/// </summary>
 			///
 			/// <param name="game">
-			/// A pointer to an instance of the Game class.
+			/// A pointer to a <see cref="Game">Game</see> object, used to
+			/// access game properties and methods.
 			/// </param>
 			/// <param name="levelFilePath">
 			/// A string containing the path for the level file.
@@ -101,17 +104,21 @@ namespace PhinyxEngine
 			/// </summary>
 			float m_textureSize = 48;
 			/// <summary>
-			/// TODO
+			/// A string containing the path for the level file.
 			/// </summary>
 			std::string m_levelFilePath;
 			/// <summary>
-			/// TODO
+			/// A string containing the path for the level's data file.
 			/// </summary>
 			std::string m_dataFilePath;
 
 			/// <summary>
-			/// TODO
+			/// Vector containing <see cref="TileEntity">TileEntity</see>
+			/// objects present in the scene.
 			/// </summary>
+			///
+			/// <seealso cref="Entity" />
+			/// <seealso cref="TileEntity" />
 			std::vector<PhinyxEngine::TileEntity> m_tileEntities;
 			/// <summary>
 			/// Vector containing <see cref="LiveEntity">LiveEntity</see>
@@ -139,8 +146,8 @@ namespace PhinyxEngine
 
 			/// <summary>
 			/// An instance of <see cref="PlayerEntity">PlayerEntity</see>
-			/// used to get and set from the PlayerEntity (such as its position),
-			/// and draw or update them in the scene.
+			/// used to get and set player information (such as its position),
+			/// draw and update them in the scene.
 			/// </summary>
 			///
 			/// <seealso cref="PlayerEntity" />

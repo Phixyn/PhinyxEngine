@@ -21,7 +21,7 @@ namespace PhinyxEngine
 			/// </summary>
 			///
 			/// <param name="stringData">
-			/// A reference to the string to be split.
+			/// A reference to the object containing the string to be split.
 			/// </param>
 			/// <param name="token">
 			/// Token by which to split the string.

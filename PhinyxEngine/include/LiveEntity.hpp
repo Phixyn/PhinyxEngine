@@ -79,8 +79,11 @@ namespace PhinyxEngine
 			virtual void draw() override;
 
 			// TODO: animate?
+			// TODO: getters and setters for health and other attributes
 			/// <summary>
 			/// Handles live entity collision.
+			/// <para> Adjusts the live entity's velocity based on the given
+			/// direction vector. </para>
 			/// </summary>
 			///
 			/// <param name="direction">
@@ -98,7 +101,6 @@ namespace PhinyxEngine
 			/// A boolean specifying if the entity is aggressive.
 			/// </returns>
 			bool isAggressive() const;
-
 			/// <summary>
 			/// Returns a value which specifies if the live entity is dead.
 			/// </summary>
@@ -107,10 +109,9 @@ namespace PhinyxEngine
 			/// A boolean specifying if the live entity is dead.
 			/// </returns>
 			bool isDead() const;
-
 			/// <summary>
-			/// Sets the live entity's m_dead member variable, which specifies
-			/// if the entity is dead.
+			/// Sets the live entity's <see cref="m_dead">m_dead</see> member
+			/// variable, which specifies if the entity is dead.
 			/// </summary>
 			///
 			/// <param name="dead">
@@ -120,6 +121,7 @@ namespace PhinyxEngine
 
 			// TODO: Direction handling
 			/// <summary>
+			/// Gets the entity's current direction.
 			/// Not yet implemented.
 			/// </summary>
 			///
@@ -129,11 +131,12 @@ namespace PhinyxEngine
 			sf::Vector2f getDirection();
 
 			/// <summary>
+			/// Sets the entity's direction.
 			/// Not yet implemented.
 			/// </summary>
 			///
 			/// <param name="direction">
-			/// A SFML Vector2f containing the entity's direction.
+			/// A SFML Vector2f containing the entity's new direction.
 			/// </param>
 			void setDirection(sf::Vector2f direction);
 		protected:
@@ -164,7 +167,7 @@ namespace PhinyxEngine
 			/// <summary>
 			/// A boolean specifying if the live entity is ded. X_X
 			/// </summary>
-			bool m_dead;
+			bool m_dead = false;
 			/// <summary>
 			/// A boolean specifying if this live entity has the ability to
 			/// jump vertically.

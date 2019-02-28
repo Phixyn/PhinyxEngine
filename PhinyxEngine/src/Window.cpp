@@ -1,9 +1,9 @@
 #include "../include/Window.hpp"
 
 /// <summary>
-/// Initializes a new SFML Render Window for rendering 2D graphics.
+/// <para> Initializes a new SFML Render Window for rendering 2D graphics.
 /// At the moment, a non-resizable window is created as resizing is not
-/// properly handled by the engine yet.
+/// properly handled by the engine yet. </para>
 /// </summary>
 PhinyxEngine::Window::Window(const unsigned int WIDTH, const unsigned int HEIGHT, const std::string TITLE, bool showDebugPane) :
 	m_view(sf::Vector2f(WIDTH / 2.0f, HEIGHT / 2.0f), sf::Vector2f((float)WIDTH, (float)HEIGHT))
@@ -23,14 +23,36 @@ PhinyxEngine::Window::Window(const unsigned int WIDTH, const unsigned int HEIGHT
 	m_debugPane.setFillColor(sf::Color::White);
 }
 
+void PhinyxEngine::Window::handleEvents()
+{
+	sf::Event sfEvent;
+
+	while (m_window->pollEvent(sfEvent))
+	{
+		switch (sfEvent.type)
+		{
+		case sf::Event::Closed:
+			m_logger.log("DEBUG", "Closing render window.");
+			m_window->close();
+			break;
+		case sf::Event::LostFocus:
+			m_hasFocus = false;
+			break;
+		case sf::Event::GainedFocus:
+			m_hasFocus = true;
+			break;
+		}
+	}
+}
+
 void PhinyxEngine::Window::clear()
 {
 	m_window->clear();
 }
 
 /// <summary>
-/// WIP: If debug pane is enabled, displays a debug pane with helpful information
-/// (not yet implemented).
+/// <para> WIP: If debug pane is enabled, displays a debug panel with helpful
+/// information (not yet implemented). </para>
 /// </summary>
 void PhinyxEngine::Window::render()
 {
@@ -74,38 +96,13 @@ void PhinyxEngine::Window::drawText(sf::Text text)
 	m_window->draw(text);
 }
 
-// TODO not working as intended
+// TODO: not working as intended
 void PhinyxEngine::Window::resizeView(sf::Window &window, sf::View &view)
 {
 	float aspectRatio = (float)window.getSize().x / (float)window.getSize().y;
 	view.setSize(m_WIDTH * aspectRatio, m_HEIGHT);
 }
 
-/// <summary> Polls the SFML Window for events and handles them appropriately. </summary>
-void PhinyxEngine::Window::handleEvents()
-{
-	sf::Event sfEvent;
-
-	while (m_window->pollEvent(sfEvent))
-	{
-		switch (sfEvent.type)
-		{
-			case sf::Event::Closed:
-				m_logger.log("DEBUG", "Closing render window.");
-				m_window->close();
-				break;
-			case sf::Event::LostFocus:
-				m_hasFocus = false;
-				break;
-			case sf::Event::GainedFocus:
-				m_hasFocus = true;
-				break;
-		}
-	}
-}
-
-/// <summary> Returns the result of SFML's Window isOpen method. </summary>
-/// <returns> A boolean indicating if the window is open. </returns>
 bool PhinyxEngine::Window::isOpen() const
 {
 	return m_window->isOpen();
